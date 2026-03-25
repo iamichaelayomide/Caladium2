@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export function HomeAboutPreview() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-bg">
       <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <SectionLabel>About Us</SectionLabel>
@@ -73,7 +73,7 @@ export function HomeWhyCaladium() {
   }, [refs]);
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-bg">
       <div className="container-shell hidden gap-16 lg:grid lg:grid-cols-[0.9fr_1.1fr]">
         <div className="sticky top-28 h-fit">
           <SectionLabel>Why Caladium</SectionLabel>
@@ -96,7 +96,7 @@ export function HomeWhyCaladium() {
               ref={(node) => {
                 refs[index].current = node;
               }}
-              className="flex min-h-[80vh] items-center rounded-2xl bg-soft p-10"
+              className="flex min-h-[80vh] items-center rounded-2xl border border-white/10 bg-soft p-10"
             >
               <div className="max-w-xl">
                 <h4 className="font-display text-4xl font-semibold text-ink">{tab.title}</h4>
@@ -138,7 +138,7 @@ export function HomeVision() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
-    <section ref={ref} className="section-padding bg-soft">
+    <section ref={ref} className="section-padding bg-[#0b0911]">
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center">Our Vision</SectionLabel>
@@ -158,7 +158,7 @@ export function HomeVision() {
             ["2", "Our Approach", "We do not believe in one-size-fits-all consulting. Every engagement is customized to your context — co-created with your team to ensure buy-in, adoption, and results that outlast our involvement."],
             ["3", "Our Experience", "Our consultants bring experience from diverse industries and complex African business environments. We&apos;ve led high-impact projects across growth, transformation, and performance — from startups to government institutions."]
           ].map(([number, title, body]) => (
-            <Reveal key={title} className="rounded-xl border border-border bg-white p-8">
+            <Reveal key={title} className="rounded-xl border border-border bg-[#14111b] p-8">
               <div className="font-display text-6xl font-semibold text-accent">{number}</div>
               <h3 className="mt-4 text-xl font-semibold text-ink">{title}</h3>
               <p className="mt-3 text-base leading-7 text-body">{body}</p>

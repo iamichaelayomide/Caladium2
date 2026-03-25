@@ -17,7 +17,7 @@ export function HomeServiceTabs() {
   const panel = serviceTabPanels.find((item) => item.id === active) ?? serviceTabPanels[0];
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-bg">
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SectionLabel className="justify-center">Find The Right Solution</SectionLabel>
@@ -80,7 +80,7 @@ export function HomeServiceTabs() {
 
 export function HomeTestimonials() {
   return (
-    <section className="section-padding bg-soft">
+    <section className="section-padding bg-[#0b0911]">
       <div className="container-shell">
         <Reveal className="max-w-3xl">
           <SectionLabel>Our Clients</SectionLabel>
@@ -97,7 +97,7 @@ export function HomeTestimonials() {
             const showImage = index % 3 !== 0;
             return (
               <Reveal key={`${testimonial.name}-${index}`}>
-                <div className={`grid gap-6 rounded-2xl border border-border bg-white p-8 ${showImage ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}>
+                <div className={`grid gap-6 rounded-2xl border border-border bg-[#14111b] p-8 ${showImage ? "lg:grid-cols-2" : "lg:grid-cols-1"}`}>
                   {showImage && imageLeft ? (
                     <div className="overflow-hidden rounded-xl">
                       <Image src={testimonial.image} alt={testimonial.name} width={900} height={900} className="h-full min-h-[300px] w-full object-cover" />
@@ -130,7 +130,7 @@ export function HomeTestimonials() {
 
 export function HomeClientLogos() {
   return (
-    <section className="overflow-hidden border-y border-border bg-white py-12">
+    <section className="overflow-hidden border-y border-border bg-[#0b0911] py-12">
       <div className="container-shell text-center">
         <p className="text-sm text-muted">Trusted by 200+ organizations across Africa, the UK, and North America.</p>
       </div>
@@ -157,12 +157,12 @@ export function HomeContactPreview() {
   ];
 
   return (
-    <section className="section-padding bg-soft">
+    <section className="section-padding bg-bg">
       <div className="container-shell grid gap-10 lg:grid-cols-2">
         <div className="overflow-hidden rounded-xl">
           <Image src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Office lobby" width={1200} height={1400} className="h-full min-h-[480px] w-full object-cover" />
         </div>
-        <div className="rounded-xl border border-border bg-white p-8 md:p-10">
+        <div className="rounded-xl border border-border bg-[#14111b] p-8 md:p-10">
           <SectionLabel>Get In Touch</SectionLabel>
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-ink">
             Ready to move your business forward? Let&apos;s talk.
@@ -193,7 +193,7 @@ export function HomeContactPreview() {
 
 export function HomeBlogPreview() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-bg">
       <div className="container-shell">
         <Reveal className="max-w-3xl">
           <SectionLabel>Our Journal</SectionLabel>
@@ -207,7 +207,7 @@ export function HomeBlogPreview() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {blogPosts.slice(0, 3).map((post) => (
             <Reveal key={post.slug}>
-              <article className="group overflow-hidden rounded-xl border border-border bg-white shadow-card">
+              <article className="group overflow-hidden rounded-xl border border-border bg-[#14111b] shadow-card">
                 <div className="overflow-hidden">
                   <Image src={post.coverImage} alt={post.title} width={1200} height={700} className="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
                 </div>
