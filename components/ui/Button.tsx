@@ -10,21 +10,21 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const styles = {
-  primary: "bg-ink text-white hover:bg-accent",
+  primary: "bg-accent text-white hover:bg-accent-hover",
   ghost: "bg-transparent text-ink hover:text-accent",
-  outline: "border border-border bg-transparent text-ink hover:border-accent hover:text-accent",
-  light: "bg-white text-ink hover:bg-accent hover:text-white",
+  outline: "border border-border bg-transparent text-ink hover:border-accent hover:text-white hover:bg-white/5",
+  light: "bg-white text-[#0b0911] hover:bg-[#f3e7f0]",
   dark: "border border-white/20 bg-white/10 text-white hover:bg-white/20",
   secondary: "bg-accent text-white hover:bg-accent-hover"
 };
 
 const baseClass =
-  "inline-flex items-center justify-center rounded-sm px-6 py-3 text-sm font-semibold transition-colors duration-200";
+  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200";
 
 const sizes = {
   sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-base"
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3.5 text-base"
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
