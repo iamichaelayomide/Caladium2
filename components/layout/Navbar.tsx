@@ -39,10 +39,10 @@ export function Navbar() {
             ? "border-white/10 bg-[#07090f]/88 text-white shadow-[0_12px_38px_rgba(0,0,0,0.22)] backdrop-blur-xl"
             : "border-transparent bg-transparent text-white"
         )}
-      >
+        >
         <div className="container-shell flex h-[72px] items-center justify-between gap-6">
-          <Link href="/" className="scale-[0.62] origin-left">
-            <Logo dark />
+          <Link href="/" className="flex items-center">
+            <Logo dark compact />
           </Link>
           <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => {
@@ -97,8 +97,8 @@ export function Navbar() {
             className="fixed inset-0 z-[60] bg-[#07090f] lg:hidden"
           >
             <div className="container-shell flex h-[72px] items-center justify-between border-b border-white/10">
-              <Link href="/" className="scale-[0.62] origin-left" onClick={() => setOpen(false)}>
-                <Logo dark />
+              <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+                <Logo dark compact />
               </Link>
               <button
                 onClick={() => setOpen(false)}
