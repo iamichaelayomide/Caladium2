@@ -49,24 +49,24 @@ export const postType = defineType({
       type: "text",
       rows: 4,
       validation: (rule) => rule.required()
-        }),
-        defineField({
-          name: "coverImage",
-          title: "Cover Image URL",
-          type: "url",
-          validation: (rule) => rule.required()
-        }),
+    }),
+    defineField({
+      name: "coverImage",
+      title: "Cover Image URL",
+      type: "url",
+      validation: (rule) => rule.required()
+    }),
     defineField({
       name: "author",
       title: "Author Name",
       type: "string",
       validation: (rule) => rule.required()
-        }),
-        defineField({
-          name: "authorImage",
-          title: "Author Image URL",
-          type: "url"
-        }),
+    }),
+    defineField({
+      name: "authorImage",
+      title: "Author Image URL",
+      type: "url"
+    }),
     defineField({
       name: "body",
       title: "Body",
@@ -130,8 +130,7 @@ export const postType = defineType({
   preview: {
     select: {
       title: "title",
-      subtitle: "category",
-      media: "coverImage"
+      subtitle: "category"
     }
   }
 });
