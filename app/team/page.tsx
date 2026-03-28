@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageHero } from "@/components/shared/PageHero";
+import { Reveal } from "@/components/ui/Reveal";
 import { teamMembers } from "@/lib/site-data";
 
 export default function TeamPage() {
@@ -10,29 +11,46 @@ export default function TeamPage() {
     <>
       <PageHero
         breadcrumb="Home > Team"
-        title="Meet the Caladium Team"
-        description="Dozens of dedicated multi-disciplinary professionals — certified in finance, strategy, process engineering, and business analysis — united by a commitment to transforming African enterprise."
+        label="Team"
+        title="Meet the Caladium team."
+        description="A multidisciplinary group spanning strategy, finance, research, process engineering, market entry, and change leadership."
       />
-      <section className="section-padding bg-white">
-        <div className="container-shell grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {teamMembers.map((member) => (
-            <article key={member.name} className="group overflow-hidden rounded-xl border border-border bg-soft">
-              <div className="relative overflow-hidden">
-                <Image src={member.image} alt={member.name} width={700} height={700} className="aspect-square w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]" />
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-transparent to-transparent p-6 opacity-0 transition duration-300 group-hover:opacity-100">
-                  <p className="text-sm leading-6 text-white/85">{member.bio}</p>
+
+      <section className="section-padding bg-bg">
+        <div className="container-shell grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {teamMembers.map((member, index) => (
+            <Reveal key={member.name} delay={index * 0.02}>
+              <article className="surface-panel group overflow-hidden rounded-[30px]">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={700}
+                    height={700}
+                    className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="text-sm leading-7 text-white/82">{member.bio}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start justify-between p-6">
-                <div>
-                  <h3 className="font-display text-3xl font-semibold text-ink">{member.name}</h3>
-                  <p className="mt-2 text-sm text-muted">{member.title}</p>
+                <div className="flex items-start justify-between gap-4 p-5">
+                  <div>
+                    <h3 className="font-bricolage text-[1.9rem] font-semibold leading-tight text-white">
+                      {member.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/50">{member.title}</p>
+                  </div>
+                  <Link
+                    href={member.linkedin}
+                    className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white/60 transition hover:border-accent/35 hover:text-accent"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </Link>
                 </div>
-                <Link href={member.linkedin} className="rounded-full border border-border bg-white p-2 text-muted transition hover:border-accent hover:text-accent">
-                  <Linkedin className="h-4 w-4" />
-                </Link>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>

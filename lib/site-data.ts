@@ -63,7 +63,8 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/blog", label: "Blog" },
-  { href: "/careers", label: "Careers" }
+  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact" }
 ] as const;
 
 export const heroImage =

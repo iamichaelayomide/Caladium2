@@ -1,37 +1,69 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { contactDetails, services } from "@/lib/site-data";
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/10 bg-[#060509] text-white">
-      <div className="container-shell py-16">
-        <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+    <footer className="border-t border-white/10 bg-[#05070b] text-white">
+      <div className="container-shell py-[4.5rem]">
+        <div className="surface-panel rounded-[32px] px-6 py-8 sm:px-8">
+          <div className="grid gap-10 xl:grid-cols-[1.2fr_0.8fr] xl:items-end">
+            <div>
+              <Section />
+              <Logo dark />
+              <h2 className="mt-6 max-w-2xl font-bricolage text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+                Strategic clarity for African businesses building with serious intent.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-white/62">
+                We work with founders, executives, and operating teams to sharpen decisions, align
+                structures, and build momentum that lasts beyond the deck.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row xl:justify-end">
+              <Button href="/contact" variant="primary" className="min-w-[12rem]">
+                Start a conversation
+              </Button>
+              <Button href="/services" variant="outline" className="min-w-[12rem]">
+                Explore services
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-12 md:grid-cols-2 xl:grid-cols-4">
           <div>
-            <Logo dark />
+            <p className="text-label text-white/40">Connect</p>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/60">
-              Strategy, process &amp; people expertise for African enterprises ready to compete at the highest level.
+              Strategy, process, and people expertise rooted in African markets and built for
+              decisive operators.
             </p>
             <div className="mt-6 flex gap-3">
               {[Linkedin, Twitter, Facebook, Instagram].map((Icon, index) => (
-                <Link key={index} href="#" className="flex h-9 w-9 items-center justify-center rounded bg-white/10 transition hover:bg-white/20">
+                <Link
+                  key={index}
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition hover:border-white/18 hover:bg-white/[0.08]"
+                >
                   <Icon className="h-4 w-4" />
                 </Link>
               ))}
             </div>
           </div>
+
           <div>
-            <p className="text-label font-semibold uppercase tracking-[0.12em] text-white/40">Company</p>
-            <div className="mt-4 space-y-2 text-sm text-white/70">
+            <p className="text-label text-white/40">Company</p>
+            <div className="mt-4 space-y-3 text-sm text-white/70">
               {[
                 ["/", "Home"],
                 ["/about", "About"],
                 ["/services", "Services"],
-                ["/blog", "Blog"],
-                ["/careers", "Careers"],
-                ["/team", "Team"]
+                ["/blog", "Journal"],
+                ["/contact", "Contact"]
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="block transition hover:text-white">
                   {label}
@@ -39,31 +71,48 @@ export function Footer() {
               ))}
             </div>
           </div>
+
           <div>
-            <p className="text-label font-semibold uppercase tracking-[0.12em] text-white/40">Services</p>
-            <div className="mt-4 space-y-2 text-sm text-white/70">
+            <p className="text-label text-white/40">Services</p>
+            <div className="mt-4 space-y-3 text-sm text-white/70">
               {services.slice(0, 6).map((service) => (
-                <Link key={service.slug} href={`/services/${service.slug}`} className="block transition hover:text-white">
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="block transition hover:text-white"
+                >
                   {service.shortName}
                 </Link>
               ))}
             </div>
           </div>
+
           <div>
-            <p className="text-label font-semibold uppercase tracking-[0.12em] text-white/40">Contact</p>
+            <p className="text-label text-white/40">Contact</p>
             <div className="mt-4 space-y-3 text-sm leading-7 text-white/70">
               <p>{contactDetails.address}</p>
-              <p>Email: {contactDetails.email}</p>
-              <p>Phone: {contactDetails.phoneLabel}</p>
-              <p>Hours: {contactDetails.hours}</p>
+              <p>
+                <span className="text-white/42">Email:</span> {contactDetails.email}
+              </p>
+              <p>
+                <span className="text-white/42">Phone:</span> {contactDetails.phoneLabel}
+              </p>
+              <p>
+                <span className="text-white/42">Hours:</span> {contactDetails.hours}
+              </p>
             </div>
           </div>
         </div>
+
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
-          <p>© 2025 Caladium Consulting Limited. All rights reserved.</p>
-          <p>Investing in ideas that shape the future</p>
+          <p>Copyright {year} Caladium Consulting Limited. All rights reserved.</p>
+          <p>Clarity for growth. Structure for scale.</p>
         </div>
       </div>
     </footer>
   );
+}
+
+function Section() {
+  return <p className="text-label text-white/40">Caladium Consulting</p>;
 }

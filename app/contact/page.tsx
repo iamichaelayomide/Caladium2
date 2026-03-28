@@ -3,52 +3,71 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ContactForm } from "@/components/ui/ContactForm";
+import { PageHero } from "@/components/shared/PageHero";
 import { contactDetails } from "@/lib/site-data";
 
 export default function ContactPage() {
   const cards = [
-    { label: "Call us at:", value: contactDetails.phoneLabel, href: contactDetails.phoneHref, icon: Phone },
-    { label: "Visit us at:", value: "D24, Dolphin Plaza, Corporation Drive, Dolphin Estate, Ikoyi, Lagos", href: contactDetails.mapHref, icon: MapPin },
-    { label: "Email us:", value: contactDetails.email, href: contactDetails.emailHref, icon: Mail }
+    { label: "Call", value: contactDetails.phoneLabel, href: contactDetails.phoneHref, icon: Phone },
+    { label: "Visit", value: contactDetails.address, href: contactDetails.mapHref, icon: MapPin },
+    { label: "Email", value: contactDetails.email, href: contactDetails.emailHref, icon: Mail }
   ];
 
   return (
-    <section className="bg-white pt-32 pb-16 md:pt-40 md:pb-24">
-      <div className="container-shell">
-        <div className="max-w-3xl">
-          <h1 className="font-display text-[clamp(3rem,6vw,5rem)] font-semibold leading-none tracking-[-0.03em] text-ink">
-            Let&apos;s start a conversation
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-body">
-            Whether you&apos;re ready to engage or just exploring — we&apos;d love to hear from you.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-10 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-xl">
-            <Image src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Ikoyi office" width={1200} height={1400} className="h-full min-h-[520px] w-full object-cover" />
+    <>
+      <PageHero
+        breadcrumb="Home > Contact"
+        label="Contact"
+        title="Start the conversation before the issue gets heavier."
+        description="Whether you need sharper strategy, operating redesign, or support navigating growth, reach out and we will structure the right next step."
+      />
+
+      <section className="section-padding bg-bg">
+        <div className="container-shell grid gap-6 xl:grid-cols-[0.82fr_1.18fr]">
+          <div className="relative overflow-hidden rounded-[32px] border border-white/10">
+            <Image
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+              alt="Caladium office environment"
+              fill
+              className="object-cover"
+            />
+            <div className="hero-overlay absolute inset-0" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+              <p className="text-label text-white/52">Reach us directly</p>
+              <h2 className="mt-4 max-w-md font-bricolage text-3xl font-semibold leading-tight text-white md:text-4xl">
+                The best conversations happen when the challenge is still solvable.
+              </h2>
+            </div>
           </div>
-          <div className="rounded-xl border border-border bg-soft p-8 md:p-10">
-            <h3 className="font-display text-4xl font-semibold text-ink">Have a challenge or an idea?</h3>
-            <p className="mt-4 text-lg leading-8 text-body">
-              Fill out the form and let&apos;s talk about how we can support your business with tailored solutions.
+
+          <div className="surface-panel rounded-[32px] p-6 md:p-8">
+            <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,4vw,3.4rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+              Tell us what the business is facing.
+            </h2>
+            <p className="mt-4 text-base leading-8 text-white/62">
+              We will use that context to shape the right conversation, scope, and advisory path.
             </p>
-            <div className="mt-8 space-y-4">
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
               {cards.map((card) => (
-                <Link key={card.label} href={card.href} className="flex gap-4 rounded-xl border border-border bg-white p-4 transition hover:border-accent">
-                  <card.icon className="mt-1 h-5 w-5 text-accent" />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-faint">{card.label}</p>
-                    <p className="mt-1 text-sm leading-6 text-ink">{card.value}</p>
-                  </div>
+                <Link
+                  key={card.label}
+                  href={card.href}
+                  className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]"
+                >
+                  <card.icon className="h-5 w-5 text-accent" />
+                  <p className="mt-4 text-label text-white/36">{card.label}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/78">{card.value}</p>
                 </Link>
               ))}
             </div>
-            <div className="mt-8">
+
+            <div className="mt-8 rounded-[28px] border border-white/8 bg-[#080b12] p-5 md:p-6">
               <ContactForm includeService />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

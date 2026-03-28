@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
 import "@/app/globals.css";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -31,7 +33,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${jakarta.variable} ${mono.variable}`}>
-      <body className="min-h-screen bg-bg font-jakarta text-ink antialiased">{children}</body>
+      <body className="min-h-screen bg-bg font-jakarta text-ink antialiased">
+        <div className="relative isolate flex min-h-screen flex-col overflow-x-clip">
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_14%_18%,rgba(217,154,43,0.16),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(95,115,255,0.12),transparent_26%),linear-gradient(180deg,rgba(11,14,20,0.7),transparent)]"
+          />
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

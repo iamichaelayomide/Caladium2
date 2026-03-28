@@ -8,11 +8,11 @@ export function Logo({ dark = false, compact = false }: { dark?: boolean; compac
           className={cn(
             "font-bricolage font-bold tracking-[-0.04em]",
             compact ? "text-2xl" : "text-[40px]",
-            dark ? "text-white" : "text-white"
+            dark ? "text-white" : "text-ink"
           )}
         >
           Calad
-          <span className={cn(dark ? "text-white" : "text-white")}>u</span>m
+          <span className={cn(dark ? "text-white" : "text-ink")}>u</span>m
         </span>
         <span
           className={cn(
@@ -45,7 +45,12 @@ export function Logo({ dark = false, compact = false }: { dark?: boolean; compac
       </div>
       {!compact ? (
         <div className="pt-3">
-          <div className={cn("text-[12px] uppercase tracking-[0.7em]", dark ? "text-white/85" : "text-ink/80")}>
+          <div
+            className={cn(
+              "text-[12px] uppercase tracking-[0.7em]",
+              dark ? "text-white/78" : "text-ink/70"
+            )}
+          >
             Consulting
           </div>
         </div>

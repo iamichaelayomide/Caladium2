@@ -7,5 +7,14 @@ export function Card({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("rounded-2xl border border-border bg-surface shadow-card", className)}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "surface-panel rounded-[28px] text-ink shadow-[0_24px_70px_rgba(0,0,0,0.28)]",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }

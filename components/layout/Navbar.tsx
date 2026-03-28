@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
@@ -20,6 +20,15 @@ export function Navbar() {
   const solid = !transparentHero || scrolled || open;
 
   useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 60));
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -27,15 +36,15 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
           solid
-            ? "border-white/10 bg-[#09070d]/90 text-white shadow-sm backdrop-blur"
-            : "border-white/10 bg-transparent text-white"
+            ? "border-white/10 bg-[#07090f]/88 text-white shadow-[0_12px_38px_rgba(0,0,0,0.22)] backdrop-blur-xl"
+            : "border-transparent bg-transparent text-white"
         )}
       >
         <div className="container-shell flex h-[72px] items-center justify-between gap-6">
           <Link href="/" className="scale-[0.62] origin-left">
             <Logo dark />
           </Link>
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 md:flex">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -59,14 +68,21 @@ export function Navbar() {
             })}
           </nav>
           <div className="hidden items-center gap-5 md:flex">
-            <Link href="/contact" className="text-sm font-medium text-white/72 transition-colors hover:text-white">
-              Log in
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-white/62 transition-colors hover:text-white"
+            >
+              Talk to us
             </Link>
-            <Button href="/contact" variant="light" className="rounded-full px-5 py-2.5">
-              Book a session {">"}
+            <Button href="/contact" variant="primary" className="rounded-full px-5 py-2.5">
+              Book a strategy call
             </Button>
           </div>
-          <button className="md:hidden text-white" onClick={() => setOpen(true)} aria-label="Open menu">
+          <button
+            className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white md:hidden"
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+          >
             <Menu className="h-6 w-6" />
           </button>
         </div>
@@ -78,13 +94,17 @@ export function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[60] bg-[#09070d] md:hidden"
+            className="fixed inset-0 z-[60] bg-[#07090f] md:hidden"
           >
             <div className="container-shell flex h-[72px] items-center justify-between border-b border-white/10">
               <Link href="/" className="scale-[0.62] origin-left" onClick={() => setOpen(false)}>
                 <Logo dark />
               </Link>
-              <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-white">
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white"
+              >
                 <X className="h-6 w-6" />
               </button>
             </div>
@@ -95,12 +115,16 @@ export function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link href="/contact" className="block pt-6 text-lg text-white/65" onClick={() => setOpen(false)}>
-                  Log in
+                <Link
+                  href="/contact"
+                  className="block pt-6 text-lg text-white/65"
+                  onClick={() => setOpen(false)}
+                >
+                  Talk to us
                 </Link>
               </div>
-              <Button href="/contact" variant="light" className="w-full rounded-full">
-                Book a session {">"}
+              <Button href="/contact" variant="primary" className="w-full rounded-full">
+                Book a strategy call
               </Button>
             </div>
           </motion.div>

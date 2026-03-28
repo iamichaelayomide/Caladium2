@@ -17,30 +17,48 @@ export function BlogFilterGrid({ posts }: { posts: BlogPost[] }) {
 
   return (
     <>
-      <div className="mt-10 flex gap-5 overflow-x-auto border-b border-border pb-3">
+      <div className="mt-10 flex gap-3 overflow-x-auto pb-2">
         {filters.map((filter) => (
           <button
             key={filter}
-            className={`whitespace-nowrap border-b-2 pb-3 text-sm font-medium transition ${active === filter ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink"}`}
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+              active === filter
+                ? "border-accent/30 bg-accent/12 text-accent"
+                : "border-white/10 bg-white/[0.03] text-white/58 hover:text-white"
+            }`}
             onClick={() => setActive(filter)}
           >
             {filter}
           </button>
         ))}
       </div>
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+
+      <div className="mt-10 grid gap-5 lg:grid-cols-3">
         {filtered.map((post) => (
-          <article key={post.slug} className="group overflow-hidden rounded-xl border border-border bg-white shadow-card">
+          <article key={post.slug} className="surface-panel group overflow-hidden rounded-[30px]">
             <div className="overflow-hidden">
-              <Image src={post.coverImage} alt={post.title} width={1200} height={700} className="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                width={1200}
+                height={700}
+                className="aspect-[16/11] w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+              />
             </div>
             <div className="p-6">
-              <span className="rounded-sm bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white">{post.category}</span>
-              <p className="mt-3 text-xs text-muted">{post.date}</p>
-              <h3 className="mt-3 font-display text-3xl font-semibold leading-9 text-ink">{post.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-body">{post.excerpt}</p>
-              <Link href={`/blog/${post.slug}`} className="mt-5 inline-flex text-sm font-semibold text-ink transition hover:text-accent">
-                Read more →
+              <span className="inline-flex rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-label text-accent">
+                {post.category}
+              </span>
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-white/34">{post.date}</p>
+              <h3 className="mt-4 font-bricolage text-[1.9rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white">
+                {post.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-white/60">{post.excerpt}</p>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-[#ffd18a]"
+              >
+                Read article
               </Link>
             </div>
           </article>

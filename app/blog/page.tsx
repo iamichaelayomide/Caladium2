@@ -8,10 +8,11 @@ export default function BlogPage() {
       <PageHero
         breadcrumb="Home > Blog"
         label="Our Journal"
-        title="Insights. Strategies. Real-world perspectives."
-        description="Explore fresh thinking on African business strategy, operational excellence, and leadership in times of change. Written by our consultants for decision-makers."
+        title="Field notes, strategy thinking, and operating insight."
+        description="Explore practical perspectives on African business strategy, market entry, operating design, leadership, and transformation."
       />
-      <section className="section-padding bg-white">
+
+      <section className="section-padding bg-bg">
         <div className="container-shell">
           <BlogFilterGrid posts={blogPosts} />
         </div>
