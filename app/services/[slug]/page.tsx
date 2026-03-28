@@ -42,7 +42,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               alt={service.name}
               width={1600}
               height={900}
-              className="h-[23rem] w-full object-cover md:h-[34rem]"
+              className="h-[18rem] w-full object-cover sm:h-[23rem] md:h-[30rem] xl:h-[34rem]"
             />
             <div className="hero-overlay absolute inset-0" />
           </div>
@@ -50,13 +50,13 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       </section>
 
       <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+        <div className="container-shell grid gap-10 xl:grid-cols-[1.08fr_0.92fr] xl:gap-12">
           <div className="space-y-6 text-base leading-8 text-white/66 md:text-[1.05rem]">
             {service.detailParagraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <aside className="surface-panel h-fit rounded-[30px] p-6 lg:sticky lg:top-28">
+          <aside className="surface-panel h-fit rounded-[30px] p-6 xl:sticky xl:top-28">
             <p className="text-label text-white/40">Deliverables</p>
             <ul className="mt-6 space-y-3">
               {service.features.map((feature) => (
@@ -75,7 +75,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <h2 className="font-bricolage text-[clamp(2.3rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
             What this service includes
           </h2>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {service.subServices.map((item, index) => (
               <article key={item.title} className="surface-panel overflow-hidden rounded-[30px]">
                 <Image
@@ -106,7 +106,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <h2 className="font-bricolage text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
             Related services
           </h2>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {related.map((item) => (
               <Link
                 key={item!.slug}
@@ -121,8 +121,8 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
               </Link>
             ))}
           </div>
-          <div className="surface-panel mt-12 rounded-[32px] p-8 text-white md:p-10">
-            <h2 className="font-bricolage text-4xl font-semibold">Ready to move on this service?</h2>
+          <div className="surface-panel mt-12 rounded-[32px] p-6 text-white md:p-8 xl:p-10">
+            <h2 className="font-bricolage text-[clamp(2rem,4vw,2.25rem)] font-semibold">Ready to move on this service?</h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">
               Start with a conversation and we will map the right scope, timeline, and advisory
               structure for the priority in front of you.

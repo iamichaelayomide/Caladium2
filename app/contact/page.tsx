@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
 import { contactDetails } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
 
 export default function ContactPage() {
   const cards = [
@@ -23,8 +24,8 @@ export default function ContactPage() {
       />
 
       <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-6 xl:grid-cols-[0.82fr_1.18fr]">
-          <div className="relative overflow-hidden rounded-[32px] border border-white/10">
+        <div className="container-shell grid gap-6 2xl:grid-cols-[0.82fr_1.18fr]">
+          <div className="relative min-h-[18rem] overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem]">
             <Image
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
               alt="Caladium office environment"
@@ -40,7 +41,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="surface-panel rounded-[32px] p-6 md:p-8">
+          <div className="surface-panel rounded-[32px] p-5 md:p-7 xl:p-8">
             <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,4vw,3.4rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
               Tell us what the business is facing.
             </h2>
@@ -48,12 +49,15 @@ export default function ContactPage() {
               We will use that context to shape the right conversation, scope, and advisory path.
             </p>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {cards.map((card) => (
                 <Link
                   key={card.label}
                   href={card.href}
-                  className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]"
+                  className={cn(
+                    "rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]",
+                    card.label === "Email" ? "sm:col-span-2 xl:col-span-1" : ""
+                  )}
                 >
                   <card.icon className="h-5 w-5 text-accent" />
                   <p className="mt-4 text-label text-white/36">{card.label}</p>

@@ -13,7 +13,7 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/8 pt-32 pb-20 md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden border-b border-white/8 pt-28 pb-20 md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
         <div aria-hidden className="hero-glow absolute inset-0 opacity-70" />
         <div className="container-shell relative">
           <p className="text-sm text-white/45">Home &gt; Careers &gt; {career.title}</p>
@@ -39,7 +39,7 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
       </section>
 
       <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-5 lg:grid-cols-3">
+        <div className="container-shell grid gap-5 xl:grid-cols-3">
           <article className="surface-panel rounded-[30px] p-6">
             <h2 className="font-bricolage text-3xl font-semibold text-white">Overview</h2>
             <div className="mt-5 space-y-4 text-base leading-8 text-white/62">

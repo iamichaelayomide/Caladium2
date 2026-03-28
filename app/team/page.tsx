@@ -17,7 +17,7 @@ export default function TeamPage() {
       />
 
       <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="container-shell grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
           {teamMembers.map((member, index) => (
             <Reveal key={member.name} delay={index * 0.02}>
               <article className="surface-panel group overflow-hidden rounded-[30px]">

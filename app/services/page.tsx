@@ -6,6 +6,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { services } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
 
 export default function ServicesPage() {
   return (
@@ -31,7 +32,7 @@ export default function ServicesPage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
             {services.map((service, index) => (
               <Reveal key={service.slug} delay={index * 0.03}>
                 <Link href={`/services/${service.slug}`} className="surface-panel group block overflow-hidden rounded-[30px]">
@@ -63,7 +64,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-padding border-t border-white/8 bg-[#070a10]">
-        <div className="container-shell grid gap-4 lg:grid-cols-3">
+        <div className="container-shell grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {[
             [
               "Architecture for strategy",
@@ -78,7 +79,14 @@ export default function ServicesPage() {
               "Our work is shaped by the realities of building, expanding, and leading in African markets."
             ]
           ].map(([title, body], index) => (
-            <Reveal key={title} delay={index * 0.04} className="surface-panel rounded-[28px] p-6">
+            <Reveal
+              key={title}
+              delay={index * 0.04}
+              className={cn(
+                "surface-panel rounded-[28px] p-6",
+                index === 2 ? "sm:col-span-2 xl:col-span-1" : ""
+              )}
+            >
               <h3 className="font-bricolage text-[1.9rem] font-semibold text-white">{title}</h3>
               <p className="mt-4 text-base leading-8 text-white/62">{body}</p>
             </Reveal>

@@ -44,7 +44,7 @@ export function Navbar() {
           <Link href="/" className="scale-[0.62] origin-left">
             <Logo dark />
           </Link>
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -67,7 +67,7 @@ export function Navbar() {
               );
             })}
           </nav>
-          <div className="hidden items-center gap-5 md:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             <Link
               href="/contact"
               className="text-sm font-medium text-white/62 transition-colors hover:text-white"
@@ -79,7 +79,7 @@ export function Navbar() {
             </Button>
           </div>
           <button
-            className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white md:hidden"
+            className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white lg:hidden"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
           >
@@ -94,7 +94,7 @@ export function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[60] bg-[#07090f] md:hidden"
+            className="fixed inset-0 z-[60] bg-[#07090f] lg:hidden"
           >
             <div className="container-shell flex h-[72px] items-center justify-between border-b border-white/10">
               <Link href="/" className="scale-[0.62] origin-left" onClick={() => setOpen(false)}>

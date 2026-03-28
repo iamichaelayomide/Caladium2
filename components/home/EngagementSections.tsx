@@ -9,6 +9,7 @@ import { ContactForm } from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { blogPosts, clientLogoRows, contactDetails, testimonials } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
 
 export function HomeServiceTabs() {
   return null;
@@ -18,7 +19,7 @@ export function HomeTestimonials() {
   return (
     <section className="section-padding border-y border-white/8 bg-[#070a10]">
       <div className="container-shell">
-        <Reveal className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+        <Reveal className="grid gap-5 xl:grid-cols-[0.72fr_1.28fr] xl:items-end xl:gap-6">
           <div>
             <SectionLabel>Client Perspectives</SectionLabel>
             <h2 className="max-w-md font-bricolage text-[clamp(2.4rem,4vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
@@ -32,12 +33,12 @@ export function HomeTestimonials() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-3">
           {testimonials.slice(0, 6).map((testimonial, index) => (
             <Reveal
               key={testimonial.name}
               delay={index * 0.03}
-              className={index === 0 ? "lg:col-span-2" : ""}
+              className={index === 0 ? "md:col-span-2 xl:col-span-2" : ""}
             >
               <article className="surface-panel h-full rounded-[30px] p-6">
                 <div className="flex items-center gap-4">
@@ -53,8 +54,8 @@ export function HomeTestimonials() {
                     <p className="text-sm text-white/50">{testimonial.title}</p>
                   </div>
                 </div>
-                <p className="mt-8 font-bricolage text-[1.65rem] leading-[1.26] text-white md:text-[1.85rem]">
-                  “{testimonial.quote}”
+                <p className="mt-8 font-bricolage text-[1.55rem] leading-[1.26] text-white md:text-[1.85rem]">
+                  &quot;{testimonial.quote}&quot;
                 </p>
               </article>
             </Reveal>
@@ -103,8 +104,8 @@ export function HomeContactPreview() {
 
   return (
     <section className="section-padding bg-bg">
-      <div className="container-shell grid gap-6 xl:grid-cols-[0.78fr_1.22fr]">
-        <Reveal className="relative overflow-hidden rounded-[32px] border border-white/10">
+      <div className="container-shell grid gap-6 2xl:grid-cols-[0.78fr_1.22fr]">
+        <Reveal className="relative min-h-[18rem] overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem]">
           <Image
             src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80"
             alt="Premium office architecture"
@@ -124,22 +125,25 @@ export function HomeContactPreview() {
           </div>
         </Reveal>
 
-        <Reveal className="surface-panel rounded-[32px] p-6 md:p-8">
+        <Reveal className="surface-panel rounded-[32px] p-5 md:p-7 xl:p-8">
           <SectionLabel>Get In Touch</SectionLabel>
           <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-            Let’s talk through the next move for your business.
+            Let&apos;s talk through the next move for your business.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-white/62">
             If you need better strategy, stronger operating rhythm, or leadership alignment around
-            what matters now, we’ll structure the right next conversation.
+            what matters now, we&apos;ll structure the right next conversation.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {cards.map((card) => (
               <Link
                 key={card.label}
                 href={card.href}
-                className="rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]"
+                className={cn(
+                  "rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]",
+                  card.label === "Email" ? "sm:col-span-2 xl:col-span-1" : ""
+                )}
               >
                 <card.icon className="h-5 w-5 text-accent" />
                 <p className="mt-4 text-label text-white/36">{card.label}</p>
@@ -164,7 +168,7 @@ export function HomeBlogPreview() {
   return (
     <section className="section-padding bg-[#070a11]">
       <div className="container-shell">
-        <Reveal className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <SectionLabel>Journal</SectionLabel>
             <h2 className="font-bricolage text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
@@ -180,11 +184,16 @@ export function HomeBlogPreview() {
           </Button>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-10 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
           <Reveal className="group overflow-hidden rounded-[32px] border border-white/10">
             <Link href={`/blog/${featured.slug}`} className="block">
-              <div className="relative min-h-[26rem]">
-                <Image src={featured.coverImage} alt={featured.title} fill className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+              <div className="relative min-h-[20rem] sm:min-h-[24rem] xl:min-h-[26rem]">
+                <Image
+                  src={featured.coverImage}
+                  alt={featured.title}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
                 <div className="hero-overlay absolute inset-0" />
                 <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
                   <span className="inline-flex rounded-full border border-accent/24 bg-accent/12 px-3 py-1 text-label text-accent">

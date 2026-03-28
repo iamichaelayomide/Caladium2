@@ -11,8 +11,8 @@ export function HomeServices() {
   return (
     <section className="section-padding border-y border-white/8 bg-[#06080f]">
       <div className="container-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-          <Reveal className="lg:sticky lg:top-28">
+        <div className="grid gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start xl:gap-10">
+          <Reveal className="xl:sticky xl:top-28">
             <SectionLabel>Core Services</SectionLabel>
             <h2 className="max-w-xl font-bricolage text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[0.97] tracking-[-0.04em] text-white">
               Advisory built to help leadership teams move with precision.
@@ -29,7 +29,7 @@ export function HomeServices() {
             </Link>
           </Reveal>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {services.slice(0, 6).map((service, index) => (
               <Reveal
                 key={service.slug}

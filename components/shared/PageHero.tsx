@@ -15,18 +15,18 @@ export function PageHero({
   cta?: { href: string; label: string };
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-white/8 pt-32 pb-[4.5rem] md:pt-40 md:pb-24">
+    <section className="relative overflow-hidden border-b border-white/8 pt-28 pb-[4rem] md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
       <div aria-hidden className="hero-glow absolute inset-x-0 top-0 h-full opacity-80" />
       <div aria-hidden className="hero-grid absolute inset-x-0 top-0 h-full opacity-35" />
       <div className="container-shell relative">
         <p className="mb-6 text-sm text-white/45">{breadcrumb}</p>
         {label ? <SectionLabel className="text-white/56">{label}</SectionLabel> : null}
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem] xl:items-end xl:gap-10">
           <div>
-            <h1 className="max-w-4xl font-bricolage text-[clamp(3.2rem,7vw,6rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
+            <h1 className="max-w-4xl font-bricolage text-[clamp(2.6rem,10vw,6rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
               {title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/68 md:text-[1.15rem]">
+            <p className="mt-5 max-w-3xl text-base leading-8 text-white/68 md:text-lg xl:text-[1.15rem]">
               {description}
             </p>
             {cta ? (
@@ -37,7 +37,7 @@ export function PageHero({
               </div>
             ) : null}
           </div>
-          <div className="surface-panel hidden rounded-[28px] p-6 lg:block">
+          <div className="surface-panel hidden rounded-[28px] p-6 xl:block">
             <p className="text-label text-white/46">Caladium Lens</p>
             <p className="mt-4 font-bricolage text-2xl font-semibold leading-tight text-white">
               Strategy, structure, and execution built for African growth.

@@ -13,8 +13,8 @@ import { cn } from "@/lib/utils";
 export function HomeAboutPreview() {
   return (
     <section className="section-padding bg-bg">
-      <div className="container-shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <Reveal className="relative min-h-[440px]">
+      <div className="container-shell grid gap-10 xl:grid-cols-[1.05fr_0.95fr] xl:items-center xl:gap-12">
+        <Reveal className="hidden xl:block xl:relative xl:min-h-[440px]">
           <div className="absolute left-0 top-0 h-[78%] w-[72%] overflow-hidden rounded-[30px] shadow-overlay">
             <Image
               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
@@ -71,6 +71,33 @@ export function HomeAboutPreview() {
             Learn more about the firm
           </Link>
         </Reveal>
+
+        <Reveal className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr] xl:hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+            alt="Executive discussion"
+            width={1200}
+            height={900}
+            className="h-[16rem] w-full rounded-[28px] object-cover sm:h-full"
+          />
+          <div className="surface-panel rounded-[28px] p-5">
+            <Image
+              src={teamMembers[0].image}
+              alt={teamMembers[0].name}
+              width={64}
+              height={64}
+              className="h-16 w-16 rounded-full object-cover"
+            />
+            <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-white">
+              Great businesses are not built on ideas alone. They are built on decisions, systems,
+              and follow-through.
+            </p>
+            <p className="mt-4 text-sm leading-7 text-white/56">
+              Since 2010, Caladium has helped leaders navigate strategy, operations, and change
+              with a practical lens on what execution really requires.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -105,7 +132,7 @@ export function HomeWhyCaladium() {
 
   return (
     <section className="section-padding border-y border-white/8 bg-[#070a11]">
-      <div className="container-shell hidden gap-14 lg:grid lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="container-shell hidden gap-12 xl:grid xl:grid-cols-[0.8fr_1.2fr] xl:gap-14">
         <div className="sticky top-28 h-fit">
           <SectionLabel>Why Caladium</SectionLabel>
           <h2 className="max-w-lg font-bricolage text-[clamp(2.35rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
@@ -160,7 +187,7 @@ export function HomeWhyCaladium() {
               <p className="text-label text-white/40">{String(index + 1).padStart(2, "0")}</p>
               <h3 className="mt-4 font-bricolage text-3xl font-semibold text-white">{tab.title}</h3>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">{tab.body}</p>
-              <div className="mt-6 grid gap-3 md:grid-cols-3">
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
                 {tab.bullets.map((bullet) => (
                   <div
                     key={bullet}
@@ -175,7 +202,7 @@ export function HomeWhyCaladium() {
         </div>
       </div>
 
-      <div className="container-shell lg:hidden">
+      <div className="container-shell xl:hidden">
         <SectionLabel>Why Caladium</SectionLabel>
         <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,5vw,3.1rem)] font-semibold leading-[1] tracking-[-0.04em] text-white">
           A consulting partner that works with senior calm and practical depth.
@@ -213,7 +240,7 @@ export function HomeVision() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:mt-14 xl:grid-cols-3">
           {[
             [
               "Clarity",
@@ -228,7 +255,14 @@ export function HomeVision() {
               "Leave behind systems and momentum that continue to work after our direct involvement ends."
             ]
           ].map(([title, body], index) => (
-            <Reveal key={title} delay={index * 0.04} className="surface-panel rounded-[28px] p-6">
+            <Reveal
+              key={title}
+              delay={index * 0.04}
+              className={cn(
+                "surface-panel rounded-[28px] p-6",
+                index === 2 ? "md:col-span-2 xl:col-span-1" : ""
+              )}
+            >
               <h3 className="font-bricolage text-[1.9rem] font-semibold text-white">{title}</h3>
               <p className="mt-4 text-base leading-8 text-white/62">{body}</p>
             </Reveal>

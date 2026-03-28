@@ -35,6 +35,7 @@ body {
   font-family: var(--font-jakarta), sans-serif;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 * {
@@ -65,11 +66,11 @@ a {
 }
 
 .section-padding {
-  padding-block: clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(4.5rem, 7vw, 8rem);
 }
 
 .section-padding-tight {
-  padding-block: clamp(4rem, 6vw, 5.75rem);
+  padding-block: clamp(3.25rem, 5vw, 5.75rem);
 }
 
 .text-label {
@@ -176,8 +177,37 @@ a {
     width: min(100% - 1.25rem, 74rem);
   }
 
+  .section-padding {
+    padding-block: 4.5rem;
+  }
+
+  .section-padding-tight {
+    padding-block: 3.25rem;
+  }
+
+  .text-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+  }
+
   .hero-glow {
     filter: blur(90px);
+  }
+
+  .hero-grid {
+    background-size: 40px 40px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .container-shell {
+    width: min(100% - 2rem, 74rem);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .container-shell {
+    width: min(100% - 3rem, 74rem);
   }
 }
 

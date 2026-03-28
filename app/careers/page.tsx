@@ -9,7 +9,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 export default function CareersPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-32 pb-20 text-white md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden pt-28 pb-20 text-white md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
         <Image
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
           alt="Team at work"
@@ -17,7 +17,7 @@ export default function CareersPage() {
           className="object-cover"
         />
         <div className="hero-overlay absolute inset-0" />
-        <div className="container-shell relative z-10 grid gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:items-end">
+        <div className="container-shell relative z-10 grid gap-8 xl:grid-cols-[1.18fr_0.82fr] xl:items-end xl:gap-10">
           <div>
             <p className="text-sm text-white/52">Home &gt; Careers</p>
             <p className="mt-6 text-label text-white/58">Careers</p>
@@ -29,7 +29,7 @@ export default function CareersPage() {
               their work to shape real business outcomes.
             </p>
           </div>
-          <div className="hero-panel rounded-[30px] p-7">
+          <div className="hero-panel rounded-[30px] p-6 md:p-7">
             <h2 className="font-bricolage text-3xl font-semibold text-white">
               Interested in joining the team?
             </h2>
@@ -58,7 +58,7 @@ export default function CareersPage() {
             We believe in doing work that has visible impact for clients and real growth value for
             the people doing it.
           </p>
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {[
               [
                 Target,

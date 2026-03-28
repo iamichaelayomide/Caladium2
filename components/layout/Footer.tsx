@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-[#05070b] text-white">
       <div className="container-shell py-[4.5rem]">
         <div className="surface-panel rounded-[32px] px-6 py-8 sm:px-8">
-          <div className="grid gap-10 xl:grid-cols-[1.2fr_0.8fr] xl:items-end">
+          <div className="grid gap-8 2xl:grid-cols-[1.2fr_0.8fr] 2xl:items-end 2xl:gap-10">
             <div>
               <Section />
               <Logo dark />
@@ -24,7 +24,7 @@ export function Footer() {
                 structures, and build momentum that lasts beyond the deck.
               </p>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row xl:justify-end">
+            <div className="flex flex-col gap-4 sm:flex-row 2xl:justify-end">
               <Button href="/contact" variant="primary" className="min-w-[12rem]">
                 Start a conversation
               </Button>
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 2xl:grid-cols-4">
           <div>
             <p className="text-label text-white/40">Connect</p>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/60">

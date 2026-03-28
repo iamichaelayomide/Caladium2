@@ -33,7 +33,7 @@ export function BlogFilterGrid({ posts }: { posts: BlogPost[] }) {
         ))}
       </div>
 
-      <div className="mt-10 grid gap-5 lg:grid-cols-3">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
         {filtered.map((post) => (
           <article key={post.slug} className="surface-panel group overflow-hidden rounded-[30px]">
             <div className="overflow-hidden">

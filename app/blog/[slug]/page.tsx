@@ -16,14 +16,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/8 pt-32 pb-[4.5rem] md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden border-b border-white/8 pt-28 pb-[4rem] md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
         <div aria-hidden className="hero-glow absolute inset-0 opacity-75" />
         <div className="container-shell relative">
           <p className="text-sm text-white/45">Home &gt; Blog &gt; {post.title}</p>
           <div className="mt-6 inline-flex rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-label text-accent">
             {post.category}
           </div>
-          <h1 className="mt-5 max-w-5xl font-bricolage text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
+          <h1 className="mt-5 max-w-5xl font-bricolage text-[clamp(2.6rem,10vw,5.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
             {post.title}
           </h1>
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/55">
@@ -38,7 +38,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <div>
                 <p className="font-semibold text-white">By {post.author}</p>
                 <p>
-                  {post.date} · {post.readTime}
+                  {post.date} - {post.readTime}
                 </p>
               </div>
             </div>
@@ -54,11 +54,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               alt={post.title}
               width={1600}
               height={900}
-              className="max-h-[34rem] w-full object-cover"
+              className="max-h-[18rem] w-full object-cover sm:max-h-[24rem] xl:max-h-[34rem]"
             />
           </div>
 
-          <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem]">
+          <div className="mt-12 grid gap-10 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-12">
             <article className="prose caladium-prose max-w-none text-[17px] leading-8">
               {post.body.intro.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -81,10 +81,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               ))}
             </article>
 
-            <aside className="surface-panel h-fit rounded-[28px] p-6 lg:sticky lg:top-28">
+            <aside className="surface-panel h-fit rounded-[28px] p-6 xl:sticky xl:top-28">
               <p className="text-label text-white/40">Reading this for a reason?</p>
               <p className="mt-4 font-bricolage text-2xl font-semibold leading-tight text-white">
-                Let’s turn the insight into a decision path.
+                Let&apos;s turn the insight into a decision path.
               </p>
               <p className="mt-4 text-sm leading-7 text-white/58">
                 Book a strategy call if this article points to an issue your leadership team is
@@ -103,8 +103,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
       <section className="section-padding border-t border-white/8 bg-[#070a10]">
         <div className="container-shell">
-          <h2 className="font-bricolage text-4xl font-semibold text-white">Related reading</h2>
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <h2 className="font-bricolage text-[clamp(2rem,4vw,2.25rem)] font-semibold text-white">
+            Related reading
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {related.map((item) => (
               <Link
                 key={item.slug}
