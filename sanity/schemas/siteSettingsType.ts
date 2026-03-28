@@ -17,6 +17,12 @@ export const siteSettingsType = defineType({
       rows: 3
     }),
     defineField({
+      name: "address",
+      title: "Office Address",
+      type: "text",
+      rows: 3
+    }),
+    defineField({
       name: "contactEmail",
       title: "Contact Email",
       type: "string"
@@ -24,6 +30,21 @@ export const siteSettingsType = defineType({
     defineField({
       name: "contactPhone",
       title: "Contact Phone",
+      type: "string"
+    }),
+    defineField({
+      name: "careersEmail",
+      title: "Careers Email",
+      type: "string"
+    }),
+    defineField({
+      name: "mapHref",
+      title: "Google Maps URL",
+      type: "url"
+    }),
+    defineField({
+      name: "hours",
+      title: "Working Hours",
       type: "string"
     })
   ],

@@ -9,5 +9,16 @@ export const metadata: Metadata = {
 };
 
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <style>{`
+        [data-site-chrome="navbar"],
+        [data-site-chrome="footer"],
+        [data-site-chrome="backdrop"] {
+          display: none !important;
+        }
+      `}</style>
+      <div className="min-h-screen">{children}</div>
+    </>
+  );
 }

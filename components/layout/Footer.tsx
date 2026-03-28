@@ -9,7 +9,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#05070b] text-white">
+    <footer data-site-chrome="footer" className="border-t border-white/10 bg-[#05070b] text-white">
       <div className="container-shell py-[4.5rem]">
         <div className="surface-panel rounded-[32px] px-6 py-8 sm:px-8">
           <div className="grid gap-8 2xl:grid-cols-[1.2fr_0.8fr] 2xl:items-end 2xl:gap-10">

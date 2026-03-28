@@ -37,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="relative isolate flex min-h-screen flex-col overflow-x-clip">
           <div
             aria-hidden
+            data-site-chrome="backdrop"
             className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_14%_18%,rgba(217,154,43,0.16),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(95,115,255,0.12),transparent_26%),linear-gradient(180deg,rgba(11,14,20,0.7),transparent)]"
           />
           <Navbar />
