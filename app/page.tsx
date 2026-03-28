@@ -2,24 +2,43 @@ import { HomeAboutPreview, HomeVision, HomeWhyCaladium } from "@/components/home
 import { HomeBlogPreview, HomeClientLogos, HomeContactPreview, HomeTestimonials } from "@/components/home/EngagementSections";
 import { HomeHero } from "@/components/home/Hero";
 import { HomeServices } from "@/components/home/ServicesStats";
-import { getBlogPosts } from "@/lib/sanity/fetch";
+import {
+  getBlogPosts,
+  getHomePageContent,
+  getServices,
+  getSiteSettings
+} from "@/lib/sanity/fetch";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const blogPosts = await getBlogPosts();
+  const [blogPosts, homePage, services, siteSettings] = await Promise.all([
+    getBlogPosts(),
+    getHomePageContent(),
+    getServices(),
+    getSiteSettings()
+  ]);
 
   return (
     <>
-      <HomeHero />
-      <HomeServices />
+      <HomeHero
+        label={homePage.heroLabel}
+        title={homePage.heroTitle}
+        description={homePage.heroDescription}
+        statsData={homePage.stats}
+      />
+      <HomeServices services={services} />
       <HomeAboutPreview />
       <HomeWhyCaladium />
       <HomeVision />
       <HomeTestimonials />
       <HomeClientLogos />
-      <HomeContactPreview />
-      <HomeBlogPreview posts={blogPosts.slice(0, 4)} />
+      <HomeContactPreview details={siteSettings} />
+      <HomeBlogPreview
+        posts={blogPosts.slice(0, 4)}
+        heading={homePage.journalHeading}
+        description={homePage.journalDescription}
+      />
     </>
   );
 }

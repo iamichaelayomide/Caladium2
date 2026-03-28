@@ -5,17 +5,24 @@ import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { services } from "@/lib/site-data";
+import { getServices, getServicesPageContent } from "@/lib/sanity/fetch";
 import { cn } from "@/lib/utils";
 
-export default function ServicesPage() {
+export const revalidate = 60;
+
+export default async function ServicesPage() {
+  const [pageContent, services] = await Promise.all([
+    getServicesPageContent(),
+    getServices()
+  ]);
+
   return (
     <>
       <PageHero
         breadcrumb="Home > Services"
         label="Service Portfolio"
-        title="Consulting support designed to move the business forward."
-        description="From strategic planning to operating model design and market entry, every Caladium engagement is structured for practical execution and durable outcomes."
+        title={pageContent.heroTitle}
+        description={pageContent.heroDescription}
         cta={{ href: "/contact", label: "Book a strategy call" }}
       />
 
@@ -24,11 +31,10 @@ export default function ServicesPage() {
           <Reveal className="max-w-3xl">
             <SectionLabel>Our Services</SectionLabel>
             <h2 className="font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-              Choose the engagement that matches the decision in front of you.
+              {pageContent.introTitle}
             </h2>
             <p className="mt-5 text-base leading-8 text-white/64">
-              Each service page goes deeper into scope, deliverables, and how we approach the work
-              with leadership teams.
+              {pageContent.introDescription}
             </p>
           </Reveal>
 
@@ -65,20 +71,7 @@ export default function ServicesPage() {
 
       <section className="section-padding border-t border-white/8 bg-[#070a10]">
         <div className="container-shell grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {[
-            [
-              "Architecture for strategy",
-              "We treat strategy like architecture: foundations first, then structure, then the choices that make scaling more realistic."
-            ],
-            [
-              "Execution built into scope",
-              "Recommendations are tied to operating realities, leadership ownership, and what teams can actually adopt."
-            ],
-            [
-              "Built for African context",
-              "Our work is shaped by the realities of building, expanding, and leading in African markets."
-            ]
-          ].map(([title, body], index) => (
+          {pageContent.principles.map(({ title, body }, index) => (
             <Reveal
               key={title}
               delay={index * 0.04}

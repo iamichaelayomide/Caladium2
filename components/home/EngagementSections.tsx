@@ -10,6 +10,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { blogPosts, clientLogoRows, contactDetails, testimonials } from "@/lib/site-data";
 import type { BlogPost } from "@/lib/site-data";
+import type { ContactDetailsContent } from "@/lib/sanity/fetch";
 import { cn } from "@/lib/utils";
 
 export function HomeServiceTabs() {
@@ -96,11 +97,18 @@ export function HomeClientLogos() {
   );
 }
 
-export function HomeContactPreview() {
+export function HomeContactPreview({
+  details = contactDetails
+}: {
+  details?: Pick<
+    ContactDetailsContent,
+    "phoneLabel" | "phoneHref" | "address" | "mapHref" | "email" | "emailHref"
+  >;
+}) {
   const cards = [
-    { label: "Call", value: contactDetails.phoneLabel, href: contactDetails.phoneHref, icon: Phone },
-    { label: "Visit", value: contactDetails.address, href: contactDetails.mapHref, icon: MapPin },
-    { label: "Email", value: contactDetails.email, href: contactDetails.emailHref, icon: Mail }
+    { label: "Call", value: details.phoneLabel, href: details.phoneHref, icon: Phone },
+    { label: "Visit", value: details.address, href: details.mapHref, icon: MapPin },
+    { label: "Email", value: details.email, href: details.emailHref, icon: Mail }
   ];
 
   return (
@@ -162,7 +170,15 @@ export function HomeContactPreview() {
   );
 }
 
-export function HomeBlogPreview({ posts = blogPosts.slice(0, 4) }: { posts?: BlogPost[] }) {
+export function HomeBlogPreview({
+  posts = blogPosts.slice(0, 4),
+  heading = "Ideas, observations, and strategy notes from the field.",
+  description = "Practical thinking for founders, operators, and executives building in African markets."
+}: {
+  posts?: BlogPost[];
+  heading?: string;
+  description?: string;
+}) {
   const featured = posts[0];
   const secondary = posts.slice(1, 4);
 
@@ -177,11 +193,10 @@ export function HomeBlogPreview({ posts = blogPosts.slice(0, 4) }: { posts?: Blo
           <div className="max-w-3xl">
             <SectionLabel>Journal</SectionLabel>
             <h2 className="font-bricolage text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-              Ideas, observations, and strategy notes from the field.
+              {heading}
             </h2>
             <p className="mt-4 text-base leading-8 text-white/62">
-              Practical thinking for founders, operators, and executives building in African
-              markets.
+              {description}
             </p>
           </div>
           <Button href="/blog" variant="outline" className="w-fit">

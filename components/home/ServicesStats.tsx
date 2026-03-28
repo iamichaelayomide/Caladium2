@@ -5,9 +5,19 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { services } from "@/lib/site-data";
+import { services as fallbackServices, type Service } from "@/lib/site-data";
 
-export function HomeServices() {
+type HomeServicesProps = {
+  services?: Service[];
+  title?: string;
+  description?: string;
+};
+
+export function HomeServices({
+  services = fallbackServices,
+  title = "Advisory built to help leadership teams move with precision.",
+  description = "Every engagement is structured for action: sharper choices, cleaner operating rhythm, and execution that fits the realities of African markets."
+}: HomeServicesProps) {
   return (
     <section className="section-padding border-y border-white/8 bg-[#06080f]">
       <div className="container-shell">
@@ -15,11 +25,10 @@ export function HomeServices() {
           <Reveal className="xl:sticky xl:top-28">
             <SectionLabel>Core Services</SectionLabel>
             <h2 className="max-w-xl font-bricolage text-[clamp(2.5rem,4.6vw,4rem)] font-semibold leading-[0.97] tracking-[-0.04em] text-white">
-              Advisory built to help leadership teams move with precision.
+              {title}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-white/66">
-              Every engagement is structured for action: sharper choices, cleaner operating rhythm,
-              and execution that fits the realities of African markets.
+              {description}
             </p>
             <Link
               href="/services"

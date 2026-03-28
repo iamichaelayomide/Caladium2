@@ -2,21 +2,36 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { findService, services } from "@/lib/site-data";
+import {
+  getServiceBySlug,
+  getServiceSlugs,
+  getServices
+} from "@/lib/sanity/fetch";
 
-export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getServiceSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const service = findService(params.slug);
-  if (!service) notFound();
+export default async function ServiceDetailPage({ params }: { params: { slug: string } }) {
+  const [service, services] = await Promise.all([
+    getServiceBySlug(params.slug),
+    getServices()
+  ]);
 
-  const related = service.relatedSlugs.map((slug) => findService(slug)).filter(Boolean);
+  if (!service) {
+    notFound();
+  }
+
+  const related = service.relatedSlugs
+    .map((slug) => services.find((entry) => entry.slug === slug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/8 pt-32 pb-20 md:pt-40 md:pb-24">
+      <section className="relative overflow-hidden border-b border-white/8 pb-20 pt-32 md:pb-24 md:pt-40">
         <div aria-hidden className="hero-glow absolute inset-0 opacity-70" />
         <div className="container-shell relative">
           <p className="text-sm text-white/45">Home &gt; Services &gt; {service.name}</p>
@@ -92,7 +107,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   className="aspect-[16/11] w-full object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="font-bricolage text-[1.85rem] font-semibold text-white">{item.title}</h3>
+                  <h3 className="font-bricolage text-[1.85rem] font-semibold text-white">
+                    {item.title}
+                  </h3>
                   <p className="mt-4 text-base leading-8 text-white/60">{item.description}</p>
                 </div>
               </article>
@@ -109,20 +126,22 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {related.map((item) => (
               <Link
-                key={item!.slug}
-                href={`/services/${item!.slug}`}
+                key={item.slug}
+                href={`/services/${item.slug}`}
                 className="surface-panel rounded-[28px] p-6 transition hover:border-accent/22"
               >
-                <p className="text-label text-accent">{item!.name}</p>
+                <p className="text-label text-accent">{item.name}</p>
                 <h3 className="mt-4 font-bricolage text-[1.85rem] font-semibold leading-[1.03] text-white">
-                  {item!.tagline}
+                  {item.tagline}
                 </h3>
-                <p className="mt-4 text-base leading-8 text-white/60">{item!.summary}</p>
+                <p className="mt-4 text-base leading-8 text-white/60">{item.summary}</p>
               </Link>
             ))}
           </div>
           <div className="surface-panel mt-12 rounded-[32px] p-6 text-white md:p-8 xl:p-10">
-            <h2 className="font-bricolage text-[clamp(2rem,4vw,2.25rem)] font-semibold">Ready to move on this service?</h2>
+            <h2 className="font-bricolage text-[clamp(2rem,4vw,2.25rem)] font-semibold">
+              Ready to move on this service?
+            </h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">
               Start with a conversation and we will map the right scope, timeline, and advisory
               structure for the priority in front of you.

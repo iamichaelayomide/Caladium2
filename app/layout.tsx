@@ -4,6 +4,7 @@ import { Bricolage_Grotesque, JetBrains_Mono, Plus_Jakarta_Sans } from "next/fon
 import "@/app/globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { getServices, getSiteSettings } from "@/lib/sanity/fetch";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -30,7 +31,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://caladiumconsulting.com")
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const revalidate = 60;
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const [services, siteSettings] = await Promise.all([getServices(), getSiteSettings()]);
+
   return (
     <html lang="en" className={`${bricolage.variable} ${jakarta.variable} ${mono.variable}`}>
       <body className="min-h-screen bg-bg font-jakarta text-ink antialiased">
@@ -42,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
           <Navbar />
           {children}
-          <Footer />
+          <Footer services={services} contactDetails={siteSettings} />
         </div>
       </body>
     </html>

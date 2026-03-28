@@ -7,10 +7,22 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { heroImage, stats } from "@/lib/site-data";
 
-export function HomeHero() {
+type HomeHeroProps = {
+  label?: string;
+  title?: string;
+  description?: string;
+  statsData?: (typeof stats)[number][];
+};
+
+export function HomeHero({
+  label = "Caladium Consulting",
+  title = "Strategy advisory with discipline, calm, and real operating depth.",
+  description = "We help African businesses sharpen direction, align teams, and build the systems that turn growth ambition into measurable progress.",
+  statsData = [...stats]
+}: HomeHeroProps) {
   const { scrollY } = useScroll();
   const imageY = useTransform(scrollY, [0, 500], [0, 88]);
-  const compactStats = stats.slice(0, 3);
+  const compactStats = statsData.slice(0, 3);
 
   return (
     <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-24 text-white md:pt-28 xl:pt-32">
@@ -33,22 +45,21 @@ export function HomeHero() {
               variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
               className="text-label text-white/58"
             >
-              Caladium Consulting
+              {label}
             </motion.p>
 
             <motion.h1
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
               className="mt-5 font-bricolage text-[clamp(2.9rem,11vw,7rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-balance"
             >
-              Strategy advisory with discipline, calm, and real operating depth.
+              {title}
             </motion.h1>
 
             <motion.p
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
               className="mt-5 max-w-2xl text-base leading-7 text-white/74 md:leading-8 xl:text-[1.15rem]"
             >
-              We help African businesses sharpen direction, align teams, and build the systems that
-              turn growth ambition into measurable progress.
+              {description}
             </motion.p>
 
             <motion.div
@@ -96,7 +107,7 @@ export function HomeHero() {
           >
             <p className="text-label text-white/45">Why leaders call us</p>
             <div className="mt-6 space-y-6">
-              {stats.slice(0, 3).map((stat) => (
+              {statsData.slice(0, 3).map((stat) => (
                 <div key={stat.label} className="border-b border-white/8 pb-5 last:border-b-0 last:pb-0">
                   <div className="font-bricolage text-4xl font-semibold tracking-[-0.04em] text-white">
                     {stat.value}

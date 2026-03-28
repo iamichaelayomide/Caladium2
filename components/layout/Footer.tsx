@@ -3,9 +3,20 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import { contactDetails, services } from "@/lib/site-data";
+import {
+  contactDetails as fallbackContactDetails,
+  services as fallbackServices,
+  type Service
+} from "@/lib/site-data";
+import type { ContactDetailsContent } from "@/lib/sanity/fetch";
 
-export function Footer() {
+export function Footer({
+  services = fallbackServices,
+  contactDetails = fallbackContactDetails
+}: {
+  services?: Service[];
+  contactDetails?: Pick<ContactDetailsContent, "address" | "email" | "phoneLabel" | "hours">;
+}) {
   const year = new Date().getFullYear();
 
   return (

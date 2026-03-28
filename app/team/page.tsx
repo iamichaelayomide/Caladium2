@@ -4,16 +4,23 @@ import Link from "next/link";
 
 import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { teamMembers } from "@/lib/site-data";
+import { getTeamMembers, getTeamPageContent } from "@/lib/sanity/fetch";
 
-export default function TeamPage() {
+export const revalidate = 60;
+
+export default async function TeamPage() {
+  const [pageContent, teamMembers] = await Promise.all([
+    getTeamPageContent(),
+    getTeamMembers()
+  ]);
+
   return (
     <>
       <PageHero
         breadcrumb="Home > Team"
         label="Team"
-        title="Meet the Caladium team."
-        description="A multidisciplinary group spanning strategy, finance, research, process engineering, market entry, and change leadership."
+        title={pageContent.heroTitle}
+        description={pageContent.heroDescription}
       />
 
       <section className="section-padding bg-bg">

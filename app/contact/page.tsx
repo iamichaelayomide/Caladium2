@@ -4,10 +4,17 @@ import Link from "next/link";
 
 import { ContactForm } from "@/components/ui/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
-import { contactDetails } from "@/lib/site-data";
+import { getContactPageContent, getSiteSettings } from "@/lib/sanity/fetch";
 import { cn } from "@/lib/utils";
 
-export default function ContactPage() {
+export const revalidate = 60;
+
+export default async function ContactPage() {
+  const [pageContent, contactDetails] = await Promise.all([
+    getContactPageContent(),
+    getSiteSettings()
+  ]);
+
   const cards = [
     { label: "Call", value: contactDetails.phoneLabel, href: contactDetails.phoneHref, icon: Phone },
     { label: "Visit", value: contactDetails.address, href: contactDetails.mapHref, icon: MapPin },
@@ -19,8 +26,8 @@ export default function ContactPage() {
       <PageHero
         breadcrumb="Home > Contact"
         label="Contact"
-        title="Start the conversation before the issue gets heavier."
-        description="Whether you need sharper strategy, operating redesign, or support navigating growth, reach out and we will structure the right next step."
+        title={pageContent.heroTitle}
+        description={pageContent.heroDescription}
       />
 
       <section className="section-padding bg-bg">
@@ -43,10 +50,10 @@ export default function ContactPage() {
 
           <div className="surface-panel rounded-[32px] p-5 md:p-7 xl:p-8">
             <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,4vw,3.4rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-              Tell us what the business is facing.
+              {pageContent.panelTitle}
             </h2>
             <p className="mt-4 text-base leading-8 text-white/62">
-              We will use that context to shape the right conversation, scope, and advisory path.
+              {pageContent.panelDescription}
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
