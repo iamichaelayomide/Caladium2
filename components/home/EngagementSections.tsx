@@ -9,6 +9,7 @@ import { ContactForm } from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { blogPosts, clientLogoRows, contactDetails, testimonials } from "@/lib/site-data";
+import type { BlogPost } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function HomeServiceTabs() {
@@ -161,9 +162,13 @@ export function HomeContactPreview() {
   );
 }
 
-export function HomeBlogPreview() {
-  const featured = blogPosts[0];
-  const secondary = blogPosts.slice(1, 4);
+export function HomeBlogPreview({ posts = blogPosts.slice(0, 4) }: { posts?: BlogPost[] }) {
+  const featured = posts[0];
+  const secondary = posts.slice(1, 4);
+
+  if (!featured) {
+    return null;
+  }
 
   return (
     <section className="section-padding bg-[#070a11]">

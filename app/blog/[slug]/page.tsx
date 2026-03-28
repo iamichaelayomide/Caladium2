@@ -2,17 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { blogPosts, findBlogPost } from "@/lib/site-data";
+import { getBlogPostBySlug, getBlogPostSlugs, getBlogPosts } from "@/lib/sanity/fetch";
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getBlogPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = findBlogPost(params.slug);
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = await getBlogPostBySlug(params.slug);
   if (!post) notFound();
 
-  const related = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
+  const allPosts = await getBlogPosts();
+  const related = allPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
 
   return (
     <>
@@ -29,7 +33,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/55">
             <div className="flex items-center gap-3">
               <Image
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
+                src={
+                  post.authorImage ||
+                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
+                }
                 alt={post.author}
                 width={56}
                 height={56}

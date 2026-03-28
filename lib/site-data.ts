@@ -21,6 +21,7 @@ export type BlogPost = {
   excerpt: string;
   coverImage: string;
   author: string;
+  authorImage?: string;
   body: {
     intro: string[];
     sections: { heading: string; paragraphs: string[]; bullets?: string[]; quote?: string }[];

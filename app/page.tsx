@@ -2,8 +2,13 @@ import { HomeAboutPreview, HomeVision, HomeWhyCaladium } from "@/components/home
 import { HomeBlogPreview, HomeClientLogos, HomeContactPreview, HomeTestimonials } from "@/components/home/EngagementSections";
 import { HomeHero } from "@/components/home/Hero";
 import { HomeServices } from "@/components/home/ServicesStats";
+import { getBlogPosts } from "@/lib/sanity/fetch";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const blogPosts = await getBlogPosts();
+
   return (
     <>
       <HomeHero />
@@ -14,7 +19,7 @@ export default function HomePage() {
       <HomeTestimonials />
       <HomeClientLogos />
       <HomeContactPreview />
-      <HomeBlogPreview />
+      <HomeBlogPreview posts={blogPosts.slice(0, 4)} />
     </>
   );
 }
