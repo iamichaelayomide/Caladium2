@@ -15,6 +15,12 @@ const client = getCliClient({
   dataset
 });
 
+const keyed = <T extends Record<string, unknown>>(items: T[], prefix: string) =>
+  items.map((item, index) => ({
+    _key: `${prefix}-${index + 1}`,
+    ...item
+  }));
+
 async function seed() {
   console.log(`Seeding Sanity project ${projectId} / dataset ${dataset}`);
 
@@ -35,7 +41,10 @@ async function seed() {
     authorImage:
       post.authorImage ||
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
-    body: post.body
+    body: {
+      intro: post.body.intro,
+      sections: keyed(post.body.sections, `${post.slug}-section`)
+    }
   }));
 
   for (const doc of docs) {

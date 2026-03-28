@@ -20,6 +20,12 @@ const client = getCliClient({
   dataset
 });
 
+const keyed = <T extends Record<string, unknown>>(items: T[], prefix: string) =>
+  items.map((item, index) => ({
+    _key: `${prefix}-${index + 1}`,
+    ...item
+  }));
+
 async function seedSingletons() {
   await client.createOrReplace({
     _id: "siteSettings",
@@ -45,7 +51,7 @@ async function seedSingletons() {
     journalHeading: "Ideas, observations, and strategy notes from the field.",
     journalDescription:
       "Practical thinking for founders, operators, and executives building in African markets.",
-    stats
+    stats: keyed([...stats], "home-stat")
   });
 
   await client.createOrReplace({
@@ -57,7 +63,7 @@ async function seedSingletons() {
     introTitle: "Choose the engagement that matches the decision in front of you.",
     introDescription:
       "Each service page goes deeper into scope, deliverables, and how we approach the work with leadership teams.",
-    principles: [
+    principles: keyed([
       {
         title: "Architecture for strategy",
         body: "We treat strategy like architecture: foundations first, then structure, then the choices that make scaling more realistic."
@@ -70,7 +76,7 @@ async function seedSingletons() {
         title: "Built for African context",
         body: "Our work is shaped by the realities of building, expanding, and leading in African markets."
       }
-    ]
+    ], "services-principle")
   });
 
   await client.createOrReplace({
@@ -99,6 +105,7 @@ async function seedCollections() {
       _id: `service.${service.slug}`,
       _type: "service",
       ...service,
+      subServices: keyed(service.subServices, `${service.slug}-subservice`),
       slug: {
         _type: "slug",
         current: service.slug
