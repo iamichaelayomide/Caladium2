@@ -24,11 +24,11 @@ export function HomeTestimonials() {
         <Reveal className="grid gap-5 xl:grid-cols-[0.72fr_1.28fr] xl:items-end xl:gap-6">
           <div>
             <SectionLabel>Client Perspectives</SectionLabel>
-            <h2 className="max-w-md font-bricolage text-[clamp(2.4rem,4vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="max-w-md font-bricolage text-[clamp(1.9rem,3.5vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               The work is only valuable if the business feels the difference.
             </h2>
           </div>
-          <p className="max-w-2xl text-base leading-8 text-white/64">
+          <p className="max-w-2xl text-[0.94rem] leading-7 text-white/64">
             Our clients talk less about flashy frameworks and more about what changed: better
             decisions, tighter leadership alignment, stronger systems, and actual execution
             momentum.
@@ -49,14 +49,14 @@ export function HomeTestimonials() {
                     alt={testimonial.name}
                     width={64}
                     height={64}
-                    className="h-14 w-14 rounded-full object-cover"
+                    className="h-12 w-12 rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                    <p className="text-sm text-white/50">{testimonial.title}</p>
+                    <p className="text-[0.82rem] font-semibold text-white">{testimonial.name}</p>
+                    <p className="text-[0.78rem] text-white/50">{testimonial.title}</p>
                   </div>
                 </div>
-                <p className="mt-8 font-bricolage text-[1.55rem] leading-[1.26] text-white md:text-[1.85rem]">
+                <p className="mt-8 font-bricolage text-[1.35rem] leading-[1.3] text-white md:text-[1.55rem]">
                   &quot;{testimonial.quote}&quot;
                 </p>
               </article>
@@ -124,10 +124,10 @@ export function HomeContactPreview({
           <div className="hero-overlay absolute inset-0" />
           <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
             <p className="text-label text-white/52">Contact Caladium</p>
-            <h3 className="mt-4 max-w-md font-bricolage text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h3 className="mt-4 max-w-md font-bricolage text-2xl font-semibold leading-tight text-white md:text-3xl">
               Start the conversation before the problem gets more expensive.
             </h3>
-            <p className="mt-4 max-w-md text-sm leading-7 text-white/66">
+            <p className="mt-3.5 max-w-md text-[0.88rem] leading-6 text-white/66">
               Book a strategy call if the business needs sharper direction, stronger delivery
               systems, or a clearer path through growth.
             </p>
@@ -136,10 +136,10 @@ export function HomeContactPreview({
 
         <Reveal className="surface-panel rounded-[32px] p-5 md:p-7 xl:p-8">
           <SectionLabel>Get In Touch</SectionLabel>
-          <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,4vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="max-w-xl font-bricolage text-[clamp(1.9rem,3.5vw,3.1rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             Let&apos;s talk through the next move for your business.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-8 text-white/62">
+          <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/62">
             If you need better strategy, stronger operating rhythm, or leadership alignment around
             what matters now, we&apos;ll structure the right next conversation.
           </p>
@@ -192,14 +192,14 @@ export function HomeBlogPreview({
         <Reveal className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <SectionLabel>Journal</SectionLabel>
-            <h2 className="font-bricolage text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="font-bricolage text-[clamp(2.1rem,4vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               {heading}
             </h2>
-            <p className="mt-4 text-base leading-8 text-white/62">
+            <p className="mt-4 text-[0.94rem] leading-7 text-white/62">
               {description}
             </p>
           </div>
-          <Button href="/blog" variant="outline" className="w-fit">
+          <Button href="/blog" variant="outline" size="sm" className="w-fit">
             Explore the journal <ArrowRight className="h-4 w-4" />
           </Button>
         </Reveal>
@@ -207,7 +207,7 @@ export function HomeBlogPreview({
         <div className="mt-10 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
           <Reveal className="group overflow-hidden rounded-[32px] border border-white/10">
             <Link href={`/blog/${featured.slug}`} className="block">
-              <div className="relative min-h-[20rem] sm:min-h-[24rem] xl:min-h-[26rem]">
+              <div className="relative min-h-[18rem] sm:min-h-[22rem] xl:min-h-[24rem]">
                 <Image
                   src={featured.coverImage}
                   alt={featured.title}
@@ -219,10 +219,10 @@ export function HomeBlogPreview({
                   <span className="inline-flex rounded-full border border-accent/24 bg-accent/12 px-3 py-1 text-label text-accent">
                     {featured.category}
                   </span>
-                  <h3 className="mt-5 max-w-2xl font-bricolage text-[2rem] font-semibold leading-[1.02] tracking-[-0.04em] text-white md:text-[2.7rem]">
+                  <h3 className="mt-4 max-w-2xl font-bricolage text-[1.65rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white md:text-[2.1rem]">
                     {featured.title}
                   </h3>
-                  <p className="mt-4 max-w-xl text-base leading-8 text-white/68">{featured.excerpt}</p>
+                  <p className="mt-3 max-w-xl text-[0.94rem] leading-7 text-white/68">{featured.excerpt}</p>
                 </div>
               </div>
             </Link>
@@ -232,7 +232,7 @@ export function HomeBlogPreview({
             {secondary.map((post, index) => (
               <Reveal key={post.slug} delay={index * 0.03}>
                 <article className="surface-panel group overflow-hidden rounded-[28px] p-5">
-                  <Link href={`/blog/${post.slug}`} className="grid gap-4 sm:grid-cols-[9rem_1fr] sm:items-center">
+                  <Link href={`/blog/${post.slug}`} className="grid gap-4 sm:grid-cols-[8rem_1fr] sm:items-center">
                     <Image
                       src={post.coverImage}
                       alt={post.title}
@@ -242,10 +242,10 @@ export function HomeBlogPreview({
                     />
                     <div>
                       <p className="text-label text-accent">{post.category}</p>
-                      <h3 className="mt-3 font-bricolage text-[1.75rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white">
+                      <h3 className="mt-2.5 font-bricolage text-[1.4rem] font-semibold leading-[1.1] tracking-[-0.02em] text-white">
                         {post.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-7 text-white/60">{post.excerpt}</p>
+                      <p className="mt-2 text-[0.82rem] leading-6 text-white/60">{post.excerpt}</p>
                     </div>
                   </Link>
                 </article>

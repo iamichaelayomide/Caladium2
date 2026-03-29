@@ -22,10 +22,10 @@ export default function AboutPage() {
         <div className="container-shell grid gap-10 xl:grid-cols-[1.05fr_0.95fr] xl:items-center xl:gap-12">
           <Reveal>
             <SectionLabel>Who We Are</SectionLabel>
-            <h2 className="max-w-xl font-bricolage text-[clamp(2.35rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="max-w-xl font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               A consulting firm built for leaders who need more than a polished deck.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-white/64">
+            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-white/64">
               Caladium brings together strategy thinking, operating discipline, and contextual
               understanding of African markets. We work closely with leadership teams to turn
               complexity into decisions and decisions into action.
@@ -96,10 +96,10 @@ export default function AboutPage() {
         <div className="container-shell grid gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-start xl:gap-12">
           <Reveal className="xl:sticky xl:top-28">
             <SectionLabel>How We Work</SectionLabel>
-            <h2 className="max-w-xl font-bricolage text-[clamp(2.3rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="max-w-xl font-bricolage text-[clamp(1.9rem,3.6vw,3.1rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               Our work balances sharp strategic thinking with grounded delivery.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-white/64">
+            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-white/64">
               We do not believe in generic frameworks or advisory at a distance. We work alongside
               client teams, define the actual decisions in front of them, and shape practical paths
               forward.
@@ -122,8 +122,8 @@ export default function AboutPage() {
               ]
             ].map(([title, body], index) => (
               <Reveal key={title} delay={index * 0.03} className="surface-panel rounded-[28px] p-6">
-                <h3 className="font-bricolage text-[1.9rem] font-semibold text-white">{title}</h3>
-                <p className="mt-4 text-base leading-8 text-white/62">{body}</p>
+                <h3 className="font-bricolage text-[1.6rem] font-semibold text-white">{title}</h3>
+                <p className="mt-4 text-[0.94rem] leading-7 text-white/62">{body}</p>
               </Reveal>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default function AboutPage() {
         <div className="container-shell">
           <Reveal className="max-w-3xl">
             <SectionLabel>Leadership Team</SectionLabel>
-            <h2 className="font-bricolage text-[clamp(2.35rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               A multidisciplinary team built around strategy, operations, and business performance.
             </h2>
           </Reveal>
@@ -149,8 +149,8 @@ export default function AboutPage() {
                   className="aspect-square w-full object-cover"
                 />
                 <div className="p-5">
-                  <h3 className="font-bricolage text-3xl font-semibold text-white">{member.name}</h3>
-                  <p className="mt-2 text-sm text-white/50">{member.title}</p>
+                  <h3 className="font-bricolage text-2xl font-semibold text-white">{member.name}</h3>
+                  <p className="mt-2 text-[0.82rem] text-white/50">{member.title}</p>
                 </div>
               </Reveal>
             ))}

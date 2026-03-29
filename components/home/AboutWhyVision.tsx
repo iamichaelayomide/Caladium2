@@ -135,14 +135,14 @@ export function HomeWhyCaladium() {
       <div className="container-shell hidden gap-12 xl:grid xl:grid-cols-[0.8fr_1.2fr] xl:gap-14">
         <div className="sticky top-28 h-fit">
           <SectionLabel>Why Caladium</SectionLabel>
-          <h2 className="max-w-lg font-bricolage text-[clamp(2.35rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="max-w-lg font-bricolage text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
             A standard of consulting that feels direct, senior, and execution-minded.
           </h2>
-          <p className="mt-5 max-w-md text-base leading-8 text-white/60">
+          <p className="mt-5 max-w-md text-[0.94rem] leading-7 text-white/60">
             We design our engagements to reduce noise, clarify decisions, and leave leadership
             teams with stronger structures than they started with.
           </p>
-          <div className="mt-10 space-y-4">
+          <div className="mt-8 space-y-3">
             {whyCaladiumTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -156,12 +156,12 @@ export function HomeWhyCaladium() {
                 {active === tab.id ? (
                   <motion.span
                     layoutId="home-why-indicator"
-                    className="absolute left-0 top-1.5 h-5 w-1 rounded-full bg-accent"
+                    className="absolute left-0 top-1.5 h-4 w-1 rounded-full bg-accent"
                   />
                 ) : null}
                 <span
                   className={cn(
-                    "text-lg transition-colors",
+                    "text-[1.05rem] transition-colors",
                     active === tab.id ? "text-white" : "text-white/42 hover:text-white/72"
                   )}
                 >
@@ -185,13 +185,13 @@ export function HomeWhyCaladium() {
                 }}
               />
               <p className="text-label text-white/40">{String(index + 1).padStart(2, "0")}</p>
-              <h3 className="mt-4 font-bricolage text-3xl font-semibold text-white">{tab.title}</h3>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">{tab.body}</p>
+              <h3 className="mt-4 font-bricolage text-2xl font-semibold text-white">{tab.title}</h3>
+              <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/64">{tab.body}</p>
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 {tab.bullets.map((bullet) => (
                   <div
                     key={bullet}
-                    className="rounded-[22px] border border-white/8 bg-white/[0.03] p-4 text-sm leading-7 text-white/58"
+                    className="rounded-[22px] border border-white/8 bg-white/[0.03] p-4 text-[0.82rem] leading-6 text-white/58"
                   >
                     {bullet}
                   </div>
@@ -204,14 +204,14 @@ export function HomeWhyCaladium() {
 
       <div className="container-shell xl:hidden">
         <SectionLabel>Why Caladium</SectionLabel>
-        <h2 className="max-w-xl font-bricolage text-[clamp(2.25rem,5vw,3.1rem)] font-semibold leading-[1] tracking-[-0.04em] text-white">
+        <h2 className="max-w-xl font-bricolage text-[clamp(1.8rem,4.5vw,2.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
           A consulting partner that works with senior calm and practical depth.
         </h2>
         <div className="mt-8 space-y-4">
           {whyCaladiumTabs.map((tab) => (
             <Reveal key={tab.id} className="surface-panel rounded-[28px] p-6">
-              <h3 className="font-bricolage text-2xl font-semibold text-white">{tab.title}</h3>
-              <p className="mt-3 text-base leading-8 text-white/62">{tab.body}</p>
+              <h3 className="font-bricolage text-xl font-semibold text-white">{tab.title}</h3>
+              <p className="mt-3 text-[0.94rem] leading-7 text-white/62">{tab.body}</p>
             </Reveal>
           ))}
         </div>

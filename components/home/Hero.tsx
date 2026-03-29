@@ -50,14 +50,14 @@ export function HomeHero({
 
             <motion.h1
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
-              className="mt-5 font-bricolage text-[clamp(2.9rem,11vw,7rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-balance"
+              className="mt-5 font-bricolage text-[clamp(2.3rem,8vw,5.4rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-balance"
             >
               {title}
             </motion.h1>
 
             <motion.p
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
-              className="mt-5 max-w-2xl text-base leading-7 text-white/74 md:leading-8 xl:text-[1.15rem]"
+              className="mt-5 max-w-2xl text-[0.94rem] leading-7 text-white/74 md:leading-8 xl:text-[1.05rem]"
             >
               {description}
             </motion.p>

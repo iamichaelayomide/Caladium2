@@ -30,10 +30,10 @@ export default async function ServicesPage() {
         <div className="container-shell">
           <Reveal className="max-w-3xl">
             <SectionLabel>Our Services</SectionLabel>
-            <h2 className="font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+            <h2 className="font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
               {pageContent.introTitle}
             </h2>
-            <p className="mt-5 text-base leading-8 text-white/64">
+            <p className="mt-5 text-[0.94rem] leading-7 text-white/64">
               {pageContent.introDescription}
             </p>
           </Reveal>
@@ -54,11 +54,11 @@ export default async function ServicesPage() {
                   </div>
                   <div className="p-6">
                     <p className="text-label text-accent">{service.shortName}</p>
-                    <h3 className="mt-4 font-bricolage text-[1.95rem] font-semibold leading-[1.03] tracking-[-0.03em] text-white">
+                    <h3 className="mt-4 font-bricolage text-[1.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white">
                       {service.name}
                     </h3>
-                    <p className="mt-4 text-sm leading-7 text-white/60">{service.summary}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition group-hover:text-accent">
+                    <p className="mt-4 text-[0.88rem] leading-7 text-white/60">{service.summary}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-[0.82rem] font-semibold text-white transition group-hover:text-accent">
                       View service <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -80,8 +80,8 @@ export default async function ServicesPage() {
                 index === 2 ? "sm:col-span-2 xl:col-span-1" : ""
               )}
             >
-              <h3 className="font-bricolage text-[1.9rem] font-semibold text-white">{title}</h3>
-              <p className="mt-4 text-base leading-8 text-white/62">{body}</p>
+              <h3 className="font-bricolage text-[1.6rem] font-semibold text-white">{title}</h3>
+              <p className="mt-4 text-[0.94rem] leading-7 text-white/62">{body}</p>
             </Reveal>
           ))}
         </div>

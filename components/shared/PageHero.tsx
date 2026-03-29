@@ -23,10 +23,10 @@ export function PageHero({
         {label ? <SectionLabel className="text-white/56">{label}</SectionLabel> : null}
         <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem] xl:items-end xl:gap-10">
           <div>
-            <h1 className="max-w-4xl font-bricolage text-[clamp(2.6rem,10vw,6rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
+            <h1 className="max-w-4xl font-bricolage text-[clamp(2.2rem,7.5vw,4.8rem)] font-semibold leading-[1] tracking-[-0.05em] text-white">
               {title}
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-white/68 md:text-lg xl:text-[1.15rem]">
+            <p className="mt-5 max-w-3xl text-[0.94rem] leading-7 text-white/68 md:text-base xl:text-[1.05rem]">
               {description}
             </p>
             {cta ? (
