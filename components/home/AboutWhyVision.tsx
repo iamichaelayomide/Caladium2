@@ -103,11 +103,15 @@ export function HomeAboutPreview() {
   );
 }
 
-export function HomeWhyCaladium() {
-  const [active, setActive] = useState<string>(whyCaladiumTabs[0].id);
+export function HomeWhyCaladium({
+  items = whyCaladiumTabs
+}: {
+  items?: (typeof whyCaladiumTabs)[number][];
+}) {
+  const [active, setActive] = useState<string>(items[0]?.id || "");
   const refs = useMemo(
-    () => whyCaladiumTabs.map(() => ({ current: null as HTMLDivElement | null })),
-    []
+    () => items.map(() => ({ current: null as HTMLDivElement | null })),
+    [items]
   );
 
   useEffect(() => {
@@ -117,7 +121,7 @@ export function HomeWhyCaladium() {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) setActive(whyCaladiumTabs[index].id);
+            if (entry.isIntersecting) setActive(items[index]?.id || "");
           });
         },
         { threshold: 0.45 }
@@ -128,7 +132,7 @@ export function HomeWhyCaladium() {
     });
 
     return () => observers.forEach((observer) => observer?.disconnect());
-  }, [refs]);
+  }, [refs, items]);
 
   return (
     <section className="section-padding border-y border-white/8 bg-[#070a11]">
@@ -143,13 +147,13 @@ export function HomeWhyCaladium() {
             teams with stronger structures than they started with.
           </p>
           <div className="mt-8 space-y-3">
-            {whyCaladiumTabs.map((tab) => (
+            {items.map((tab) => (
               <button
                 key={tab.id}
                 className="relative block pl-6 text-left"
                 onClick={() => {
                   setActive(tab.id);
-                  const target = refs[whyCaladiumTabs.findIndex((item) => item.id === tab.id)]?.current;
+                  const target = refs[items.findIndex((item) => item.id === tab.id)]?.current;
                   target?.scrollIntoView({ behavior: "smooth", block: "center" });
                 }}
               >
@@ -173,7 +177,7 @@ export function HomeWhyCaladium() {
         </div>
 
         <div className="space-y-6">
-          {whyCaladiumTabs.map((tab, index) => (
+          {items.map((tab, index) => (
             <Reveal
               key={tab.id}
               className="surface-panel rounded-[30px] p-8"
@@ -208,7 +212,7 @@ export function HomeWhyCaladium() {
           A consulting partner that works with senior calm and practical depth.
         </h2>
         <div className="mt-8 space-y-4">
-          {whyCaladiumTabs.map((tab) => (
+          {items.map((tab) => (
             <Reveal key={tab.id} className="surface-panel rounded-[28px] p-6">
               <h3 className="font-bricolage text-xl font-semibold text-white">{tab.title}</h3>
               <p className="mt-3 text-[0.94rem] leading-7 text-white/62">{tab.body}</p>

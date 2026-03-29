@@ -34,6 +34,18 @@ type HomePageContent = {
   journalHeading: string;
   journalDescription: string;
   stats: Stat[];
+  whyCaladium: Array<{
+    id: string;
+    title: string;
+    body: string;
+    bullets: string[];
+  }>;
+  testimonials: Array<{
+    name: string;
+    title: string;
+    quote: string;
+    image: string;
+  }>;
 };
 
 type ServicesPageContent = {
@@ -87,7 +99,9 @@ const fallbackHomePage: HomePageContent = {
   journalHeading: "Ideas, observations, and strategy notes from the field.",
   journalDescription:
     "Practical thinking for founders, operators, and executives building in African markets.",
-  stats: [...fallbackStats]
+  stats: [...fallbackStats],
+  whyCaladium: [...fallbackWhyCaladiumTabs],
+  testimonials: [...fallbackTestimonials]
 };
 
 const fallbackServicesPage: ServicesPageContent = {
@@ -303,7 +317,11 @@ export async function getHomePageContent() {
     heroDescription: content.heroDescription || fallbackHomePage.heroDescription,
     journalHeading: content.journalHeading || fallbackHomePage.journalHeading,
     journalDescription: content.journalDescription || fallbackHomePage.journalDescription,
-    stats: content.stats?.length ? content.stats : fallbackHomePage.stats
+    stats: content.stats?.length ? content.stats : fallbackHomePage.stats,
+    whyCaladium: content.whyCaladium?.length ? content.whyCaladium : fallbackHomePage.whyCaladium,
+    testimonials: content.testimonials?.length
+      ? content.testimonials
+      : fallbackHomePage.testimonials
   } satisfies HomePageContent;
 }
 

@@ -27,8 +27,8 @@ export default async function HomePage() {
       />
       <HomeClientLogos />
       <HomeServices services={services} />
-      <HomeWhyCaladium />
-      <HomeTestimonials />
+      <HomeWhyCaladium items={homePage.whyCaladium} />
+      <HomeTestimonials items={homePage.testimonials} />
       <HomeContactPreview details={siteSettings} />
     </>
   );

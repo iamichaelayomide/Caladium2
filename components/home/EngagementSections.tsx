@@ -17,7 +17,11 @@ export function HomeServiceTabs() {
   return null;
 }
 
-export function HomeTestimonials() {
+export function HomeTestimonials({
+  items = testimonials
+}: {
+  items?: (typeof testimonials)[number][];
+}) {
   return (
     <section className="section-padding border-y border-white/8 bg-[#070a10]">
       <div className="container-shell">
@@ -36,7 +40,7 @@ export function HomeTestimonials() {
         </Reveal>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-3">
-          {testimonials.slice(0, 6).map((testimonial, index) => (
+          {items.slice(0, 6).map((testimonial, index) => (
             <Reveal
               key={testimonial.name}
               delay={index * 0.03}

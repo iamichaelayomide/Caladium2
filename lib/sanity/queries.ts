@@ -34,7 +34,9 @@ export const homePageQuery = groq`*[_type == "homePage"][0]{
   heroDescription,
   journalHeading,
   journalDescription,
-  stats
+  stats,
+  whyCaladium,
+  testimonials
 }`;
 
 export const servicesPageQuery = groq`*[_type == "servicesPage"][0]{

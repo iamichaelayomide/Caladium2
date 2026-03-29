@@ -32,7 +32,7 @@ export const homePageType = defineType({
         defineArrayMember({
           type: "object",
           fields: [
-            defineField({ name: "value", title: "Value", type: "number" }),
+            defineField({ name: "value", title: "Value", type: "string" }),
             defineField({ name: "suffix", title: "Suffix", type: "string" }),
             defineField({ name: "label", title: "Label", type: "string" }),
             defineField({
@@ -48,6 +48,43 @@ export const homePageType = defineType({
               subtitle: "description"
             }
           }
+        })
+      ]
+    }),
+    defineField({
+      name: "whyCaladium",
+      title: "Why Caladium Section",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "id", title: "ID", type: "string" }),
+            defineField({ name: "title", title: "Title", type: "string" }),
+            defineField({ name: "body", title: "Body", type: "text", rows: 3 }),
+            defineField({
+              name: "bullets",
+              title: "Bullets",
+              type: "array",
+              of: [defineArrayMember({ type: "string" })]
+            })
+          ]
+        })
+      ]
+    }),
+    defineField({
+      name: "testimonials",
+      title: "Testimonials",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "object",
+          fields: [
+            defineField({ name: "name", title: "Name", type: "string" }),
+            defineField({ name: "title", title: "Title", type: "string" }),
+            defineField({ name: "quote", title: "Quote", type: "text", rows: 3 }),
+            defineField({ name: "image", title: "Image", type: "url" })
+          ]
         })
       ]
     })
