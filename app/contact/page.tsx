@@ -56,19 +56,19 @@ export default async function ContactPage() {
               {pageContent.panelDescription}
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3">
               {cards.map((card) => (
                 <Link
                   key={card.label}
                   href={card.href}
                   className={cn(
-                    "rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]",
+                    "flex h-full min-h-[12.75rem] flex-col rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/35 hover:bg-white/[0.05]",
                     card.label === "Email" ? "sm:col-span-2 xl:col-span-1" : ""
                   )}
                 >
                   <card.icon className="h-5 w-5 text-accent" />
                   <p className="mt-4 text-label text-white/36">{card.label}</p>
-                  <p className="mt-2 text-sm leading-6 text-white/78">{card.value}</p>
+                  <p className="mt-2 break-words text-sm leading-6 text-white/78">{card.value}</p>
                 </Link>
               ))}
             </div>
