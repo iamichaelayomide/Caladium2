@@ -124,8 +124,8 @@ export function HomeContactPreview({
 
   return (
     <section className="section-padding bg-bg">
-      <div className="container-shell grid gap-6 2xl:grid-cols-[0.78fr_1.22fr]">
-        <Reveal className="relative min-h-[18rem] overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem]">
+      <div className="container-shell grid gap-6 2xl:grid-cols-[0.78fr_1.22fr] 2xl:items-start">
+        <Reveal className="relative min-h-[18rem] self-start overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem] 2xl:min-h-[36rem]">
           <Image
             src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=80"
             alt="Premium office architecture"

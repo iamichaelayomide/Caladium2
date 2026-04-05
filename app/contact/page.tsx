@@ -31,8 +31,8 @@ export default async function ContactPage() {
       />
 
       <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-6 2xl:grid-cols-[0.82fr_1.18fr]">
-          <div className="relative min-h-[18rem] overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem]">
+        <div className="container-shell grid gap-6 2xl:grid-cols-[0.82fr_1.18fr] 2xl:items-start">
+          <div className="relative min-h-[18rem] self-start overflow-hidden rounded-[32px] border border-white/10 md:min-h-[22rem] 2xl:min-h-[36rem]">
             <Image
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
               alt="Caladium office environment"
