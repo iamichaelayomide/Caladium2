@@ -4,6 +4,8 @@ import {
   services as fallbackServices,
   stats as fallbackStats,
   teamMembers as fallbackTeamMembers,
+  testimonials as fallbackTestimonials,
+  whyCaladiumTabs as fallbackWhyCaladiumTabs,
   type BlogPost,
   type Service,
   type TeamMember
@@ -38,7 +40,7 @@ type HomePageContent = {
     id: string;
     title: string;
     body: string;
-    bullets: string[];
+    bullets: readonly string[];
   }>;
   testimonials: Array<{
     name: string;

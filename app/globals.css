@@ -27,7 +27,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--color-bg);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 body {
@@ -75,7 +75,7 @@ a {
 }
 
 .text-label {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -187,7 +187,7 @@ a {
   }
 
   .text-label {
-    font-size: 0.66rem;
+    font-size: 0.62rem;
     letter-spacing: 0.2em;
   }
 
@@ -209,6 +209,12 @@ a {
 @media (min-width: 1024px) and (max-width: 1279px) {
   .container-shell {
     width: min(100% - 3rem, 74rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 14.25px;
   }
 }
 

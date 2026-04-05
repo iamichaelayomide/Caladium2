@@ -10,6 +10,13 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { teamMembers, whyCaladiumTabs } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
+type WhyCaladiumItem = {
+  id: string;
+  title: string;
+  body: string;
+  bullets: readonly string[];
+};
+
 export function HomeAboutPreview() {
   return (
     <section className="section-padding bg-bg">
@@ -106,7 +113,7 @@ export function HomeAboutPreview() {
 export function HomeWhyCaladium({
   items = whyCaladiumTabs
 }: {
-  items?: (typeof whyCaladiumTabs)[number][];
+  items?: readonly WhyCaladiumItem[];
 }) {
   const [active, setActive] = useState<string>(items[0]?.id || "");
   const refs = useMemo(

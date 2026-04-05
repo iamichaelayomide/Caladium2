@@ -13,6 +13,13 @@ import type { BlogPost } from "@/lib/site-data";
 import type { ContactDetailsContent } from "@/lib/sanity/fetch";
 import { cn } from "@/lib/utils";
 
+type TestimonialItem = {
+  name: string;
+  title: string;
+  quote: string;
+  image: string;
+};
+
 export function HomeServiceTabs() {
   return null;
 }
@@ -20,7 +27,7 @@ export function HomeServiceTabs() {
 export function HomeTestimonials({
   items = testimonials
 }: {
-  items?: (typeof testimonials)[number][];
+  items?: readonly TestimonialItem[];
 }) {
   return (
     <section className="section-padding border-y border-white/8 bg-[#070a10]">
