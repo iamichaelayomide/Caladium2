@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { ContactForm } from "@/components/ui/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
+import { PricingSection } from "@/components/shared/PricingSection";
 import { getContactPageContent, getSiteSettings } from "@/lib/sanity/fetch";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +30,8 @@ export default async function ContactPage() {
         title={pageContent.heroTitle}
         description={pageContent.heroDescription}
       />
+
+      <PricingSection variant="compact" className="pb-0" />
 
       <section className="section-padding bg-bg">
         <div className="container-shell grid gap-6 2xl:grid-cols-[0.82fr_1.18fr] 2xl:items-start">

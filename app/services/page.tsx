@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageHero } from "@/components/shared/PageHero";
+import { PricingSection } from "@/components/shared/PricingSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { getServices, getServicesPageContent } from "@/lib/sanity/fetch";
@@ -68,6 +69,8 @@ export default async function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <PricingSection className="border-t-0" />
 
       <section className="section-padding border-t border-white/8 bg-[#070a10]">
         <div className="container-shell grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageHero } from "@/components/shared/PageHero";
+import { PricingSection } from "@/components/shared/PricingSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { teamMembers } from "@/lib/site-data";
@@ -129,6 +130,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <PricingSection variant="compact" />
 
       <section className="section-padding bg-[#070a10]">
         <div className="container-shell">

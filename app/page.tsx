@@ -2,6 +2,7 @@ import { HomeWhyCaladium } from "@/components/home/AboutWhyVision";
 import { HomeClientLogos, HomeContactPreview, HomeTestimonials } from "@/components/home/EngagementSections";
 import { HomeHero } from "@/components/home/Hero";
 import { HomeServices } from "@/components/home/ServicesStats";
+import { PricingSection } from "@/components/shared/PricingSection";
 import {
   getHomePageContent,
   getServices,
@@ -27,6 +28,7 @@ export default async function HomePage() {
       />
       <HomeClientLogos />
       <HomeServices services={services} />
+      <PricingSection />
       <HomeWhyCaladium items={homePage.whyCaladium} />
       <HomeTestimonials items={homePage.testimonials} />
       <HomeContactPreview details={siteSettings} />
