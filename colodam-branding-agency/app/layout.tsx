@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Colodam"
   },
   description:
-    "Colodam helps African enterprises scale through strategy, organizational design, market positioning, and campaign analytics.",
+    "Colodam is a marketing and branding agency helping African businesses build memorable identities, launch creative campaigns, and grow predictable demand.",
   metadataBase: new URL("https://colodam.com")
 };
 

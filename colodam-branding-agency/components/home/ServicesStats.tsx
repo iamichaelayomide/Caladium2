@@ -15,8 +15,8 @@ type HomeServicesProps = {
 
 export function HomeServices({
   services = fallbackServices,
-  title = "Advisory built to help leadership teams move with precision.",
-  description = "Every engagement is structured for action: sharper choices, cleaner operating rhythm, and execution that fits the realities of African markets."
+  title = "Branding services built for visibility, trust, and growth.",
+  description = "From naming and identity to campaign rollout and performance tracking, each engagement is designed to turn brand attention into revenue outcomes."
 }: HomeServicesProps) {
   return (
     <section className="section-padding border-y border-white/8 bg-[#06080f]">

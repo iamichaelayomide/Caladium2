@@ -68,7 +68,7 @@ export const pricingTiers: PricingTier[] = [
     price: "Custom",
     cadence: "Engagement-based",
     description:
-      "For larger organizations that need a tailored advisory scope across strategy, governance, operating design, planning, and research.",
+      "For larger organizations that need a tailored campaign scope across strategy, governance, operating design, planning, and research.",
     features: [
       "Strategy retreat",
       "Financial planning",

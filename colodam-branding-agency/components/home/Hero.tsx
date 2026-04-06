@@ -16,8 +16,8 @@ type HomeHeroProps = {
 
 export function HomeHero({
   label = "Colodam",
-  title = "Strategy advisory with discipline, calm, and real operating depth.",
-  description = "We help African businesses sharpen direction, align teams, and build the systems that turn growth ambition into measurable progress.",
+  title = "Build a brand people remember and a growth engine that performs.",
+  description = "Colodam blends brand strategy, content direction, and campaign execution to help African businesses launch louder, look sharper, and convert consistently.",
   statsData = [...stats]
 }: HomeHeroProps) {
   const { scrollY } = useScroll();
@@ -78,11 +78,11 @@ export function HomeHero({
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
               className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/58"
             >
-              <span>Board and leadership advisory</span>
+              <span>Brand strategy and identity</span>
               <Dot className="hidden h-4 w-4 sm:block" />
-              <span>Operating model design</span>
+              <span>Creative and content systems</span>
               <Dot className="hidden h-4 w-4 sm:block" />
-              <span>Market entry and transformation</span>
+              <span>Paid media and conversion growth</span>
             </motion.div>
 
             <motion.div
@@ -105,7 +105,7 @@ export function HomeHero({
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
             className="hero-panel hidden rounded-[32px] p-6 xl:block"
           >
-            <p className="text-label text-white/45">Why leaders call us</p>
+            <p className="text-label text-white/45">Why brands pick Colodam</p>
             <div className="mt-6 space-y-6">
               {statsData.slice(0, 3).map((stat) => (
                 <div key={stat.label} className="border-b border-white/8 pb-5 last:border-b-0 last:pb-0">

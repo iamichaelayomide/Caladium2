@@ -138,9 +138,9 @@ export function HomeContactPreview({
             <h3 className="mt-4 max-w-md font-bricolage text-2xl font-semibold leading-tight text-white md:text-3xl">
               Start the conversation before the problem gets more expensive.
             </h3>
-            <p className="mt-3.5 max-w-md text-[0.88rem] leading-6 text-white/66">
-              Book a brand strategy call if the business needs sharper direction, stronger delivery
-              systems, or a clearer path through growth.
+          <p className="mt-3.5 max-w-md text-[0.88rem] leading-6 text-white/66">
+              Book a brand strategy call if your team needs clearer positioning, stronger creative
+              systems, or campaigns that actually convert.
             </p>
           </div>
         </Reveal>
@@ -148,11 +148,11 @@ export function HomeContactPreview({
         <Reveal className="surface-panel rounded-[32px] p-5 md:p-7 xl:p-8">
           <SectionLabel>Get In Touch</SectionLabel>
           <h2 className="max-w-xl font-bricolage text-[clamp(1.9rem,3.5vw,3.1rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-            Let&apos;s talk through the next move for your business.
+            Let&apos;s map the next growth move for your brand.
           </h2>
           <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/62">
-            If you need better strategy, stronger operating rhythm, or leadership alignment around
-            what matters now, we&apos;ll structure the right next conversation.
+            If you need sharper messaging, better campaign performance, or stronger consistency
+            across channels, we&apos;ll structure the right next conversation.
           </p>
 
           <div className="mt-8 grid gap-4 sm:auto-rows-fr sm:grid-cols-2 xl:grid-cols-3">
@@ -183,8 +183,8 @@ export function HomeContactPreview({
 
 export function HomeBlogPreview({
   posts = blogPosts.slice(0, 4),
-  heading = "Ideas, observations, and strategy notes from the field.",
-  description = "Practical thinking for founders, operators, and executives building in African markets."
+  heading = "Creative playbooks, campaign lessons, and growth insights.",
+  description = "Practical ideas for founders and marketers building standout brands in African markets."
 }: {
   posts?: BlogPost[];
   heading?: string;

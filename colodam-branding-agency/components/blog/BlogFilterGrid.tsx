@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 
 import type { BlogPost } from "@/lib/site-data";
 
-const filters = ["All", "Strategy", "SME", "Report", "Founders", "Operations", "Market Entry"] as const;
+const filters = ["All", "Strategy", "SME", "Report", "Founders", "Operations", "Go-To-Market"] as const;
 
 export function BlogFilterGrid({ posts }: { posts: BlogPost[] }) {
   const [active, setActive] = useState<(typeof filters)[number]>("All");

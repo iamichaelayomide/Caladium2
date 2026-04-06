@@ -95,12 +95,12 @@ type SanityService = Omit<Service, "slug"> & {
 
 const fallbackHomePage: HomePageContent = {
   heroLabel: "Colodam",
-  heroTitle: "Strategy advisory with discipline, calm, and real operating depth.",
+  heroTitle: "Build a brand people remember and a growth engine that performs.",
   heroDescription:
-    "We help African businesses sharpen direction, align teams, and build the systems that turn growth ambition into measurable progress.",
-  journalHeading: "Ideas, observations, and strategy notes from the field.",
+    "Colodam blends brand strategy, creative direction, and campaign execution to help African businesses launch louder, look sharper, and convert consistently.",
+  journalHeading: "Creative playbooks, campaign lessons, and growth insights.",
   journalDescription:
-    "Practical thinking for founders, operators, and executives building in African markets.",
+    "Practical ideas for founders and marketers building standout brands in African markets.",
   stats: [...fallbackStats],
   whyColodam: [...fallbackWhyColodamTabs],
   testimonials: [...fallbackTestimonials]
@@ -109,14 +109,14 @@ const fallbackHomePage: HomePageContent = {
 const fallbackServicesPage: ServicesPageContent = {
   heroTitle: "Branding support designed to move the business forward.",
   heroDescription:
-    "From strategic planning to operating model design and market positioning, every Colodam engagement is structured for practical execution and durable outcomes.",
+    "From brand strategy and identity design to campaign launch and optimization, every Colodam engagement is structured for practical execution and durable outcomes.",
   introTitle: "Choose the engagement that matches the decision in front of you.",
   introDescription:
     "Each service page goes deeper into scope, deliverables, and how we approach the work with leadership teams.",
   principles: [
     {
-      title: "Architecture for strategy",
-      body: "We treat strategy like architecture: foundations first, then structure, then the choices that make scaling more realistic."
+      title: "Architecture for brand systems",
+      body: "We build brand systems with strong foundations first, then creative structure, then campaigns that can scale."
     },
     {
       title: "Execution built into scope",
@@ -132,22 +132,22 @@ const fallbackServicesPage: ServicesPageContent = {
 const fallbackTeamPage: TeamPageContent = {
   heroTitle: "Meet the Colodam team.",
   heroDescription:
-    "A multidisciplinary group spanning strategy, finance, research, process engineering, market positioning, and change leadership."
+    "A multidisciplinary group spanning brand strategy, identity design, campaign production, audience insight, and performance growth."
 };
 
 const fallbackContactPage: ContactPageContent = {
   heroTitle: "Start the conversation before the issue gets heavier.",
   heroDescription:
-    "Whether you need sharper strategy, operating redesign, or support navigating growth, reach out and we will structure the right next step.",
+    "Whether you need sharper positioning, stronger campaign systems, or support scaling demand, reach out and we will structure the right next step.",
   panelTitle: "Tell us what the business is facing.",
   panelDescription:
-    "We will use that context to shape the right conversation, scope, and advisory path."
+    "We will use that context to shape the right conversation, scope, and delivery path."
 };
 
 const fallbackSiteSettings: ContactDetailsContent = {
   siteTitle: "Colodam",
   seoDescription:
-    "Colodam helps African enterprises scale through strategy, organizational design, market positioning, and campaign analytics.",
+    "Colodam is a marketing and branding agency helping African businesses build memorable identities, launch creative campaigns, and grow predictable demand.",
   address: fallbackContactDetails.address,
   email: fallbackContactDetails.email,
   emailHref: fallbackContactDetails.emailHref,

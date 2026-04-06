@@ -28,11 +28,11 @@ export function PricingSection({
               <div>
                 <SectionLabel>Engagement Pricing</SectionLabel>
                 <h2 className="max-w-2xl font-bricolage text-[clamp(2rem,3.8vw,3.1rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
-                  Clear entry points for founders, startup teams, and larger enterprises.
+                  Clear entry points for founders, marketing teams, and larger brands.
                 </h2>
                 <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/64">
-                  Whether you want community access, a one-off strategy session, or a custom
-                  enterprise advisory scope, there is a cleaner starting point than guessing.
+                  Whether you want community access, a one-off brand sprint, or a custom
+                  enterprise campaign scope, there is a cleaner starting point than guessing.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">

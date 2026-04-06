@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #06070b;
-  --color-surface: #0e1118;
-  --color-surface-strong: #131925;
-  --color-surface-soft: #1a2130;
-  --color-border: rgba(214, 224, 255, 0.12);
-  --color-border-strong: rgba(214, 224, 255, 0.2);
-  --color-text-primary: #f5f7ff;
-  --color-text-secondary: #ccd3e8;
-  --color-text-tertiary: #8d97b2;
-  --color-accent: #d99a2b;
-  --color-accent-light: rgba(217, 154, 43, 0.16);
-  --color-accent-hover: #efaf42;
-  --color-gold: #d99a2b;
-  --color-gold-light: rgba(217, 154, 43, 0.14);
-  --color-pastel-green: #10201c;
-  --color-pastel-gold: #231b0f;
-  --color-pastel-blue: #0f1827;
-  --color-pastel-warm: #24151a;
-  --color-pastel-purple: #1b1526;
+  --color-bg: #09061b;
+  --color-surface: #151033;
+  --color-surface-strong: #1a1440;
+  --color-surface-soft: #211954;
+  --color-border: rgba(193, 177, 255, 0.24);
+  --color-border-strong: rgba(213, 201, 255, 0.38);
+  --color-text-primary: #faf7ff;
+  --color-text-secondary: #ddd3ff;
+  --color-text-tertiary: #a99ad7;
+  --color-accent: #ff7fc5;
+  --color-accent-light: rgba(255, 127, 197, 0.2);
+  --color-accent-hover: #ff9dd4;
+  --color-gold: #ffc56a;
+  --color-gold-light: rgba(255, 197, 106, 0.18);
+  --color-pastel-green: #10221d;
+  --color-pastel-gold: #302314;
+  --color-pastel-blue: #171f3d;
+  --color-pastel-warm: #321727;
+  --color-pastel-purple: #261848;
 }
 
 html {
@@ -48,12 +48,12 @@ a {
 }
 
 ::selection {
-  background: rgba(217, 154, 43, 0.28);
+  background: rgba(255, 127, 197, 0.35);
   color: var(--color-text-primary);
 }
 
 :focus-visible {
-  outline: 2px solid rgba(217, 154, 43, 0.7);
+  outline: 2px solid rgba(255, 127, 197, 0.8);
   outline-offset: 3px;
 }
 
@@ -87,26 +87,27 @@ a {
 
 .hero-panel {
   background:
-    linear-gradient(180deg, rgba(6, 7, 11, 0.24), rgba(6, 7, 11, 0.82)),
-    radial-gradient(circle at top, rgba(217, 154, 43, 0.18), transparent 38%),
-    linear-gradient(145deg, rgba(14, 17, 24, 0.92), rgba(8, 10, 15, 0.9));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    linear-gradient(150deg, rgba(35, 24, 83, 0.72), rgba(16, 13, 40, 0.86)),
+    radial-gradient(circle at 18% 14%, rgba(255, 127, 197, 0.3), transparent 36%),
+    radial-gradient(circle at 84% 18%, rgba(114, 145, 255, 0.26), transparent 34%);
+  border: 1px solid rgba(226, 215, 255, 0.2);
+  box-shadow: 0 26px 90px rgba(7, 3, 28, 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .hero-overlay {
   background:
-    linear-gradient(180deg, rgba(6, 7, 11, 0.25) 0%, rgba(6, 7, 11, 0.65) 54%, rgba(6, 7, 11, 0.92) 100%),
-    radial-gradient(circle at 20% 15%, rgba(217, 154, 43, 0.18), transparent 30%),
-    radial-gradient(circle at 82% 20%, rgba(84, 110, 255, 0.12), transparent 32%);
+    linear-gradient(180deg, rgba(8, 6, 21, 0.22) 0%, rgba(9, 6, 27, 0.72) 56%, rgba(9, 6, 27, 0.94) 100%),
+    radial-gradient(circle at 18% 14%, rgba(255, 127, 197, 0.24), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(116, 157, 255, 0.2), transparent 32%);
 }
 
 .hero-glow {
   background:
-    radial-gradient(circle at 18% 18%, rgba(217, 154, 43, 0.2), transparent 30%),
-    radial-gradient(circle at 82% 22%, rgba(102, 127, 255, 0.16), transparent 30%),
-    radial-gradient(circle at 50% 100%, rgba(50, 68, 116, 0.16), transparent 36%);
-  filter: blur(120px);
+    radial-gradient(circle at 14% 16%, rgba(255, 127, 197, 0.4), transparent 34%),
+    radial-gradient(circle at 82% 22%, rgba(123, 164, 255, 0.32), transparent 32%),
+    radial-gradient(circle at 52% 98%, rgba(139, 90, 255, 0.22), transparent 38%);
+  filter: blur(110px);
 }
 
 .hero-grid {
@@ -118,14 +119,17 @@ a {
 }
 
 .surface-panel {
-  background: linear-gradient(180deg, rgba(15, 18, 26, 0.95), rgba(10, 12, 18, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  background:
+    linear-gradient(165deg, rgba(28, 20, 67, 0.93), rgba(17, 12, 44, 0.96)),
+    radial-gradient(circle at top right, rgba(255, 127, 197, 0.12), transparent 48%);
+  border: 1px solid rgba(226, 215, 255, 0.16);
+  box-shadow: 0 22px 70px rgba(9, 5, 31, 0.42);
+  backdrop-filter: blur(8px);
 }
 
 .surface-muted {
-  background: linear-gradient(180deg, rgba(19, 25, 37, 0.84), rgba(12, 16, 24, 0.88));
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: linear-gradient(180deg, rgba(30, 23, 72, 0.82), rgba(18, 13, 46, 0.9));
+  border: 1px solid rgba(227, 219, 255, 0.12);
 }
 
 .shadow-overlay {

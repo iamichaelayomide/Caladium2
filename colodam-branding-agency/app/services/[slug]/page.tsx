@@ -143,8 +143,8 @@ export default async function ServiceDetailPage({ params }: { params: { slug: st
               Ready to move on this service?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">
-              Start with a conversation and we will map the right scope, timeline, and advisory
-              structure for the priority in front of you.
+              Start with a conversation and we will map the right scope, timeline, and delivery
+              structure for the growth priority in front of you.
             </p>
             <Link
               href="/contact"

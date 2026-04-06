@@ -39,12 +39,12 @@ export function HomeAboutPreview() {
               className="h-16 w-16 rounded-full object-cover"
             />
             <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-white">
-              Great businesses are not built on ideas alone. They are built on decisions, systems,
-              and follow-through.
+              Great brands are not built on nice logos alone. They are built on narrative, consistency,
+              and measurable execution.
             </p>
             <p className="mt-4 text-sm leading-7 text-white/56">
-              Since 2010, Colodam has helped leaders navigate strategy, operations, and change
-              with a practical lens on what execution really requires.
+              Colodam helps teams define their voice, shape memorable brand experiences, and
+              run campaigns that turn attention into demand.
             </p>
           </div>
         </Reveal>
@@ -52,19 +52,19 @@ export function HomeAboutPreview() {
         <Reveal>
           <SectionLabel>About Colodam</SectionLabel>
           <h2 className="max-w-xl font-bricolage text-[clamp(2.4rem,4.2vw,3.75rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
-            Strategic minds with real-world operating context.
+            Creative thinkers with real-world growth context.
           </h2>
           <p className="mt-5 max-w-xl text-base leading-8 text-white/66">
-            We partner with founders, executives, and management teams that need more than smart
-            slides. They need clearer priorities, better alignment, and systems that keep working
-            after the engagement ends.
+            We partner with founders and marketing teams who need more than aesthetics. They
+            need positioning that is clear, content that resonates, and systems that keep producing
+            results after launch day.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
-              "Senior-led branding across strategy, operations, and transformation.",
-              "Delivery grounded in African market realities, not imported abstractions.",
-              "Structured engagements that balance leadership clarity with execution detail.",
-              "A calm, direct working style that helps teams move through complexity."
+              "Senior-led brand strategy, visual identity, and messaging architecture.",
+              "Creative direction grounded in African market realities, not borrowed templates.",
+              "Structured rollouts across content, campaigns, and launch moments.",
+              "A practical partnership style that keeps momentum high and teams aligned."
             ].map((item) => (
               <div key={item} className="surface-muted rounded-[24px] p-5 text-sm leading-7 text-white/62">
                 {item}
@@ -96,12 +96,12 @@ export function HomeAboutPreview() {
               className="h-16 w-16 rounded-full object-cover"
             />
             <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-white">
-              Great businesses are not built on ideas alone. They are built on decisions, systems,
-              and follow-through.
+              Great brands are not built on nice logos alone. They are built on narrative, consistency,
+              and measurable execution.
             </p>
             <p className="mt-4 text-sm leading-7 text-white/56">
-              Since 2010, Colodam has helped leaders navigate strategy, operations, and change
-              with a practical lens on what execution really requires.
+              Colodam helps teams define their voice, shape memorable brand experiences, and
+              run campaigns that turn attention into demand.
             </p>
           </div>
         </Reveal>
@@ -147,11 +147,11 @@ export function HomeWhyColodam({
         <div className="sticky top-28 h-fit">
           <SectionLabel>Why Colodam</SectionLabel>
           <h2 className="max-w-lg font-bricolage text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-            A standard of branding that feels direct, senior, and execution-minded.
+            A branding standard that feels bold, clear, and conversion-minded.
           </h2>
           <p className="mt-5 max-w-md text-[0.94rem] leading-7 text-white/60">
-            We design our engagements to reduce noise, clarify decisions, and leave leadership
-            teams with stronger structures than they started with.
+            We design engagements to cut through noise, clarify positioning, and leave your
+            internal team with sharper assets and repeatable campaign systems.
           </p>
           <div className="mt-8 space-y-3">
             {items.map((tab) => (
@@ -216,7 +216,7 @@ export function HomeWhyColodam({
       <div className="container-shell xl:hidden">
         <SectionLabel>Why Colodam</SectionLabel>
         <h2 className="max-w-xl font-bricolage text-[clamp(1.8rem,4.5vw,2.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
-          A branding partner that works with senior calm and practical depth.
+          A branding partner that works with creative range and practical depth.
         </h2>
         <div className="mt-8 space-y-4">
           {items.map((tab) => (
@@ -242,12 +242,11 @@ export function HomeVision() {
         <Reveal className="mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center">Our Vision</SectionLabel>
           <h2 className="font-bricolage text-[clamp(2.45rem,4.6vw,4.2rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
-            To be the trusted partner helping African businesses grow with clarity, resilience, and
-            strategic discipline.
+            To help African brands lead culture, own their category, and grow with confidence.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/66">
-            We want more African organizations to navigate complexity with confidence. That means
-            better strategy, better systems, and a stronger bridge between ambition and execution.
+            We believe great brands are built at the intersection of strong ideas and repeatable
+            execution, where every campaign compounds trust and drives measurable growth.
           </p>
         </Reveal>
 
@@ -255,15 +254,15 @@ export function HomeVision() {
           {[
             [
               "Clarity",
-              "Sharpen strategic direction so leadership teams know what matters most and what comes next."
+              "Sharpen your positioning so customers instantly understand why your brand matters."
             ],
             [
-              "Capability",
-              "Build structures, operating rhythm, and team alignment that make sustained growth more realistic."
+              "Consistency",
+              "Build identity systems, content rhythms, and campaign standards your team can sustain."
             ],
             [
-              "Continuity",
-              "Leave behind systems and momentum that continue to work after our direct involvement ends."
+              "Conversion",
+              "Connect brand storytelling to demand generation so attention turns into qualified pipeline."
             ]
           ].map(([title, body], index) => (
             <Reveal
@@ -295,7 +294,7 @@ export function HomeVision() {
           <div className="absolute bottom-0 left-0 max-w-xl p-6 md:p-8">
             <p className="text-label text-white/55">Built for the long term</p>
             <p className="mt-4 font-bricolage text-3xl font-semibold leading-tight text-white md:text-4xl">
-              The goal is not more activity. The goal is a business that knows how to scale itself.
+              The goal is not louder marketing. The goal is a brand that compounds with every touchpoint.
             </p>
           </div>
         </motion.div>
