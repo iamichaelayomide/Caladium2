@@ -1,8 +1,8 @@
-import { ArrowRight, Check, Sparkles } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { HomeContactPreview } from "@/components/home/EngagementSections";
+import { InflatedHero } from "@/components/home/InflatedHero";
 import { HomeMotionSections } from "@/components/home/HomeMotionSections";
 import { PricingSection } from "@/components/shared/PricingSection";
 import { Button } from "@/components/ui/Button";
@@ -26,102 +26,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#eef4ff_0%,#f8fbff_56%,#ffffff_100%)] pt-32 md:pt-36">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_12%,rgba(37,99,235,0.2),transparent_30%),radial-gradient(circle_at_86%_18%,rgba(14,165,164,0.14),transparent_30%)]"
-        />
-
-        <div className="container-shell relative pb-16 md:pb-20">
-          <div className="grid gap-8 xl:grid-cols-[1.08fr_0.92fr] xl:items-start">
-            <div className="space-y-6">
-              <p className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3 py-1 text-label text-blue-700">
-                <Sparkles className="h-3.5 w-3.5" /> Colodium Growth Atelier
-              </p>
-
-              <h1 className="max-w-4xl font-bricolage text-[clamp(2.55rem,6.9vw,5.4rem)] font-semibold leading-[0.92] tracking-[-0.05em] text-slate-900">
-                We turn brands into demand engines.
-              </h1>
-
-              <p className="max-w-2xl text-[1.02rem] leading-8 text-slate-600">
-                Colodam is a marketing and branding agency built for ambitious teams. We combine
-                positioning, design systems, launch campaigns, and revenue-focused optimization in
-                one coordinated execution model.
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                <Button href="/contact" variant="primary" size="lg">
-                  Start your growth sprint
-                </Button>
-                <Button href="/services" variant="outline" size="lg">
-                  Explore service stack <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3">
-                {[
-                  ["120+", "Brand campaigns shipped"],
-                  ["31%", "Average funnel lift"],
-                  ["9 wks", "Typical launch window"]
-                ].map(([value, label]) => (
-                  <div key={label} className="rounded-2xl border border-blue-100 bg-white/90 p-4">
-                    <p className="font-bricolage text-3xl font-semibold tracking-[-0.03em] text-slate-900">
-                      {value}
-                    </p>
-                    <p className="mt-2 text-sm text-slate-600">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-4 xl:pl-4">
-              <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-white p-6 shadow-[0_20px_42px_rgba(15,23,42,0.1)]">
-                <div className="relative mb-5 h-44 overflow-hidden rounded-2xl border border-blue-100">
-                  <Image
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-                    alt="Marketing analytics dashboard and creative direction setup"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1280px) 100vw, 40vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/45 via-transparent to-transparent" />
-                </div>
-                <p className="text-label text-slate-500">Q2 Focus Program</p>
-                <h2 className="mt-3 font-bricolage text-3xl font-semibold leading-[1] text-slate-900">
-                  Position. Build. Launch. Scale.
-                </h2>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-700">
-                  {[
-                    "Narrative architecture and category POV",
-                    "Visual identity and campaign creative direction",
-                    "Acquisition channels plus weekly optimization loops"
-                  ].map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <Check className="mt-1 h-4 w-4 text-blue-600" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl border border-slate-200 bg-[#e9f1ff] p-5">
-                  <p className="text-label text-blue-700">Message Lab</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-700">
-                    Sharp positioning and offer narratives for paid, social, and website channels.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-slate-200 bg-[#ecfbf8] p-5">
-                  <p className="text-label text-teal-700">Launch Ops</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-700">
-                    Execution support from pre-launch assets to post-launch conversion optimization.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InflatedHero />
 
       <section className="border-b border-slate-200 bg-white py-10">
         <div className="container-shell">
