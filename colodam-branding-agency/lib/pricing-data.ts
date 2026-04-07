@@ -13,70 +13,71 @@ export type PricingTier = {
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "CaaS for Startups & SMEs",
-    price: "$0.0",
-    cadence: "Lifetime",
+    name: "Starter Brand Audit",
+    price: "$149",
+    cadence: "One-off",
     description:
-      "A zero-cost community layer for founders and small teams who want guidance, partnership, and ongoing access to Colodam's startup network.",
+      "A focused brand health check for early teams that need clear positioning, sharper messaging, and practical next steps.",
     features: [
-      "Business management support",
-      "Interactive training access",
-      "Partnership platform entry",
-      "Business mentorship with Colodam",
-      "Colodam SME community"
+      "90-minute strategy call",
+      "Messaging gap analysis",
+      "Competitor positioning snapshot",
+      "Quick-win action roadmap",
+      "7-day follow-up support"
     ],
-    ctaLabel: "Join Community",
+    ctaLabel: "Book Audit",
     ctaHref: "/contact"
   },
   {
-    name: "Founders Clarity Session",
-    price: "$200",
-    cadence: "Per session",
+    name: "Brand Sprint",
+    price: "$890",
+    cadence: "Per sprint",
     description:
-      "A mini strategy session designed specifically for founders and startups. We help founders get clear on their vision, overcome obstacles, and achieve strategic goals.",
+      "A fast, high-impact sprint for founders and marketing teams that need immediate clarity and launch-ready assets.",
     features: [
-      "Gain clarity on business vision and objectives",
-      "Identify the obstacles holding the business back",
-      "Develop a clear plan to achieve business goals",
-      "Make informed decisions that support growth"
+      "Positioning and offer clarity",
+      "Core message framework",
+      "Campaign hook and content direction",
+      "Landing-page copy outline",
+      "14-day async support"
     ],
-    ctaLabel: "Get Started",
+    ctaLabel: "Start Sprint",
     ctaHref: "/contact",
     featured: true
   },
   {
-    name: "Startup & SME Setup Suite",
-    audience: "Everything in Nano, plus",
-    price: "$2500",
-    cadence: "One time",
+    name: "Growth Retainer",
+    audience: "For growth-stage teams",
+    price: "$2,400",
+    cadence: "Monthly",
     description:
-      "A structured setup package for growth-minded startups and SMEs that need formal operating foundations, compliance support, and sharper business presentation.",
+      "An ongoing partnership for teams that want consistent content, campaign execution, and optimization under one roof.",
     features: [
-      "Business setup support",
-      "Enterprise technology access",
-      "Regulatory compliance services",
-      "Organizational design",
-      "Business pitch deck",
-      "Business accounting templates"
+      "Monthly campaign strategy",
+      "Creative production support",
+      "Paid media guidance",
+      "Weekly optimization reviews",
+      "Performance reporting dashboard",
+      "Dedicated account lead"
     ],
-    ctaLabel: "Get Started",
+    ctaLabel: "Apply For Retainer",
     ctaHref: "/contact"
   },
   {
-    name: "Customized Strategy Services / Solution",
-    audience: "Medium & Large Enterprises",
+    name: "Custom Launch Program",
+    audience: "For established brands and enterprise teams",
     price: "Custom",
     cadence: "Engagement-based",
     description:
-      "For larger organizations that need a tailored campaign scope across strategy, governance, operating design, planning, and research.",
+      "A tailored end-to-end brand and growth program for major launches, rebrands, or multi-market campaigns.",
     features: [
-      "Strategy retreat",
-      "Financial planning",
-      "Organization structuring",
-      "Governance and compliance",
-      "Market research customized solution"
+      "Deep-dive brand strategy",
+      "Identity refresh or redesign",
+      "Campaign system architecture",
+      "Cross-channel launch execution",
+      "Leadership workshops and enablement"
     ],
-    ctaLabel: "Schedule A Free Call",
+    ctaLabel: "Request Proposal",
     ctaHref: "/contact",
     custom: true
   }
