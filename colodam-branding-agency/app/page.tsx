@@ -1,7 +1,9 @@
 import { ArrowRight, Check, Sparkles } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { HomeContactPreview } from "@/components/home/EngagementSections";
+import { HomeMotionSections } from "@/components/home/HomeMotionSections";
 import { PricingSection } from "@/components/shared/PricingSection";
 import { Button } from "@/components/ui/Button";
 import {
@@ -73,7 +75,17 @@ export default async function HomePage() {
             </div>
 
             <div className="grid gap-4 xl:pl-4">
-              <div className="rounded-3xl border border-blue-100 bg-white p-6 shadow-[0_20px_42px_rgba(15,23,42,0.1)]">
+              <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-white p-6 shadow-[0_20px_42px_rgba(15,23,42,0.1)]">
+                <div className="relative mb-5 h-44 overflow-hidden rounded-2xl border border-blue-100">
+                  <Image
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+                    alt="Marketing analytics dashboard and creative direction setup"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1280px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/45 via-transparent to-transparent" />
+                </div>
                 <p className="text-label text-slate-500">Q2 Focus Program</p>
                 <h2 className="mt-3 font-bricolage text-3xl font-semibold leading-[1] text-slate-900">
                   Position. Build. Launch. Scale.
@@ -128,6 +140,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomeMotionSections />
 
       <section className="border-b border-slate-200 bg-[#f4f8ff] py-16">
         <div className="container-shell">
