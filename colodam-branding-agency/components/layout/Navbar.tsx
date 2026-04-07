@@ -34,22 +34,22 @@ export function Navbar() {
     <>
       <header
         data-site-chrome="navbar"
-        className="fixed inset-x-0 top-4 z-50"
+        className="fixed inset-x-0 top-0 z-50"
       >
         <div className="container-shell">
           <div
             className={cn(
-              "flex h-[76px] items-center rounded-full border px-3 transition-all duration-300",
+              "mt-4 flex h-[74px] items-center rounded-3xl border px-4 transition-all duration-300",
               solid
-                ? "border-slate-200 bg-white/95 shadow-[0_14px_34px_rgba(15,23,42,0.12)] backdrop-blur-xl"
-                : "border-blue-100 bg-white/88 shadow-[0_8px_24px_rgba(15,23,42,0.08)] backdrop-blur-lg"
+                ? "border-slate-200 bg-white/96 shadow-[0_14px_34px_rgba(15,23,42,0.12)] backdrop-blur-xl"
+                : "border-blue-100 bg-[#f8fbff]/92 shadow-[0_10px_28px_rgba(15,23,42,0.1)] backdrop-blur-lg"
             )}
           >
-            <Link href="/" className="flex min-w-[9.5rem] items-center pl-2">
+            <Link href="/" className="flex min-w-[9.5rem] items-center">
               <Logo dark compact />
             </Link>
 
-            <nav className="hidden flex-1 items-center justify-center gap-2 lg:flex">
+            <nav className="hidden flex-1 items-center justify-center gap-1.5 lg:flex">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -57,10 +57,10 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                    "rounded-xl px-3.5 py-2 text-sm font-medium transition-colors",
                     active
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                      ? "bg-blue-100 text-blue-800"
+                      : "text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                   )}
                 >
                   {link.label}
@@ -69,17 +69,17 @@ export function Navbar() {
             })}
             </nav>
 
-            <div className="hidden items-center gap-3 pr-2 lg:flex">
-              <Button href="/services" variant="outline" className="rounded-full px-4 py-2.5">
+            <div className="hidden items-center gap-2 lg:flex">
+              <Button href="/services" variant="outline" className="rounded-xl px-4 py-2.5">
                 Services
               </Button>
-              <Button href="/contact" variant="primary" className="rounded-full px-5 py-2.5">
+              <Button href="/contact" variant="primary" className="rounded-xl px-5 py-2.5">
                 Book a brand strategy call
               </Button>
             </div>
 
             <button
-              className="ml-auto rounded-full border border-slate-300 bg-white p-2 text-slate-900 lg:hidden"
+              className="ml-auto rounded-xl border border-slate-300 bg-white p-2 text-slate-900 lg:hidden"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
             >
@@ -102,7 +102,7 @@ export function Navbar() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="rounded-full border border-slate-300 bg-white p-2 text-slate-900"
+                className="rounded-xl border border-slate-300 bg-white p-2 text-slate-900"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -113,7 +113,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-2xl px-4 py-3 text-lg font-medium text-slate-900 transition hover:bg-slate-100"
+                    className="block rounded-xl px-4 py-3 text-lg font-medium text-slate-900 transition hover:bg-blue-50 hover:text-blue-700"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -121,10 +121,10 @@ export function Navbar() {
                 ))}
               </div>
               <div className="space-y-3">
-                <Button href="/services" variant="outline" className="w-full rounded-full">
+                <Button href="/services" variant="outline" className="w-full rounded-xl">
                   Explore services
                 </Button>
-                <Button href="/contact" variant="primary" className="w-full rounded-full">
+                <Button href="/contact" variant="primary" className="w-full rounded-xl">
                   Book a brand strategy call
                 </Button>
               </div>

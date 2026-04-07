@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   description:
     "Colodam is a marketing and branding agency helping African businesses build memorable identities, launch creative campaigns, and grow predictable demand.",
-  metadataBase: new URL("https://colodam.com")
+  metadataBase: new URL("https://colodam.vercel.app")
 };
 
 export const revalidate = 60;

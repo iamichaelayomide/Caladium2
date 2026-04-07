@@ -12,13 +12,16 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 const styles = {
   primary:
     "bg-accent text-white shadow-[0_14px_34px_rgba(37,99,235,0.24)] hover:bg-accent-hover hover:shadow-[0_18px_38px_rgba(37,99,235,0.3)]",
-  ghost: "bg-transparent text-ink hover:bg-accent/8 hover:text-slate-900",
+  ghost:
+    "border border-accent/55 bg-accent text-white shadow-[0_10px_24px_rgba(37,99,235,0.18)] hover:border-accent-hover hover:bg-accent-hover",
   outline:
-    "border border-slate-300 bg-white text-ink hover:border-accent/45 hover:bg-accent/10 hover:text-slate-900",
-  light: "bg-white text-[#08111d] hover:bg-[#eff4ff]",
-  dark: "border border-slate-300 bg-[#eef3ff] text-slate-900 hover:border-slate-400 hover:bg-[#e2ebff]",
+    "border border-accent/55 bg-accent text-white shadow-[0_10px_24px_rgba(37,99,235,0.18)] hover:border-accent-hover hover:bg-accent-hover",
+  light:
+    "border border-accent/55 bg-accent text-white shadow-[0_10px_24px_rgba(37,99,235,0.18)] hover:border-accent-hover hover:bg-accent-hover",
+  dark:
+    "border border-accent/55 bg-accent text-white shadow-[0_10px_24px_rgba(37,99,235,0.18)] hover:border-accent-hover hover:bg-accent-hover",
   secondary:
-    "border border-accent/20 bg-accent/10 text-accent hover:border-accent/35 hover:bg-accent/16 hover:text-accent-hover"
+    "border border-accent/55 bg-accent text-white shadow-[0_10px_24px_rgba(37,99,235,0.18)] hover:border-accent-hover hover:bg-accent-hover"
 };
 
 const baseClass =

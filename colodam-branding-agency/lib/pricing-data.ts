@@ -14,7 +14,7 @@ export type PricingTier = {
 export const pricingTiers: PricingTier[] = [
   {
     name: "Starter Brand Audit",
-    price: "$149",
+    price: "$180",
     cadence: "One-off",
     description:
       "A focused brand health check for early teams that need clear positioning, sharper messaging, and practical next steps.",
@@ -30,7 +30,7 @@ export const pricingTiers: PricingTier[] = [
   },
   {
     name: "Brand Sprint",
-    price: "$890",
+    price: "$1,250",
     cadence: "Per sprint",
     description:
       "A fast, high-impact sprint for founders and marketing teams that need immediate clarity and launch-ready assets.",
@@ -48,7 +48,7 @@ export const pricingTiers: PricingTier[] = [
   {
     name: "Growth Retainer",
     audience: "For growth-stage teams",
-    price: "$2,400",
+    price: "$2,900",
     cadence: "Monthly",
     description:
       "An ongoing partnership for teams that want consistent content, campaign execution, and optimization under one roof.",

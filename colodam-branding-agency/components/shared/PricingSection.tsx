@@ -72,16 +72,15 @@ export function PricingSection({
   }
 
   return (
-    <section id={anchorId} className={cn("section-padding border-y border-slate-200 bg-[#f7f9ff]", className)}>
+    <section id={anchorId} className={cn("section-padding border-y border-slate-200 bg-[#f2f7ff]", className)}>
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SectionLabel className="justify-center">Pricing</SectionLabel>
           <h2 className="font-bricolage text-[clamp(2rem,4vw,3.35rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
-            CaaS for <span className="text-accent">Startups &amp; SMEs</span>
+            Pricing That Fits Your Growth Stage
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[0.94rem] leading-7 text-slate-700/64">
-            Four clear entry points: community access, a focused founder session, a one-time setup
-            package, and a custom enterprise solution when the work needs to be tailored.
+          <p className="mx-auto mt-5 max-w-2xl text-[0.94rem] leading-7 text-slate-600">
+            Pick a starting model, then scale into a deeper partnership once momentum is moving.
           </p>
         </Reveal>
 
@@ -93,12 +92,12 @@ export function PricingSection({
                 className={cn(
                   "surface-panel flex h-full flex-col rounded-[30px] p-6 md:p-7",
                   tier.featured
-                    ? "border-accent/35 bg-[linear-gradient(180deg,rgba(217,154,43,0.12),rgba(12,16,24,0.94))]"
-                    : "bg-[linear-gradient(180deg,rgba(17,22,33,0.96),rgba(10,13,20,0.94))]"
+                    ? "border-accent/45 bg-[linear-gradient(180deg,#edf4ff,#e4efff)]"
+                    : "border-slate-200 bg-white"
                 )}
               >
                 {tier.audience ? (
-                  <p className={cn("text-label", tier.featured ? "text-accent" : "text-slate-700/42")}>
+                  <p className={cn("text-label", tier.featured ? "text-accent" : "text-slate-500")}>
                     {tier.audience}
                   </p>
                 ) : null}
@@ -109,7 +108,7 @@ export function PricingSection({
                       {tier.price}
                     </div>
                   </div>
-                  <p className="shrink-0 text-right text-[0.78rem] uppercase tracking-[0.16em] text-slate-700/38">
+                  <p className="shrink-0 text-right text-[0.78rem] uppercase tracking-[0.16em] text-slate-500">
                     {tier.custom ? "Tailored scope" : tier.cadence}
                   </p>
                 </div>
@@ -118,10 +117,10 @@ export function PricingSection({
                   <h3 className="font-bricolage text-[1.55rem] font-semibold leading-[1.05] text-slate-900">
                     {tier.name}
                   </h3>
-                  <p className="mt-3 text-[0.88rem] leading-7 text-slate-700/60">{tier.description}</p>
+                  <p className="mt-3 text-[0.88rem] leading-7 text-slate-600">{tier.description}</p>
                 </div>
 
-                <ul className="mt-6 space-y-3 text-[0.88rem] leading-7 text-slate-700/62">
+                <ul className="mt-6 space-y-3 text-[0.88rem] leading-7 text-slate-600">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-3">
                       <span className="mt-[0.7rem] h-1.5 w-1.5 rounded-full bg-accent" />
@@ -146,7 +145,7 @@ export function PricingSection({
         </div>
 
         <Reveal className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="text-[0.82rem] leading-7 text-slate-700/46">
+          <p className="text-[0.82rem] leading-7 text-slate-500">
             All pricing is shown in USD. Enterprise engagements are scoped around the actual
             decision, timeline, leadership involvement, and delivery complexity.
           </p>
