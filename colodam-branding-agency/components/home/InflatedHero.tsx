@@ -25,26 +25,11 @@ const floatingOrbs = [
   }
 ];
 
-const heroCards = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    label: "Demand Dashboard",
-    tone: "from-blue-500/20 to-cyan-400/10"
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-    label: "Creative War Room",
-    tone: "from-sky-500/20 to-blue-500/10"
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
-    label: "Launch Sprint",
-    tone: "from-cyan-400/20 to-teal-400/10"
-  }
-];
+const heroVisual = {
+  image:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
+  label: "Demand Dashboard"
+};
 
 export function InflatedHero() {
   const reducedMotion = useReducedMotion();
@@ -135,46 +120,44 @@ export function InflatedHero() {
             initial={reducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
             animate={reducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="grid gap-3 sm:grid-cols-2"
+            className="space-y-4"
           >
-            {heroCards.map((card, index) => (
-              <motion.article
-                key={card.label}
-                className={`relative overflow-hidden rounded-[2rem] border border-blue-100 bg-gradient-to-br ${card.tone} p-3 shadow-[0_20px_44px_rgba(15,23,42,0.12)] ${
-                  index === 0 ? "sm:col-span-2" : ""
-                }`}
-                animate={
-                  reducedMotion
-                    ? undefined
-                    : {
-                        y: [0, index % 2 === 0 ? -8 : 8, 0]
-                      }
-                }
-                transition={
-                  reducedMotion
-                    ? undefined
-                    : {
-                        duration: 7 + index,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut"
-                      }
-                }
-              >
-                <div
-                  className={`relative overflow-hidden rounded-[1.4rem] ${index === 0 ? "h-64" : "h-44"}`}
-                >
-                  <Image
-                    src={card.image}
-                    alt={card.label}
-                    fill
-                    className="object-cover"
-                    sizes={index === 0 ? "(max-width: 1280px) 100vw, 46vw" : "(max-width: 1280px) 50vw, 23vw"}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/45 via-transparent to-transparent" />
-                </div>
-                <p className="mt-3 px-1 text-sm font-semibold text-slate-800">{card.label}</p>
-              </motion.article>
-            ))}
+            <motion.article
+              className="relative overflow-hidden rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-500/20 to-cyan-400/10 p-3 shadow-[0_20px_44px_rgba(15,23,42,0.12)]"
+              animate={reducedMotion ? undefined : { y: [0, -8, 0] }}
+              transition={
+                reducedMotion
+                  ? undefined
+                  : {
+                      duration: 7,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "easeInOut"
+                    }
+              }
+            >
+              <div className="relative h-72 overflow-hidden rounded-[1.4rem]">
+                <Image
+                  src={heroVisual.image}
+                  alt={heroVisual.label}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 46vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/45 via-transparent to-transparent" />
+              </div>
+              <p className="mt-3 px-1 text-sm font-semibold text-slate-800">{heroVisual.label}</p>
+            </motion.article>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-blue-100 bg-white/90 px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-700">Conversion Lift</p>
+                <p className="mt-1 font-bricolage text-2xl font-semibold text-slate-900">31%</p>
+              </div>
+              <div className="rounded-2xl border border-blue-100 bg-white/90 px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-700">Typical Sprint</p>
+                <p className="mt-1 font-bricolage text-2xl font-semibold text-slate-900">9 Weeks</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
