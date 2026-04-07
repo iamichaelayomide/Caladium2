@@ -1,129 +1,60 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
-import { Logo } from "@/components/ui/Logo";
-import {
-  contactDetails as fallbackContactDetails,
-  services as fallbackServices,
-  type Service
-} from "@/lib/site-data";
-import type { ContactDetailsContent } from "@/lib/sanity/fetch";
+import { celloNav, celloSocials } from "@/lib/cello-content";
 
-export function Footer({
-  services = fallbackServices,
-  contactDetails = fallbackContactDetails
-}: {
-  services?: Service[];
-  contactDetails?: Pick<ContactDetailsContent, "address" | "email" | "phoneLabel" | "hours">;
-}) {
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer data-site-chrome="footer" className="border-t border-slate-200 bg-[#eef4ff] text-slate-900">
-      <div className="container-shell py-[4.5rem]">
-        <div className="surface-panel rounded-[32px] px-6 py-8 sm:px-8">
-          <div className="grid gap-8 2xl:grid-cols-[1.2fr_0.8fr] 2xl:items-end 2xl:gap-10">
-            <div>
-              <Section />
-              <Logo dark />
-              <h2 className="mt-6 max-w-2xl font-bricolage text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
-                Bold brand systems for African businesses building with serious intent.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700/62">
-                We work with founders and marketing teams to sharpen positioning, align campaigns,
-                and build momentum that lasts beyond launch week.
-              </p>
+    <footer className="border-t border-slate-200 bg-[#eef4ff]">
+      <div className="container-shell py-14">
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_14px_32px_rgba(15,23,42,0.08)]">
+          <p className="text-label text-blue-700">Colodam Studio</p>
+          <h2 className="mt-4 max-w-3xl font-bricolage text-[clamp(2rem,4.2vw,3.3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
+            We make brands feel unforgettable.
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+            Identity, storytelling, and campaign systems for teams launching the next category leaders.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button href="/contact" variant="primary">Book a call</Button>
+            <Button href="/work" variant="outline">See portfolio</Button>
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div>
+            <p className="font-bricolage text-2xl font-semibold text-slate-900">colodam</p>
+            <p className="mt-3 text-sm text-slate-600">A Cello-inspired digital brand studio.</p>
+          </div>
+          <div>
+            <p className="text-label text-slate-500">Navigate</p>
+            <div className="mt-4 space-y-2 text-sm text-slate-700">
+              {celloNav.map((item) => (
+                <Link key={item.href} href={item.href} className="block hover:text-blue-700">
+                  {item.label}
+                </Link>
+              ))}
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row 2xl:justify-end">
-              <Button href="/contact" variant="primary" className="min-w-[12rem]">
-                Start a conversation
-              </Button>
-              <Button href="/services" variant="outline" className="min-w-[12rem]">
-                Explore services
-              </Button>
+          </div>
+          <div>
+            <p className="text-label text-slate-500">Socials</p>
+            <div className="mt-4 space-y-2 text-sm text-slate-700">
+              {celloSocials.map((social) => (
+                <Link key={social.label} href={social.href} className="block hover:text-blue-700">
+                  {social.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 2xl:grid-cols-4">
-          <div>
-            <p className="text-label text-slate-700/40">Connect</p>
-            <p className="mt-4 max-w-xs text-sm leading-7 text-slate-700/60">
-              Strategy, process, and people expertise rooted in African markets and built for
-              decisive operators.
-            </p>
-            <div className="mt-6 flex gap-3">
-              {[Linkedin, Twitter, Facebook, Instagram].map((Icon, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white transition hover:border-accent/30 hover:bg-accent/10"
-                >
-                  <Icon className="h-4 w-4" />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-label text-slate-700/40">Company</p>
-            <div className="mt-4 space-y-3 text-sm text-slate-700/70">
-              {[
-                ["/", "Home"],
-                ["/about", "About"],
-                ["/services", "Services"],
-                ["/blog", "Journal"],
-                ["/contact", "Contact"]
-              ].map(([href, label]) => (
-                <Link key={href} href={href} className="block transition hover:text-slate-900">
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-label text-slate-700/40">Services</p>
-            <div className="mt-4 space-y-3 text-sm text-slate-700/70">
-              {services.slice(0, 6).map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="block transition hover:text-slate-900"
-                >
-                  {service.shortName}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-label text-slate-700/40">Contact</p>
-            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700/70">
-              <p>{contactDetails.address}</p>
-              <p>
-                <span className="text-slate-700/42">Email:</span> {contactDetails.email}
-              </p>
-              <p>
-                <span className="text-slate-700/42">Phone:</span> {contactDetails.phoneLabel}
-              </p>
-              <p>
-                <span className="text-slate-700/42">Hours:</span> {contactDetails.hours}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 flex flex-col gap-4 border-t border-slate-200 pt-8 text-xs text-slate-700/40 md:flex-row md:items-center md:justify-between">
-          <p>Copyright {year} Colodam Limited. All rights reserved.</p>
-          <p>Clarity for growth. Structure for scale.</p>
+        <div className="mt-10 border-t border-slate-200 pt-6 text-xs text-slate-500">
+          Copyright {year} Colodam. All rights reserved.
         </div>
       </div>
     </footer>
   );
 }
 
-function Section() {
-  return <p className="text-label text-slate-700/40">Colodam</p>;
-}

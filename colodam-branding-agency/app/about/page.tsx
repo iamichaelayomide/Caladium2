@@ -1,171 +1,52 @@
-import Image from "next/image";
-import Link from "next/link";
+﻿"use client";
 
-import { PageHero } from "@/components/shared/PageHero";
-import { PricingSection } from "@/components/shared/PricingSection";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { teamMembers } from "@/lib/site-data";
-import { cn } from "@/lib/utils";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+
+import { aboutContent } from "@/lib/cello-content";
 
 export default function AboutPage() {
+  const reduceMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const layerA = useTransform(scrollY, [0, 1200], [0, 180]);
+  const layerB = useTransform(scrollY, [0, 1200], [0, -120]);
+
   return (
-    <>
-      <PageHero
-        breadcrumb="Home > About Us"
-        label="About Colodam"
-        title="Brand strategy, creative execution, and growth systems for ambitious African businesses."
-        description="From startup teams to established enterprises, we help marketing leaders shape memorable brands, sharpen campaign priorities, and build systems that scale."
-        cta={{ href: "/services", label: "Explore our services" }}
-      />
-
-      <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-10 xl:grid-cols-[1.05fr_0.95fr] xl:items-center xl:gap-12">
-          <Reveal>
-            <SectionLabel>Who We Are</SectionLabel>
-            <h2 className="max-w-xl font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
-              A branding firm built for leaders who need more than a polished deck.
-            </h2>
-            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-slate-700/64">
-              Colodam combines brand strategy, creative direction, and campaign operations with a
-              deep understanding of African markets. We work closely with teams to turn ideas into
-              clear positioning and positioning into repeatable growth.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {[
-                "Senior-led partnership across brand strategy, identity design, and campaign performance.",
-                "A delivery style that values clarity, speed, and practical implementation.",
-                "Cross-sector experience spanning startups, growth-stage brands, and enterprise teams.",
-                "An approach grounded in evidence, creative quality, and measurable outcomes."
-              ].map((item) => (
-                <div key={item} className="surface-panel rounded-[26px] p-5 text-sm leading-7 text-slate-700/60">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal className="grid gap-4 sm:grid-cols-2 xl:grid-rows-2">
-            {[
-              "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80",
-              "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
-              "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-              "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
-            ].map((image, index) => (
-              <div
-                key={image}
-                className={index === 0 ? "sm:row-span-2" : ""}
-              >
-                <Image
-                  src={image}
-                  alt=""
-                  width={900}
-                  height={900}
-                  className="h-full min-h-[15rem] w-full rounded-[28px] object-cover"
-                />
-              </div>
-            ))}
-          </Reveal>
+    <main className="pt-28">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#edf5ff_0%,#ffffff_100%)] py-16">
+        <motion.div aria-hidden className="pointer-events-none absolute -left-16 top-10 h-72 w-72 rounded-full bg-blue-300/35 blur-3xl" style={{ y: reduceMotion ? undefined : layerA }} />
+        <motion.div aria-hidden className="pointer-events-none absolute right-[-4rem] top-20 h-80 w-80 rounded-full bg-cyan-300/35 blur-3xl" style={{ y: reduceMotion ? undefined : layerB }} />
+        <div className="container-shell relative grid gap-8 xl:grid-cols-[1fr_1fr] xl:items-center">
+          <div>
+            <p className="text-label text-blue-700">About</p>
+            <h1 className="mt-4 font-bricolage text-[clamp(2.2rem,5.5vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-slate-900">{aboutContent.title}</h1>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-600">{aboutContent.description}</p>
+          </div>
+          <div className="relative h-[26rem] overflow-hidden rounded-[2rem] border border-slate-200">
+            <Image src={aboutContent.image} alt="About visual" fill className="object-cover" sizes="(max-width:1280px) 100vw, 46vw" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/50 via-transparent to-transparent" />
+          </div>
         </div>
       </section>
 
-      <section className="section-padding border-y border-slate-200 bg-[#f4f7ff]">
-        <div className="container-shell grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {[
-            ["200+", "Brands supported across strategy, creative production, and campaign growth."],
-            ["10K+", "Leads and community members reached through Colodam campaigns and content initiatives."],
-            ["15+", "Years of market-facing experience shaping brand systems and demand generation."]
-          ].map(([value, label], index) => (
-            <Reveal
-              key={value}
-              delay={index * 0.04}
-              className={cn(
-                "surface-panel rounded-[28px] p-6",
-                index === 2 ? "sm:col-span-2 xl:col-span-1" : ""
-              )}
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="container-shell grid gap-4 md:grid-cols-3">
+          {aboutContent.blocks.map((block, index) => (
+            <motion.article
+              key={block.title}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.5, delay: index * 0.07 }}
+              className="rounded-3xl border border-slate-200 bg-[#f7fbff] p-6"
             >
-              <div className="font-bricolage text-5xl font-semibold tracking-[-0.04em] text-slate-900">
-                {value}
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-700/58">{label}</p>
-            </Reveal>
+              <h2 className="font-bricolage text-3xl font-semibold text-slate-900">{block.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{block.body}</p>
+            </motion.article>
           ))}
         </div>
       </section>
-
-      <section className="section-padding bg-bg">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-start xl:gap-12">
-          <Reveal className="xl:sticky xl:top-28">
-            <SectionLabel>How We Work</SectionLabel>
-            <h2 className="max-w-xl font-bricolage text-[clamp(1.9rem,3.6vw,3.1rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
-              Our work balances bold creative thinking with grounded delivery.
-            </h2>
-            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-slate-700/64">
-              We do not believe in generic templates or detached recommendations. We work alongside
-              client teams, define the growth priorities in front of them, and shape launch-ready
-              paths forward.
-            </p>
-          </Reveal>
-
-          <div className="space-y-4">
-            {[
-              [
-                "Clarity before content",
-                "We start by clarifying positioning, narrowing audience priorities, and defining the brand decisions that matter most."
-              ],
-              [
-                "Execution built in",
-                "Recommendations are tied to owners, timelines, creative workflows, and the conditions needed for campaign success."
-              ],
-              [
-                "Partnership over posturing",
-                "Our style is collaborative and direct. We bring senior brand thinking and stay close enough to the work to make it land."
-              ]
-            ].map(([title, body], index) => (
-              <Reveal key={title} delay={index * 0.03} className="surface-panel rounded-[28px] p-6">
-                <h3 className="font-bricolage text-[1.6rem] font-semibold text-slate-900">{title}</h3>
-                <p className="mt-4 text-[0.94rem] leading-7 text-slate-700/62">{body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <PricingSection variant="compact" />
-
-      <section className="section-padding bg-[#f4f7ff]">
-        <div className="container-shell">
-          <Reveal className="max-w-3xl">
-            <SectionLabel>Leadership Team</SectionLabel>
-            <h2 className="font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
-              A multidisciplinary team built around strategy, creative quality, and brand performance.
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {teamMembers.slice(0, 3).map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.03} className="surface-panel overflow-hidden rounded-[28px]">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={700}
-                  height={700}
-                  className="aspect-square w-full object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="font-bricolage text-2xl font-semibold text-slate-900">{member.name}</h3>
-                  <p className="mt-2 text-[0.82rem] text-slate-700/50">{member.title}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Link
-            href="/team"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-[#ffd18a]"
-          >
-            Meet the full team
-          </Link>
-        </div>
-      </section>
-    </>
+    </main>
   );
 }
+

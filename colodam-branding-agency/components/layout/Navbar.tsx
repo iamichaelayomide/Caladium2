@@ -1,137 +1,115 @@
-"use client";
+﻿"use client";
 
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/Button";
-import { Logo } from "@/components/ui/Logo";
-import { navLinks } from "@/lib/site-data";
+import { celloNav, celloSocials } from "@/lib/cello-content";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const transparentHero = pathname === "/";
-  const solid = !transparentHero || scrolled || open;
 
-  useMotionValueEvent(scrollY, "change", (value) => setScrolled(value > 60));
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <>
-      <header
-        data-site-chrome="navbar"
-        className="fixed inset-x-0 top-0 z-50"
-      >
+      <header className="fixed inset-x-0 top-0 z-50">
         <div className="container-shell">
-          <div
-            className={cn(
-              "mt-4 flex h-[74px] items-center rounded-3xl border px-4 transition-all duration-300",
-              solid
-                ? "border-slate-200 bg-white/96 shadow-[0_14px_34px_rgba(15,23,42,0.12)] backdrop-blur-xl"
-                : "border-blue-100 bg-[#f8fbff]/92 shadow-[0_10px_28px_rgba(15,23,42,0.1)] backdrop-blur-lg"
-            )}
-          >
-            <Link href="/" className="flex min-w-[9.5rem] items-center">
-              <Logo dark compact />
+          <div className="mt-4 flex h-16 items-center rounded-2xl border border-slate-200 bg-white/95 px-4 shadow-[0_12px_26px_rgba(15,23,42,0.12)] backdrop-blur">
+            <Link href="/" className="font-bricolage text-2xl font-semibold tracking-[-0.03em] text-slate-900">
+              colodam
             </Link>
 
-            <nav className="hidden flex-1 items-center justify-center gap-1.5 lg:flex">
-            {navLinks.map((link) => {
-              const active = pathname === link.href;
-              return (
+            <nav className="mx-auto hidden items-center gap-1 lg:flex">
+              {celloNav.map((item) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={item.href}
+                  href={item.href}
                   className={cn(
-                    "rounded-xl px-3.5 py-2 text-sm font-medium transition-colors",
-                    active
+                    "rounded-xl px-3 py-2 text-sm font-medium transition",
+                    pathname === item.href
                       ? "bg-blue-100 text-blue-800"
                       : "text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                   )}
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
-              );
-            })}
+              ))}
             </nav>
 
-            <div className="hidden items-center gap-2 lg:flex">
-              <Button href="/services" variant="outline" className="rounded-xl px-4 py-2.5">
-                Services
-              </Button>
-              <Button href="/contact" variant="primary" className="rounded-xl px-5 py-2.5">
-                Book a brand strategy call
+            <div className="hidden items-center gap-3 lg:flex">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                {celloSocials.slice(0, 2).map((social) => (
+                  <Link key={social.label} href={social.href} className="hover:text-blue-700">
+                    {social.label}
+                  </Link>
+                ))}
+              </div>
+              <Button href="/contact" variant="primary" size="sm" className="rounded-xl">
+                Let&apos;s chat
               </Button>
             </div>
 
             <button
-              className="ml-auto rounded-xl border border-slate-300 bg-white p-2 text-slate-900 lg:hidden"
               onClick={() => setOpen(true)}
+              className="ml-auto rounded-xl border border-slate-300 bg-white p-2 lg:hidden"
               aria-label="Open menu"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             </button>
           </div>
         </div>
       </header>
+
       <AnimatePresence>
         {open ? (
-          <motion.div
-            initial={{ x: "100%", opacity: 0.4 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "100%", opacity: 0.4 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-y-0 right-0 z-[60] w-[min(100%,22rem)] border-l border-slate-200 bg-white lg:hidden"
+          <motion.aside
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-y-0 right-0 z-[60] w-[min(100%,22rem)] border-l border-slate-200 bg-white p-5 lg:hidden"
           >
-            <div className="flex h-[76px] items-center justify-between border-b border-slate-200 px-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Menu</p>
+            <div className="mb-6 flex items-center justify-between">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Menu</p>
               <button
                 onClick={() => setOpen(false)}
+                className="rounded-xl border border-slate-300 bg-white p-2"
                 aria-label="Close menu"
-                className="rounded-xl border border-slate-300 bg-white p-2 text-slate-900"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="flex min-h-[calc(100vh-76px)] flex-col justify-between px-5 py-8">
-              <div className="space-y-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block rounded-xl px-4 py-3 text-lg font-medium text-slate-900 transition hover:bg-blue-50 hover:text-blue-700"
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-              <div className="space-y-3">
-                <Button href="/services" variant="outline" className="w-full rounded-xl">
-                  Explore services
-                </Button>
-                <Button href="/contact" variant="primary" className="w-full rounded-xl">
-                  Book a brand strategy call
-                </Button>
-              </div>
+
+            <div className="space-y-2">
+              {celloNav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-3 py-3 text-lg font-medium text-slate-900 hover:bg-blue-50 hover:text-blue-700"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
-          </motion.div>
+
+            <div className="mt-8 space-y-3">
+              <Button href="/contact" variant="primary" className="w-full rounded-xl">
+                Let&apos;s chat
+              </Button>
+              <Button href="/work" variant="outline" className="w-full rounded-xl">
+                View work
+              </Button>
+            </div>
+          </motion.aside>
         ) : null}
       </AnimatePresence>
     </>
   );
 }
+
