@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowRight, Sparkles } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 import { Button } from "@/components/ui/Button";
 
@@ -33,12 +34,25 @@ const heroVisual = {
 
 export function InflatedHero() {
   const reducedMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+  const bgParallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const orbParallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
+  const contentParallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const visualParallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#eef4ff_0%,#f8fbff_36%,#ffffff_100%)] pt-32 md:pt-36">
-      <div
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#eef4ff_0%,#f8fbff_36%,#ffffff_100%)] pt-32 md:pt-36"
+    >
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_14%,rgba(37,99,235,0.26),transparent_34%),radial-gradient(circle_at_88%_18%,rgba(56,189,248,0.18),transparent_26%)]"
+        style={{ y: reducedMotion ? undefined : bgParallaxY }}
       />
 
       {floatingOrbs.map((orb, index) => (
@@ -46,6 +60,7 @@ export function InflatedHero() {
           key={orb.className}
           aria-hidden
           className={`pointer-events-none absolute rounded-full shadow-[0_24px_60px_rgba(59,130,246,0.24)] ${orb.className}`}
+          style={{ y: reducedMotion ? undefined : orbParallaxY }}
           animate={
             reducedMotion
               ? undefined
@@ -69,6 +84,7 @@ export function InflatedHero() {
       <div className="container-shell relative pb-16 md:pb-20">
         <div className="grid gap-10 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
           <motion.div
+            style={{ y: reducedMotion ? undefined : contentParallaxY }}
             initial={reducedMotion ? false : { opacity: 0, y: 24 }}
             animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
@@ -117,6 +133,7 @@ export function InflatedHero() {
           </motion.div>
 
           <motion.div
+            style={{ y: reducedMotion ? undefined : visualParallaxY }}
             initial={reducedMotion ? false : { opacity: 0, y: 24, scale: 0.97 }}
             animate={reducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
