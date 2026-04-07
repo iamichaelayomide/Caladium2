@@ -20,19 +20,19 @@ export function Footer({
   const year = new Date().getFullYear();
 
   return (
-    <footer data-site-chrome="footer" className="border-t border-white/10 bg-[#05070b] text-white">
+    <footer data-site-chrome="footer" className="border-t border-slate-200 bg-[#eef4ff] text-slate-900">
       <div className="container-shell py-[4.5rem]">
         <div className="surface-panel rounded-[32px] px-6 py-8 sm:px-8">
           <div className="grid gap-8 2xl:grid-cols-[1.2fr_0.8fr] 2xl:items-end 2xl:gap-10">
             <div>
               <Section />
               <Logo dark />
-              <h2 className="mt-6 max-w-2xl font-bricolage text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
-                Strategic clarity for African businesses building with serious intent.
+              <h2 className="mt-6 max-w-2xl font-bricolage text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
+                Bold brand systems for African businesses building with serious intent.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-white/62">
-                We work with founders, executives, and operating teams to sharpen decisions, align
-                structures, and build momentum that lasts beyond the deck.
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700/62">
+                We work with founders and marketing teams to sharpen positioning, align campaigns,
+                and build momentum that lasts beyond launch week.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row 2xl:justify-end">
@@ -48,8 +48,8 @@ export function Footer({
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 2xl:grid-cols-4">
           <div>
-            <p className="text-label text-white/40">Connect</p>
-            <p className="mt-4 max-w-xs text-sm leading-7 text-white/60">
+            <p className="text-label text-slate-700/40">Connect</p>
+            <p className="mt-4 max-w-xs text-sm leading-7 text-slate-700/60">
               Strategy, process, and people expertise rooted in African markets and built for
               decisive operators.
             </p>
@@ -58,7 +58,7 @@ export function Footer({
                 <Link
                   key={index}
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition hover:border-white/18 hover:bg-white/[0.08]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white transition hover:border-accent/30 hover:bg-accent/10"
                 >
                   <Icon className="h-4 w-4" />
                 </Link>
@@ -67,8 +67,8 @@ export function Footer({
           </div>
 
           <div>
-            <p className="text-label text-white/40">Company</p>
-            <div className="mt-4 space-y-3 text-sm text-white/70">
+            <p className="text-label text-slate-700/40">Company</p>
+            <div className="mt-4 space-y-3 text-sm text-slate-700/70">
               {[
                 ["/", "Home"],
                 ["/about", "About"],
@@ -76,7 +76,7 @@ export function Footer({
                 ["/blog", "Journal"],
                 ["/contact", "Contact"]
               ].map(([href, label]) => (
-                <Link key={href} href={href} className="block transition hover:text-white">
+                <Link key={href} href={href} className="block transition hover:text-slate-900">
                   {label}
                 </Link>
               ))}
@@ -84,13 +84,13 @@ export function Footer({
           </div>
 
           <div>
-            <p className="text-label text-white/40">Services</p>
-            <div className="mt-4 space-y-3 text-sm text-white/70">
+            <p className="text-label text-slate-700/40">Services</p>
+            <div className="mt-4 space-y-3 text-sm text-slate-700/70">
               {services.slice(0, 6).map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="block transition hover:text-white"
+                  className="block transition hover:text-slate-900"
                 >
                   {service.shortName}
                 </Link>
@@ -99,23 +99,23 @@ export function Footer({
           </div>
 
           <div>
-            <p className="text-label text-white/40">Contact</p>
-            <div className="mt-4 space-y-3 text-sm leading-7 text-white/70">
+            <p className="text-label text-slate-700/40">Contact</p>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-700/70">
               <p>{contactDetails.address}</p>
               <p>
-                <span className="text-white/42">Email:</span> {contactDetails.email}
+                <span className="text-slate-700/42">Email:</span> {contactDetails.email}
               </p>
               <p>
-                <span className="text-white/42">Phone:</span> {contactDetails.phoneLabel}
+                <span className="text-slate-700/42">Phone:</span> {contactDetails.phoneLabel}
               </p>
               <p>
-                <span className="text-white/42">Hours:</span> {contactDetails.hours}
+                <span className="text-slate-700/42">Hours:</span> {contactDetails.hours}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-slate-200 pt-8 text-xs text-slate-700/40 md:flex-row md:items-center md:justify-between">
           <p>Copyright {year} Colodam Limited. All rights reserved.</p>
           <p>Clarity for growth. Structure for scale.</p>
         </div>
@@ -125,5 +125,5 @@ export function Footer({
 }
 
 function Section() {
-  return <p className="text-label text-white/40">Colodam</p>;
+  return <p className="text-label text-slate-700/40">Colodam</p>;
 }

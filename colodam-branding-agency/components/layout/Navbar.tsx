@@ -37,8 +37,8 @@ export function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
           solid
-            ? "border-white/10 bg-[#07090f]/88 text-white shadow-[0_12px_38px_rgba(0,0,0,0.22)] backdrop-blur-xl"
-            : "border-transparent bg-transparent text-white"
+            ? "border-slate-200 bg-white/90 text-slate-900 shadow-[0_10px_28px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+            : "border-transparent bg-transparent text-slate-900"
         )}
         >
         <div className="container-shell flex h-[72px] items-center justify-between gap-6">
@@ -54,7 +54,7 @@ export function Navbar() {
                   href={link.href}
                   className={cn(
                     "group relative text-sm font-medium transition-colors",
-                    active ? "text-accent" : "text-white/72 hover:text-white"
+                    active ? "text-accent" : "text-slate-700/72 hover:text-slate-900"
                   )}
                 >
                   {link.label}
@@ -71,7 +71,7 @@ export function Navbar() {
           <div className="hidden items-center gap-5 lg:flex">
             <Link
               href="/contact"
-              className="text-sm font-medium text-white/62 transition-colors hover:text-white"
+              className="text-sm font-medium text-slate-700/62 transition-colors hover:text-slate-900"
             >
               Talk to us
             </Link>
@@ -80,7 +80,7 @@ export function Navbar() {
             </Button>
           </div>
           <button
-            className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white lg:hidden"
+            className="rounded-full border border-slate-200 bg-[#f8fbff] p-2 text-slate-900 lg:hidden"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
           >
@@ -95,16 +95,16 @@ export function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[60] bg-[#07090f] lg:hidden"
+            className="fixed inset-0 z-[60] bg-[#f5f8ff] lg:hidden"
           >
-            <div className="container-shell flex h-[72px] items-center justify-between border-b border-white/10">
+            <div className="container-shell flex h-[72px] items-center justify-between border-b border-slate-200">
               <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
                 <Logo dark compact />
               </Link>
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white"
+                className="rounded-full border border-slate-200 bg-[#f8fbff] p-2 text-slate-900"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -112,13 +112,13 @@ export function Navbar() {
             <div className="container-shell flex min-h-[calc(100vh-72px)] flex-col justify-between py-12">
               <div className="space-y-6">
                 {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="block text-3xl font-medium text-white" onClick={() => setOpen(false)}>
+                  <Link key={link.href} href={link.href} className="block text-3xl font-medium text-slate-900" onClick={() => setOpen(false)}>
                     {link.label}
                   </Link>
                 ))}
                 <Link
                   href="/contact"
-                  className="block pt-6 text-lg text-white/65"
+                  className="block pt-6 text-lg text-slate-700/65"
                   onClick={() => setOpen(false)}
                 >
                   Talk to us

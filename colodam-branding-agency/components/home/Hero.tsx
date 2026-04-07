@@ -25,7 +25,7 @@ export function HomeHero({
   const compactStats = statsData.slice(0, 3);
 
   return (
-    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-24 text-white md:pt-28 xl:pt-32">
+    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pt-24 text-slate-900 md:pt-28 xl:pt-32">
       <motion.div style={{ y: imageY }} className="absolute inset-0">
         <Image src={heroImage} alt="Lagos skyline" fill priority className="object-cover" />
       </motion.div>
@@ -43,7 +43,7 @@ export function HomeHero({
           <div className="max-w-[46rem]">
             <motion.p
               variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
-              className="text-label text-white/58"
+              className="text-label text-slate-700/58"
             >
               {label}
             </motion.p>
@@ -57,7 +57,7 @@ export function HomeHero({
 
             <motion.p
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
-              className="mt-5 max-w-2xl text-[0.94rem] leading-7 text-white/74 md:leading-8 xl:text-[1.05rem]"
+              className="mt-5 max-w-2xl text-[0.94rem] leading-7 text-slate-700/74 md:leading-8 xl:text-[1.05rem]"
             >
               {description}
             </motion.p>
@@ -76,7 +76,7 @@ export function HomeHero({
 
             <motion.div
               variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0 } }}
-              className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/58"
+              className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-700/58"
             >
               <span>Brand strategy and identity</span>
               <Dot className="hidden h-4 w-4 sm:block" />
@@ -91,11 +91,11 @@ export function HomeHero({
             >
               {compactStats.map((stat) => (
                 <div key={stat.label} className="hero-panel rounded-[26px] p-4">
-                  <div className="font-bricolage text-3xl font-semibold tracking-[-0.04em] text-white">
+                  <div className="font-bricolage text-3xl font-semibold tracking-[-0.04em] text-slate-900">
                     {stat.value}
                     {stat.suffix}
                   </div>
-                  <p className="mt-2 text-sm font-medium text-white/82">{stat.label}</p>
+                  <p className="mt-2 text-sm font-medium text-slate-700/82">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -105,16 +105,16 @@ export function HomeHero({
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
             className="hero-panel hidden rounded-[32px] p-6 xl:block"
           >
-            <p className="text-label text-white/45">Why brands pick Colodam</p>
+            <p className="text-label text-slate-700/45">Why brands pick Colodam</p>
             <div className="mt-6 space-y-6">
               {statsData.slice(0, 3).map((stat) => (
-                <div key={stat.label} className="border-b border-white/8 pb-5 last:border-b-0 last:pb-0">
-                  <div className="font-bricolage text-4xl font-semibold tracking-[-0.04em] text-white">
+                <div key={stat.label} className="border-b border-slate-200 pb-5 last:border-b-0 last:pb-0">
+                  <div className="font-bricolage text-4xl font-semibold tracking-[-0.04em] text-slate-900">
                     {stat.value}
                     {stat.suffix}
                   </div>
-                  <p className="mt-2 text-sm font-medium text-white/82">{stat.label}</p>
-                  <p className="mt-2 text-sm leading-7 text-white/54">{stat.description}</p>
+                  <p className="mt-2 text-sm font-medium text-slate-700/82">{stat.label}</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-700/54">{stat.description}</p>
                 </div>
               ))}
             </div>

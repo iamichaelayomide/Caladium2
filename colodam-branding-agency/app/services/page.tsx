@@ -31,10 +31,10 @@ export default async function ServicesPage() {
         <div className="container-shell">
           <Reveal className="max-w-3xl">
             <SectionLabel>Our Services</SectionLabel>
-            <h2 className="font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+            <h2 className="font-bricolage text-[clamp(2.1rem,3.8vw,3.3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
               {pageContent.introTitle}
             </h2>
-            <p className="mt-5 text-[0.94rem] leading-7 text-white/64">
+            <p className="mt-5 text-[0.94rem] leading-7 text-slate-700/64">
               {pageContent.introDescription}
             </p>
           </Reveal>
@@ -55,11 +55,11 @@ export default async function ServicesPage() {
                   </div>
                   <div className="p-6">
                     <p className="text-label text-accent">{service.shortName}</p>
-                    <h3 className="mt-4 font-bricolage text-[1.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white">
+                    <h3 className="mt-4 font-bricolage text-[1.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-slate-900">
                       {service.name}
                     </h3>
-                    <p className="mt-4 text-[0.88rem] leading-7 text-white/60">{service.summary}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-[0.82rem] font-semibold text-white transition group-hover:text-accent">
+                    <p className="mt-4 text-[0.88rem] leading-7 text-slate-700/60">{service.summary}</p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-[0.82rem] font-semibold text-slate-900 transition group-hover:text-accent">
                       View service <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -72,7 +72,7 @@ export default async function ServicesPage() {
 
       <PricingSection className="border-t-0" />
 
-      <section className="section-padding border-t border-white/8 bg-[#070a10]">
+      <section className="section-padding border-t border-slate-200 bg-[#f4f7ff]">
         <div className="container-shell grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {pageContent.principles.map(({ title, body }, index) => (
             <Reveal
@@ -83,8 +83,8 @@ export default async function ServicesPage() {
                 index === 2 ? "sm:col-span-2 xl:col-span-1" : ""
               )}
             >
-              <h3 className="font-bricolage text-[1.6rem] font-semibold text-white">{title}</h3>
-              <p className="mt-4 text-[0.94rem] leading-7 text-white/62">{body}</p>
+              <h3 className="font-bricolage text-[1.6rem] font-semibold text-slate-900">{title}</h3>
+              <p className="mt-4 text-[0.94rem] leading-7 text-slate-700/62">{body}</p>
             </Reveal>
           ))}
         </div>

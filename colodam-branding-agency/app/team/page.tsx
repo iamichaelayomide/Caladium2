@@ -38,20 +38,20 @@ export default async function TeamPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/18 to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
                     <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-sm leading-7 text-white/82">{member.bio}</p>
+                      <p className="text-sm leading-7 text-slate-700/82">{member.bio}</p>
                     </div>
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-4 p-5">
                   <div>
-                    <h3 className="font-bricolage text-[1.9rem] font-semibold leading-tight text-white">
+                    <h3 className="font-bricolage text-[1.9rem] font-semibold leading-tight text-slate-900">
                       {member.name}
                     </h3>
-                    <p className="mt-2 text-sm text-white/50">{member.title}</p>
+                    <p className="mt-2 text-sm text-slate-700/50">{member.title}</p>
                   </div>
                   <Link
                     href={member.linkedin}
-                    className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-white/60 transition hover:border-accent/35 hover:text-accent"
+                    className="rounded-full border border-slate-200 bg-[#f8fbff] p-2 text-slate-700/60 transition hover:border-accent/35 hover:text-accent"
                   >
                     <Linkedin className="h-4 w-4" />
                   </Link>

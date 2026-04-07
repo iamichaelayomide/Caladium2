@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { JetBrains_Mono, Manrope, Outfit } from "next/font/google";
 
 import "@/app/globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { getServices, getSiteSettings } from "@/lib/sanity/fetch";
 
-const bricolage = Bricolage_Grotesque({
+const bricolage = Outfit({
   subsets: ["latin"],
   variable: "--font-bricolage"
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const jakarta = Manrope({
   subsets: ["latin"],
   variable: "--font-jakarta"
 });
@@ -43,7 +43,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <div
             aria-hidden
             data-site-chrome="backdrop"
-            className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_14%_18%,rgba(217,154,43,0.16),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(95,115,255,0.12),transparent_26%),linear-gradient(180deg,rgba(11,14,20,0.7),transparent)]"
+            className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[44rem] bg-[radial-gradient(circle_at_12%_16%,rgba(37,99,235,0.16),transparent_28%),radial-gradient(circle_at_86%_12%,rgba(16,185,129,0.12),transparent_26%),linear-gradient(180deg,rgba(248,251,255,0.9),transparent)]"
           />
           <Navbar />
           {children}

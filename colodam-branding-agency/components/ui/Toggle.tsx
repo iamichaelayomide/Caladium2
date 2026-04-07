@@ -56,7 +56,7 @@ export function Toggle({
         <span className="relative inline-flex items-center gap-2">
           {rightLabel}
           {badge ? (
-            <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-white">
+            <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-slate-900">
               {badge}
             </span>
           ) : null}

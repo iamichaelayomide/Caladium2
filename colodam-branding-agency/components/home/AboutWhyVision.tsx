@@ -38,11 +38,11 @@ export function HomeAboutPreview() {
               height={64}
               className="h-16 w-16 rounded-full object-cover"
             />
-            <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-white">
+            <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-slate-900">
               Great brands are not built on nice logos alone. They are built on narrative, consistency,
               and measurable execution.
             </p>
-            <p className="mt-4 text-sm leading-7 text-white/56">
+            <p className="mt-4 text-sm leading-7 text-slate-700/56">
               Colodam helps teams define their voice, shape memorable brand experiences, and
               run campaigns that turn attention into demand.
             </p>
@@ -51,10 +51,10 @@ export function HomeAboutPreview() {
 
         <Reveal>
           <SectionLabel>About Colodam</SectionLabel>
-          <h2 className="max-w-xl font-bricolage text-[clamp(2.4rem,4.2vw,3.75rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="max-w-xl font-bricolage text-[clamp(2.4rem,4.2vw,3.75rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-slate-900">
             Creative thinkers with real-world growth context.
           </h2>
-          <p className="mt-5 max-w-xl text-base leading-8 text-white/66">
+          <p className="mt-5 max-w-xl text-base leading-8 text-slate-700/66">
             We partner with founders and marketing teams who need more than aesthetics. They
             need positioning that is clear, content that resonates, and systems that keep producing
             results after launch day.
@@ -66,7 +66,7 @@ export function HomeAboutPreview() {
               "Structured rollouts across content, campaigns, and launch moments.",
               "A practical partnership style that keeps momentum high and teams aligned."
             ].map((item) => (
-              <div key={item} className="surface-muted rounded-[24px] p-5 text-sm leading-7 text-white/62">
+              <div key={item} className="surface-muted rounded-[24px] p-5 text-sm leading-7 text-slate-700/62">
                 {item}
               </div>
             ))}
@@ -95,11 +95,11 @@ export function HomeAboutPreview() {
               height={64}
               className="h-16 w-16 rounded-full object-cover"
             />
-            <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-white">
+            <p className="mt-5 font-bricolage text-2xl font-semibold leading-tight text-slate-900">
               Great brands are not built on nice logos alone. They are built on narrative, consistency,
               and measurable execution.
             </p>
-            <p className="mt-4 text-sm leading-7 text-white/56">
+            <p className="mt-4 text-sm leading-7 text-slate-700/56">
               Colodam helps teams define their voice, shape memorable brand experiences, and
               run campaigns that turn attention into demand.
             </p>
@@ -142,14 +142,14 @@ export function HomeWhyColodam({
   }, [refs, items]);
 
   return (
-    <section className="section-padding border-y border-white/8 bg-[#070a11]">
+    <section className="section-padding border-y border-slate-200 bg-[#f4f7ff]">
       <div className="container-shell hidden gap-12 xl:grid xl:grid-cols-[0.8fr_1.2fr] xl:gap-14">
         <div className="sticky top-28 h-fit">
           <SectionLabel>Why Colodam</SectionLabel>
-          <h2 className="max-w-lg font-bricolage text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+          <h2 className="max-w-lg font-bricolage text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
             A branding standard that feels bold, clear, and conversion-minded.
           </h2>
-          <p className="mt-5 max-w-md text-[0.94rem] leading-7 text-white/60">
+          <p className="mt-5 max-w-md text-[0.94rem] leading-7 text-slate-700/60">
             We design engagements to cut through noise, clarify positioning, and leave your
             internal team with sharper assets and repeatable campaign systems.
           </p>
@@ -173,7 +173,7 @@ export function HomeWhyColodam({
                 <span
                   className={cn(
                     "text-[1.05rem] transition-colors",
-                    active === tab.id ? "text-white" : "text-white/42 hover:text-white/72"
+                    active === tab.id ? "text-slate-900" : "text-slate-700/42 hover:text-slate-700/72"
                   )}
                 >
                   {tab.title}
@@ -195,14 +195,14 @@ export function HomeWhyColodam({
                   refs[index].current = node;
                 }}
               />
-              <p className="text-label text-white/40">{String(index + 1).padStart(2, "0")}</p>
-              <h3 className="mt-4 font-bricolage text-2xl font-semibold text-white">{tab.title}</h3>
-              <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/64">{tab.body}</p>
+              <p className="text-label text-slate-700/40">{String(index + 1).padStart(2, "0")}</p>
+              <h3 className="mt-4 font-bricolage text-2xl font-semibold text-slate-900">{tab.title}</h3>
+              <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-slate-700/64">{tab.body}</p>
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 {tab.bullets.map((bullet) => (
                   <div
                     key={bullet}
-                    className="rounded-[22px] border border-white/8 bg-white/[0.03] p-4 text-[0.82rem] leading-6 text-white/58"
+                    className="rounded-[22px] border border-slate-200 bg-white p-4 text-[0.82rem] leading-6 text-slate-700/58"
                   >
                     {bullet}
                   </div>
@@ -215,14 +215,14 @@ export function HomeWhyColodam({
 
       <div className="container-shell xl:hidden">
         <SectionLabel>Why Colodam</SectionLabel>
-        <h2 className="max-w-xl font-bricolage text-[clamp(1.8rem,4.5vw,2.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-white">
+        <h2 className="max-w-xl font-bricolage text-[clamp(1.8rem,4.5vw,2.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-slate-900">
           A branding partner that works with creative range and practical depth.
         </h2>
         <div className="mt-8 space-y-4">
           {items.map((tab) => (
             <Reveal key={tab.id} className="surface-panel rounded-[28px] p-6">
-              <h3 className="font-bricolage text-xl font-semibold text-white">{tab.title}</h3>
-              <p className="mt-3 text-[0.94rem] leading-7 text-white/62">{tab.body}</p>
+              <h3 className="font-bricolage text-xl font-semibold text-slate-900">{tab.title}</h3>
+              <p className="mt-3 text-[0.94rem] leading-7 text-slate-700/62">{tab.body}</p>
             </Reveal>
           ))}
         </div>
@@ -241,10 +241,10 @@ export function HomeVision() {
       <div className="container-shell">
         <Reveal className="mx-auto max-w-4xl text-center">
           <SectionLabel className="justify-center">Our Vision</SectionLabel>
-          <h2 className="font-bricolage text-[clamp(2.45rem,4.6vw,4.2rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-white">
+          <h2 className="font-bricolage text-[clamp(2.45rem,4.6vw,4.2rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-slate-900">
             To help African brands lead culture, own their category, and grow with confidence.
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/66">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-700/66">
             We believe great brands are built at the intersection of strong ideas and repeatable
             execution, where every campaign compounds trust and drives measurable growth.
           </p>
@@ -273,15 +273,15 @@ export function HomeVision() {
                 index === 2 ? "md:col-span-2 xl:col-span-1" : ""
               )}
             >
-              <h3 className="font-bricolage text-[1.9rem] font-semibold text-white">{title}</h3>
-              <p className="mt-4 text-base leading-8 text-white/62">{body}</p>
+              <h3 className="font-bricolage text-[1.9rem] font-semibold text-slate-900">{title}</h3>
+              <p className="mt-4 text-base leading-8 text-slate-700/62">{body}</p>
             </Reveal>
           ))}
         </div>
 
         <motion.div
           style={{ y }}
-          className="relative mt-10 overflow-hidden rounded-[34px] border border-white/10"
+          className="relative mt-10 overflow-hidden rounded-[34px] border border-slate-200"
         >
           <Image
             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80"
@@ -292,8 +292,8 @@ export function HomeVision() {
           />
           <div className="hero-overlay absolute inset-0" />
           <div className="absolute bottom-0 left-0 max-w-xl p-6 md:p-8">
-            <p className="text-label text-white/55">Built for the long term</p>
-            <p className="mt-4 font-bricolage text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <p className="text-label text-slate-700/55">Built for the long term</p>
+            <p className="mt-4 font-bricolage text-3xl font-semibold leading-tight text-slate-900 md:text-4xl">
               The goal is not louder marketing. The goal is a brand that compounds with every touchpoint.
             </p>
           </div>

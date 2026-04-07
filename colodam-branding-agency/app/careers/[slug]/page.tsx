@@ -13,22 +13,22 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/8 pt-28 pb-20 md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
+      <section className="relative overflow-hidden border-b border-slate-200 pt-28 pb-20 md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
         <div aria-hidden className="hero-glow absolute inset-0 opacity-70" />
         <div className="container-shell relative">
-          <p className="text-sm text-white/45">Home &gt; Careers &gt; {career.title}</p>
-          <div className="mt-6 flex flex-wrap gap-3 text-label text-white/44">
-            <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2">
+          <p className="text-sm text-slate-700/45">Home &gt; Careers &gt; {career.title}</p>
+          <div className="mt-6 flex flex-wrap gap-3 text-label text-slate-700/44">
+            <span className="rounded-full border border-slate-200 bg-[#f8fbff] px-3 py-2">
               {career.location}
             </span>
             <span className="rounded-full border border-accent/18 bg-accent/10 px-3 py-2 text-accent">
               {career.type}
             </span>
           </div>
-          <h1 className="mt-5 max-w-5xl font-bricolage text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-white">
+          <h1 className="mt-5 max-w-5xl font-bricolage text-[clamp(3rem,6vw,5.4rem)] font-semibold leading-[0.94] tracking-[-0.05em] text-slate-900">
             {career.title}
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">{career.summary}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700/66">{career.summary}</p>
           <Link
             href={`mailto:careers@colodam.com?subject=${encodeURIComponent(`Application for ${career.title}`)}`}
             className="mt-8 inline-flex rounded-full bg-accent px-6 py-3 text-sm font-semibold text-[#071019] transition hover:bg-accent-hover"
@@ -41,8 +41,8 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
       <section className="section-padding bg-bg">
         <div className="container-shell grid gap-5 xl:grid-cols-3">
           <article className="surface-panel rounded-[30px] p-6">
-            <h2 className="font-bricolage text-3xl font-semibold text-white">Overview</h2>
-            <div className="mt-5 space-y-4 text-base leading-8 text-white/62">
+            <h2 className="font-bricolage text-3xl font-semibold text-slate-900">Overview</h2>
+            <div className="mt-5 space-y-4 text-base leading-8 text-slate-700/62">
               {career.overview.map((item) => (
                 <p key={item}>{item}</p>
               ))}
@@ -50,8 +50,8 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
           </article>
 
           <article className="surface-panel rounded-[30px] p-6">
-            <h2 className="font-bricolage text-3xl font-semibold text-white">Responsibilities</h2>
-            <ul className="mt-5 space-y-3 text-base leading-8 text-white/62">
+            <h2 className="font-bricolage text-3xl font-semibold text-slate-900">Responsibilities</h2>
+            <ul className="mt-5 space-y-3 text-base leading-8 text-slate-700/62">
               {career.responsibilities.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-3 h-1.5 w-1.5 rounded-full bg-accent" />
@@ -62,8 +62,8 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
           </article>
 
           <article className="surface-panel rounded-[30px] p-6">
-            <h2 className="font-bricolage text-3xl font-semibold text-white">Requirements</h2>
-            <ul className="mt-5 space-y-3 text-base leading-8 text-white/62">
+            <h2 className="font-bricolage text-3xl font-semibold text-slate-900">Requirements</h2>
+            <ul className="mt-5 space-y-3 text-base leading-8 text-slate-700/62">
               {career.requirements.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-3 h-1.5 w-1.5 rounded-full bg-accent" />
@@ -71,8 +71,8 @@ export default function CareerDetailPage({ params }: { params: { slug: string } 
                 </li>
               ))}
             </ul>
-            <h3 className="mt-8 font-bricolage text-2xl font-semibold text-white">Why this role</h3>
-            <ul className="mt-4 space-y-3 text-base leading-8 text-white/62">
+            <h3 className="mt-8 font-bricolage text-2xl font-semibold text-slate-900">Why this role</h3>
+            <ul className="mt-4 space-y-3 text-base leading-8 text-slate-700/62">
               {career.benefits.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-3 h-1.5 w-1.5 rounded-full bg-accent" />

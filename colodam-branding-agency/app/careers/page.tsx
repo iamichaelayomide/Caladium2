@@ -9,7 +9,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 export default function CareersPage() {
   return (
     <>
-      <section className="relative overflow-hidden pt-28 pb-20 text-white md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
+      <section className="relative overflow-hidden pt-28 pb-20 text-slate-900 md:pt-32 md:pb-20 xl:pt-40 xl:pb-24">
         <Image
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
           alt="Team at work"
@@ -19,28 +19,28 @@ export default function CareersPage() {
         <div className="hero-overlay absolute inset-0" />
         <div className="container-shell relative z-10 grid gap-8 xl:grid-cols-[1.18fr_0.82fr] xl:items-end xl:gap-10">
           <div>
-            <p className="text-sm text-white/52">Home &gt; Careers</p>
-            <p className="mt-6 text-label text-white/58">Careers</p>
+            <p className="text-sm text-slate-700/52">Home &gt; Careers</p>
+            <p className="mt-6 text-label text-slate-700/58">Careers</p>
             <h1 className="mt-4 font-bricolage text-[clamp(3.3rem,6vw,5.8rem)] font-semibold leading-[0.92] tracking-[-0.05em]">
               Build impact and grow with purpose.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700/76">
               Colodam is a place for thoughtful operators, analysts, and consultants who want
               their work to shape real business outcomes.
             </p>
           </div>
           <div className="hero-panel rounded-[30px] p-6 md:p-7">
-            <h2 className="font-bricolage text-3xl font-semibold text-white">
+            <h2 className="font-bricolage text-3xl font-semibold text-slate-900">
               Interested in joining the team?
             </h2>
-            <p className="mt-4 text-base leading-8 text-white/68">
+            <p className="mt-4 text-base leading-8 text-slate-700/68">
               We value thoughtful people, direct collaboration, and work that leaves clients
               stronger than we found them.
             </p>
-            <p className="mt-5 text-sm text-white/50">For career inquiries, email</p>
+            <p className="mt-5 text-sm text-slate-700/50">For career inquiries, email</p>
             <a
               href={`mailto:${contactDetails.careersEmail}`}
-              className="mt-2 inline-flex text-xl font-semibold text-white underline decoration-white/35 underline-offset-4"
+              className="mt-2 inline-flex text-xl font-semibold text-slate-900 underline decoration-white/35 underline-offset-4"
             >
               {contactDetails.careersEmail}
             </a>
@@ -48,13 +48,13 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="section-padding border-y border-white/8 bg-[#070a11]">
+      <section className="section-padding border-y border-slate-200 bg-[#f4f7ff]">
         <div className="container-shell">
           <SectionLabel>Why Join Colodam</SectionLabel>
-          <h2 className="max-w-3xl font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="max-w-3xl font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-slate-900">
             Meaningful client work, senior exposure, and room to keep growing.
           </h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-white/64">
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-700/64">
             We believe in doing work that has visible impact for clients and real growth value for
             the people doing it.
           </p>
@@ -80,8 +80,8 @@ export default function CareersPage() {
                 <div className="inline-flex rounded-2xl border border-accent/18 bg-accent/10 p-3 text-accent">
                   {Icon && <Icon className="h-6 w-6" />}
                 </div>
-                <h3 className="mt-6 font-bricolage text-[1.9rem] font-semibold text-white">{title as string}</h3>
-                <p className="mt-4 text-base leading-8 text-white/60">{body as string}</p>
+                <h3 className="mt-6 font-bricolage text-[1.9rem] font-semibold text-slate-900">{title as string}</h3>
+                <p className="mt-4 text-base leading-8 text-slate-700/60">{body as string}</p>
               </Reveal>
             ))}
           </div>
@@ -91,7 +91,7 @@ export default function CareersPage() {
       <section className="section-padding bg-bg">
         <div className="container-shell">
           <SectionLabel>Open Roles</SectionLabel>
-          <h2 className="max-w-3xl font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-white">
+          <h2 className="max-w-3xl font-bricolage text-[clamp(2.3rem,4vw,3.7rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-slate-900">
             Current opportunities at Colodam.
           </h2>
           <div className="mt-10 space-y-4">
@@ -99,11 +99,11 @@ export default function CareersPage() {
               <article key={career.slug} className="surface-panel rounded-[30px] p-6 md:p-8">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <h3 className="font-bricolage text-[2rem] font-semibold leading-tight text-white">
+                    <h3 className="font-bricolage text-[2rem] font-semibold leading-tight text-slate-900">
                       {career.title}
                     </h3>
-                    <div className="mt-3 flex flex-wrap gap-3 text-label text-white/44">
-                      <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2">
+                    <div className="mt-3 flex flex-wrap gap-3 text-label text-slate-700/44">
+                      <span className="rounded-full border border-slate-200 bg-[#f8fbff] px-3 py-2">
                         {career.location}
                       </span>
                       <span className="rounded-full border border-accent/18 bg-accent/10 px-3 py-2 text-accent">
@@ -118,7 +118,7 @@ export default function CareersPage() {
                     View role
                   </Link>
                 </div>
-                <p className="mt-5 max-w-4xl text-base leading-8 text-white/62">{career.summary}</p>
+                <p className="mt-5 max-w-4xl text-base leading-8 text-slate-700/62">{career.summary}</p>
               </article>
             ))}
           </div>

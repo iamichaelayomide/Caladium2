@@ -11,7 +11,7 @@ export function Badge({
 }) {
   const toneClass =
     tone === "accent"
-      ? "bg-accent text-white"
+      ? "bg-accent text-slate-900"
       : tone === "gold"
         ? "bg-gold-light text-gold"
         : "bg-soft text-muted";

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { services } from "@/lib/site-data";
 
 const inputClass =
-  "w-full rounded-[18px] border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm text-white outline-none transition-[border-color,background-color,box-shadow] placeholder:text-white/28 focus:border-accent/55 focus:bg-white/[0.05] focus:shadow-[0_0_0_4px_rgba(217,154,43,0.08)]";
+  "w-full rounded-[18px] border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition-[border-color,background-color,box-shadow] placeholder:text-slate-700/28 focus:border-accent/55 focus:bg-[#f8fbff] focus:shadow-[0_0_0_4px_rgba(217,154,43,0.08)]";
 
 export function ContactForm({ includeService = false }: { includeService?: boolean }) {
   const [submitted, setSubmitted] = useState(false);
@@ -75,17 +75,17 @@ export function ContactForm({ includeService = false }: { includeService?: boole
             aria-haspopup="listbox"
             onClick={() => setServiceOpen((open) => !open)}
           >
-            <span className={selectedService ? "text-white" : "text-white/48"}>
+            <span className={selectedService ? "text-slate-900" : "text-slate-700/48"}>
               {selectedService || "Service of Interest"}
             </span>
             <ChevronDown
-              className={`h-4 w-4 shrink-0 text-white/48 transition-transform ${serviceOpen ? "rotate-180" : ""}`}
+              className={`h-4 w-4 shrink-0 text-slate-700/48 transition-transform ${serviceOpen ? "rotate-180" : ""}`}
             />
           </button>
           {serviceOpen ? (
             <div
               role="listbox"
-              className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-30 overflow-hidden rounded-[22px] border border-white/10 bg-[#111621] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
+              className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-30 overflow-hidden rounded-[22px] border border-slate-200 bg-[#edf3ff] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
             >
               {serviceOptions.map((option) => {
                 const active = option === selectedService;
@@ -98,8 +98,8 @@ export function ContactForm({ includeService = false }: { includeService?: boole
                     aria-selected={active}
                     className={`flex w-full rounded-[16px] px-4 py-3 text-left text-sm transition ${
                       active
-                        ? "bg-accent/18 text-white"
-                        : "text-white/72 hover:bg-white/[0.05] hover:text-white"
+                        ? "bg-accent/18 text-slate-900"
+                        : "text-slate-700/72 hover:bg-[#f8fbff] hover:text-slate-900"
                     }`}
                     onClick={() => {
                       setSelectedService(option);
@@ -118,7 +118,7 @@ export function ContactForm({ includeService = false }: { includeService?: boole
       <Button type="submit" className="w-full" size="lg">
         Send Message
       </Button>
-      <p className="text-xs leading-6 text-white/42">
+      <p className="text-xs leading-6 text-slate-700/42">
         By submitting this form, you agree to our Privacy Policy. Colodam may contact you by
         email or phone to coordinate the next conversation.
       </p>

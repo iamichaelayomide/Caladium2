@@ -19,15 +19,15 @@ export function HomeServices({
   description = "From naming and identity to campaign rollout and performance tracking, each engagement is designed to turn brand attention into revenue outcomes."
 }: HomeServicesProps) {
   return (
-    <section className="section-padding border-y border-white/8 bg-[#06080f]">
+    <section className="section-padding border-y border-slate-200 bg-[#f7f9ff]">
       <div className="container-shell">
         <div className="grid gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start xl:gap-10">
           <Reveal className="xl:sticky xl:top-28">
             <SectionLabel>Core Services</SectionLabel>
-            <h2 className="max-w-xl font-bricolage text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+            <h2 className="max-w-xl font-bricolage text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
               {title}
             </h2>
-            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-white/66">
+            <p className="mt-5 max-w-xl text-[0.94rem] leading-7 text-slate-700/66">
               {description}
             </p>
             <Link
@@ -45,12 +45,12 @@ export function HomeServices({
                 delay={index * 0.03}
                 className="surface-panel group rounded-[30px] p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/20"
               >
-                <p className="text-label text-white/36">{String(index + 1).padStart(2, "0")}</p>
-                <h3 className="mt-4 max-w-xs font-bricolage text-[1.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-white">
+                <p className="text-label text-slate-700/36">{String(index + 1).padStart(2, "0")}</p>
+                <h3 className="mt-4 max-w-xs font-bricolage text-[1.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-slate-900">
                   {service.shortName}
                 </h3>
-                <p className="mt-3.5 text-[0.88rem] leading-7 text-white/62">{service.cardDescription}</p>
-                <ul className="mt-5 space-y-2 text-[0.82rem] text-white/58">
+                <p className="mt-3.5 text-[0.88rem] leading-7 text-slate-700/62">{service.cardDescription}</p>
+                <ul className="mt-5 space-y-2 text-[0.82rem] text-slate-700/58">
                   {service.features.slice(0, 3).map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -60,7 +60,7 @@ export function HomeServices({
                 </ul>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-5 inline-flex items-center gap-2 text-[0.82rem] font-semibold text-white transition group-hover:text-accent"
+                  className="mt-5 inline-flex items-center gap-2 text-[0.82rem] font-semibold text-slate-900 transition group-hover:text-accent"
                 >
                   Learn more <ArrowRight className="h-4 w-4" />
                 </Link>

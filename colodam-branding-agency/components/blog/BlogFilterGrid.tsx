@@ -24,7 +24,7 @@ export function BlogFilterGrid({ posts }: { posts: BlogPost[] }) {
             className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
               active === filter
                 ? "border-accent/30 bg-accent/12 text-accent"
-                : "border-white/10 bg-white/[0.03] text-white/58 hover:text-white"
+                : "border-slate-200 bg-white text-slate-700/58 hover:text-slate-900"
             }`}
             onClick={() => setActive(filter)}
           >
@@ -49,11 +49,11 @@ export function BlogFilterGrid({ posts }: { posts: BlogPost[] }) {
               <span className="inline-flex rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-label text-accent">
                 {post.category}
               </span>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-white/34">{post.date}</p>
-              <h3 className="mt-4 font-bricolage text-[1.9rem] font-semibold leading-[1.04] tracking-[-0.03em] text-white">
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-slate-700/34">{post.date}</p>
+              <h3 className="mt-4 font-bricolage text-[1.9rem] font-semibold leading-[1.04] tracking-[-0.03em] text-slate-900">
                 {post.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-white/60">{post.excerpt}</p>
+              <p className="mt-4 text-sm leading-7 text-slate-700/60">{post.excerpt}</p>
               <Link
                 href={`/blog/${post.slug}`}
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:text-[#ffd18a]"

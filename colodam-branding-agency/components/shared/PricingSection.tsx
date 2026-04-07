@@ -21,16 +21,16 @@ export function PricingSection({
 }: PricingSectionProps) {
   if (variant === "compact") {
     return (
-      <section id={anchorId} className={cn("section-padding bg-[#070a10]", className)}>
+      <section id={anchorId} className={cn("section-padding bg-[#f4f7ff]", className)}>
         <div className="container-shell">
           <Reveal className="surface-panel rounded-[32px] p-6 md:p-8 xl:p-10">
             <div className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-end">
               <div>
                 <SectionLabel>Engagement Pricing</SectionLabel>
-                <h2 className="max-w-2xl font-bricolage text-[clamp(2rem,3.8vw,3.1rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+                <h2 className="max-w-2xl font-bricolage text-[clamp(2rem,3.8vw,3.1rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
                   Clear entry points for founders, marketing teams, and larger brands.
                 </h2>
-                <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-white/64">
+                <p className="mt-4 max-w-2xl text-[0.94rem] leading-7 text-slate-700/64">
                   Whether you want community access, a one-off brand sprint, or a custom
                   enterprise campaign scope, there is a cleaner starting point than guessing.
                 </p>
@@ -43,14 +43,14 @@ export function PricingSection({
                       "rounded-[24px] border p-5",
                       tier.featured
                         ? "border-accent/40 bg-accent/10"
-                        : "border-white/10 bg-white/[0.03]"
+                        : "border-slate-200 bg-white"
                     )}
                   >
-                    <p className="text-label text-white/40">{tier.cadence}</p>
-                    <div className="mt-3 font-bricolage text-4xl font-semibold tracking-[-0.05em] text-white">
+                    <p className="text-label text-slate-700/40">{tier.cadence}</p>
+                    <div className="mt-3 font-bricolage text-4xl font-semibold tracking-[-0.05em] text-slate-900">
                       {tier.price}
                     </div>
-                    <h3 className="mt-3 font-bricolage text-[1.45rem] font-semibold leading-[1.05] text-white">
+                    <h3 className="mt-3 font-bricolage text-[1.45rem] font-semibold leading-[1.05] text-slate-900">
                       {tier.name}
                     </h3>
                   </div>
@@ -72,14 +72,14 @@ export function PricingSection({
   }
 
   return (
-    <section id={anchorId} className={cn("section-padding border-y border-white/8 bg-[#06080f]", className)}>
+    <section id={anchorId} className={cn("section-padding border-y border-slate-200 bg-[#f7f9ff]", className)}>
       <div className="container-shell">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SectionLabel className="justify-center">Pricing</SectionLabel>
-          <h2 className="font-bricolage text-[clamp(2rem,4vw,3.35rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-white">
+          <h2 className="font-bricolage text-[clamp(2rem,4vw,3.35rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-slate-900">
             CaaS for <span className="text-accent">Startups &amp; SMEs</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[0.94rem] leading-7 text-white/64">
+          <p className="mx-auto mt-5 max-w-2xl text-[0.94rem] leading-7 text-slate-700/64">
             Four clear entry points: community access, a focused founder session, a one-time setup
             package, and a custom enterprise solution when the work needs to be tailored.
           </p>
@@ -98,30 +98,30 @@ export function PricingSection({
                 )}
               >
                 {tier.audience ? (
-                  <p className={cn("text-label", tier.featured ? "text-accent" : "text-white/42")}>
+                  <p className={cn("text-label", tier.featured ? "text-accent" : "text-slate-700/42")}>
                     {tier.audience}
                   </p>
                 ) : null}
 
-                <div className="mt-4 flex items-end justify-between gap-4 border-b border-white/8 pb-5">
+                <div className="mt-4 flex items-end justify-between gap-4 border-b border-slate-200 pb-5">
                   <div className="min-w-0">
-                    <div className="font-bricolage text-[2.5rem] font-semibold tracking-[-0.05em] text-white md:text-[3rem]">
+                    <div className="font-bricolage text-[2.5rem] font-semibold tracking-[-0.05em] text-slate-900 md:text-[3rem]">
                       {tier.price}
                     </div>
                   </div>
-                  <p className="shrink-0 text-right text-[0.78rem] uppercase tracking-[0.16em] text-white/38">
+                  <p className="shrink-0 text-right text-[0.78rem] uppercase tracking-[0.16em] text-slate-700/38">
                     {tier.custom ? "Tailored scope" : tier.cadence}
                   </p>
                 </div>
 
                 <div className="pt-5">
-                  <h3 className="font-bricolage text-[1.55rem] font-semibold leading-[1.05] text-white">
+                  <h3 className="font-bricolage text-[1.55rem] font-semibold leading-[1.05] text-slate-900">
                     {tier.name}
                   </h3>
-                  <p className="mt-3 text-[0.88rem] leading-7 text-white/60">{tier.description}</p>
+                  <p className="mt-3 text-[0.88rem] leading-7 text-slate-700/60">{tier.description}</p>
                 </div>
 
-                <ul className="mt-6 space-y-3 text-[0.88rem] leading-7 text-white/62">
+                <ul className="mt-6 space-y-3 text-[0.88rem] leading-7 text-slate-700/62">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-3">
                       <span className="mt-[0.7rem] h-1.5 w-1.5 rounded-full bg-accent" />
@@ -146,7 +146,7 @@ export function PricingSection({
         </div>
 
         <Reveal className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="text-[0.82rem] leading-7 text-white/46">
+          <p className="text-[0.82rem] leading-7 text-slate-700/46">
             All pricing is shown in USD. Enterprise engagements are scoped around the actual
             decision, timeline, leadership involvement, and delivery complexity.
           </p>
